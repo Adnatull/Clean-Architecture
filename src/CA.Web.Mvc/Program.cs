@@ -6,11 +6,6 @@ using Serilog;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using CA.Core.Domain.Identity.Entities;
-using CA.Infrastructure.Identity.Context;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace CA.Web.Mvc
 {
