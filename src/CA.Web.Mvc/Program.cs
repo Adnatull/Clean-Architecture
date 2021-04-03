@@ -34,7 +34,6 @@ namespace CA.Web.Mvc
                 Log.CloseAndFlush();
             }
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()

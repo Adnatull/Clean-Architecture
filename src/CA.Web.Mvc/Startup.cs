@@ -14,7 +14,6 @@ namespace CA.Web.Mvc
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -40,9 +39,7 @@ namespace CA.Web.Mvc
 
             app.UseRouting();
             app.UseSerilogRequestLogging();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapAreaControllerRoute(

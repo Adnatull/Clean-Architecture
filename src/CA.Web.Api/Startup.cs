@@ -42,7 +42,6 @@ namespace CA.Web.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CA.Web.Api v1"));
             }
-
             app.UseRouting();
             app.UseAuthorization();
             app.UseApiErrorHandlingMiddleware();
