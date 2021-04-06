@@ -12,8 +12,8 @@ namespace CA.Infrastructure.Persistence.Container
         public static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseMySQL(
-                    configuration.GetConnectionString("PersistenceConnectionForMysqlDb"),
+                options.UseSqlServer(
+                    configuration.GetConnectionString("PersistenceConnection"),
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
         }
         public static void AddRepositories(IServiceCollection services)

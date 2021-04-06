@@ -3,6 +3,7 @@ using System;
 using CA.Infrastructure.Identity.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CA.Infrastructure.Identity.Migrations
@@ -14,97 +15,99 @@ namespace CA.Infrastructure.Identity.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 64)
+                .UseIdentityColumns()
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("CA.Core.Domain.Identity.Entities.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("Role");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("CA.Core.Domain.Identity.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("timestamp");
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("varchar(256)");
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
@@ -113,9 +116,10 @@ namespace CA.Infrastructure.Identity.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -123,18 +127,19 @@ namespace CA.Infrastructure.Identity.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(85)
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.HasKey("Id");
 
@@ -148,18 +153,19 @@ namespace CA.Infrastructure.Identity.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(85)
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.HasKey("Id");
 
@@ -172,19 +178,19 @@ namespace CA.Infrastructure.Identity.Migrations
                 {
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("ProviderKey")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -197,11 +203,11 @@ namespace CA.Infrastructure.Identity.Migrations
                 {
                     b.Property<string>("UserId")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("RoleId")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -214,18 +220,18 @@ namespace CA.Infrastructure.Identity.Migrations
                 {
                     b.Property<string>("UserId")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(85)
-                        .HasColumnType("varchar(85)");
+                        .HasColumnType("nvarchar(85)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 

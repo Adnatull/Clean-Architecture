@@ -14,7 +14,7 @@ namespace CA.Infrastructure.Identity.Container
         public static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<IdentityContext>(options =>
-                options.UseMySQL(configuration.GetConnectionString("IdentityConnectionForMysqlDb"),
+                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"),
                     b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
                     {

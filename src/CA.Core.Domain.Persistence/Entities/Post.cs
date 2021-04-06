@@ -11,6 +11,7 @@ namespace CA.Core.Domain.Persistence.Entities
 
         public string Slug { get; set; }
         public string Summary { get; set; }
+
         public string Content { get; set; }
         public int PostViews { get; set; }
         public bool IsPublished { get; set; }

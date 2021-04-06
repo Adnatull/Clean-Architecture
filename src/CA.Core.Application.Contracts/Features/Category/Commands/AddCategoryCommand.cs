@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CA.Core.Application.Contracts.Response;
+using CA.Core.Domain.Persistence.ValidationAttributes;
 using MediatR;
 
 namespace CA.Core.Application.Contracts.Features.Category.Commands
@@ -10,6 +11,7 @@ namespace CA.Core.Application.Contracts.Features.Category.Commands
         public string Title { get; set; }
 
         [Required]
+        [SlugValidate]
         public string Slug { get; set; }
 
         [Required]

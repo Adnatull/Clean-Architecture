@@ -39,12 +39,12 @@ namespace CA.Infrastructure.Identity.Context
             
             modelBuilder.Entity<ApplicationUser>(entity =>
             {
-                entity.ToTable(name: "User");
+                entity.ToTable(name: "Users");
             });
 
             modelBuilder.Entity<ApplicationRole>(entity =>
             {
-                entity.ToTable(name: "Role");
+                entity.ToTable(name: "Roles");
             });
             modelBuilder.Entity<IdentityUserRole<string>>(entity =>
             {

@@ -1,0 +1,1637 @@
+2021-04-07 03:16:10.958 +06:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2021-04-07 03:16:22.502 +06:00 [DBG] The index {'PostId'} was not created on entity type 'PostCategory' as the properties are already covered by the index {'PostId', 'CategoryId'}.
+2021-04-07 03:16:22.506 +06:00 [DBG] The index {'PostId'} was not created on entity type 'PostTag' as the properties are already covered by the index {'PostId', 'TagId'}.
+2021-04-07 03:16:22.756 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: MigrationsAssembly=CA.Infrastructure.Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-07 03:16:22.773 +06:00 [DBG] Migrating using database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.787 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.806 +06:00 [DBG] An error occurred using the connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.810 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.812 +06:00 [DBG] An error occurred using the connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.850 +06:00 [DBG] Opening connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.890 +06:00 [DBG] Opened connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:22.904 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:22.915 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (9ms).
+2021-04-07 03:16:22.928 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [CaPersistence];
+2021-04-07 03:16:23.464 +06:00 [INF] Executed DbCommand (536ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [CaPersistence];
+2021-04-07 03:16:23.471 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:23.473 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:23.476 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CaPersistence] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-04-07 03:16:23.553 +06:00 [INF] Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CaPersistence] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-04-07 03:16:23.561 +06:00 [DBG] Closing connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.569 +06:00 [DBG] Closed connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.577 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.643 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.646 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:23.647 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:23.649 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:23.660 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:23.664 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.667 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.767 +06:00 [DBG] DetectChanges starting for 'AppDbContext'.
+2021-04-07 03:16:23.772 +06:00 [DBG] DetectChanges completed for 'AppDbContext'.
+2021-04-07 03:16:23.784 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:23.785 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:23.788 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.793 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.795 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-04-07 03:16:23.806 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-04-07 03:16:23.812 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.814 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.822 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.824 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.827 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:23.829 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:23.832 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:23.841 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:23.845 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.847 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.856 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-07 03:16:23.857 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2021-04-07 03:16:23.859 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.863 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.866 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-04-07 03:16:23.900 +06:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-04-07 03:16:23.905 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.907 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.914 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:23.916 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:23.919 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.924 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.929 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-04-07 03:16:23.938 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-04-07 03:16:23.953 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:23.954 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.956 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:23.979 +06:00 [INF] Applying migration '20210406211554_initial'.
+2021-04-07 03:16:24.038 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.040 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.047 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:24.057 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:24.061 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.063 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:24.066 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Audits] (
+    [Id] bigint NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [UserName] nvarchar(max) NULL,
+    [Type] nvarchar(max) NULL,
+    [TableName] nvarchar(max) NULL,
+    [DateTime] datetime2 NOT NULL,
+    [OldValues] nvarchar(max) NULL,
+    [NewValues] nvarchar(max) NULL,
+    [AffectedColumns] nvarchar(max) NULL,
+    [PrimaryKey] nvarchar(max) NULL,
+    CONSTRAINT [PK_Audits] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:24.078 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Audits] (
+    [Id] bigint NOT NULL IDENTITY,
+    [UserId] nvarchar(max) NULL,
+    [UserName] nvarchar(max) NULL,
+    [Type] nvarchar(max) NULL,
+    [TableName] nvarchar(max) NULL,
+    [DateTime] datetime2 NOT NULL,
+    [OldValues] nvarchar(max) NULL,
+    [NewValues] nvarchar(max) NULL,
+    [AffectedColumns] nvarchar(max) NULL,
+    [PrimaryKey] nvarchar(max) NULL,
+    CONSTRAINT [PK_Audits] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:24.084 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.086 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:24.089 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Description] nvarchar(max) NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Categories_Categories_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.140 +06:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Description] nvarchar(max) NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Categories_Categories_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.146 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.149 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:24.153 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Posts] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Summary] nvarchar(max) NULL,
+    [Content] NVARCHAR(MAX) NULL,
+    [PostViews] int NOT NULL,
+    [IsPublished] bit NOT NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Posts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Posts_Posts_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Posts] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.218 +06:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Posts] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Summary] nvarchar(max) NULL,
+    [Content] NVARCHAR(MAX) NULL,
+    [PostViews] int NOT NULL,
+    [IsPublished] bit NOT NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Posts] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Posts_Posts_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Posts] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.246 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.249 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.254 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Tags] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Content] nvarchar(max) NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Tags] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Tags_Tags_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Tags] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.274 +06:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Tags] (
+    [Id] int NOT NULL IDENTITY,
+    [ParentId] int NULL,
+    [Title] nvarchar(max) NULL,
+    [Slug] nvarchar(450) NULL,
+    [Content] nvarchar(max) NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Tags] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Tags_Tags_ParentId] FOREIGN KEY ([ParentId]) REFERENCES [Tags] ([Id]) ON DELETE NO ACTION
+);
+2021-04-07 03:16:24.281 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.284 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.286 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Comments] (
+    [Id] bigint NOT NULL IDENTITY,
+    [PostId] int NOT NULL,
+    [ParentId] bigint NULL,
+    [Author] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [Url] nvarchar(max) NULL,
+    [AuthorIp] nvarchar(max) NULL,
+    [Content] nvarchar(max) NULL,
+    [IsApproved] bit NOT NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Comments] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Comments_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.351 +06:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Comments] (
+    [Id] bigint NOT NULL IDENTITY,
+    [PostId] int NOT NULL,
+    [ParentId] bigint NULL,
+    [Author] nvarchar(max) NULL,
+    [Email] nvarchar(max) NULL,
+    [Url] nvarchar(max) NULL,
+    [AuthorIp] nvarchar(max) NULL,
+    [Content] nvarchar(max) NULL,
+    [IsApproved] bit NOT NULL,
+    [CreationDate] datetime2 NULL,
+    [LastUpdatedDate] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [LastUpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Comments] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Comments_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.365 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.367 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:24.369 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PostCategories] (
+    [PostId] int NOT NULL,
+    [CategoryId] int NOT NULL,
+    CONSTRAINT [PK_PostCategories] PRIMARY KEY ([PostId], [CategoryId]),
+    CONSTRAINT [FK_PostCategories_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PostCategories_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.396 +06:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PostCategories] (
+    [PostId] int NOT NULL,
+    [CategoryId] int NOT NULL,
+    CONSTRAINT [PK_PostCategories] PRIMARY KEY ([PostId], [CategoryId]),
+    CONSTRAINT [FK_PostCategories_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PostCategories_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.402 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.405 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.409 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PostTags] (
+    [PostId] int NOT NULL,
+    [TagId] int NOT NULL,
+    CONSTRAINT [PK_PostTags] PRIMARY KEY ([PostId], [TagId]),
+    CONSTRAINT [FK_PostTags_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PostTags_Tags_TagId] FOREIGN KEY ([TagId]) REFERENCES [Tags] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.420 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PostTags] (
+    [PostId] int NOT NULL,
+    [TagId] int NOT NULL,
+    CONSTRAINT [PK_PostTags] PRIMARY KEY ([PostId], [TagId]),
+    CONSTRAINT [FK_PostTags_Posts_PostId] FOREIGN KEY ([PostId]) REFERENCES [Posts] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PostTags_Tags_TagId] FOREIGN KEY ([TagId]) REFERENCES [Tags] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:24.426 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.429 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.436 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_Id] ON [Categories] ([Id]);
+2021-04-07 03:16:24.447 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_Id] ON [Categories] ([Id]);
+2021-04-07 03:16:24.452 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.455 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.457 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_ParentId] ON [Categories] ([ParentId]);
+2021-04-07 03:16:24.464 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_ParentId] ON [Categories] ([ParentId]);
+2021-04-07 03:16:24.468 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.470 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:24.472 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Categories_Slug] ON [Categories] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.486 +06:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Categories_Slug] ON [Categories] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.500 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.506 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (6ms).
+2021-04-07 03:16:24.516 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Comments_PostId] ON [Comments] ([PostId]);
+2021-04-07 03:16:24.525 +06:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Comments_PostId] ON [Comments] ([PostId]);
+2021-04-07 03:16:24.530 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.534 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2021-04-07 03:16:24.539 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_PostCategories_CategoryId] ON [PostCategories] ([CategoryId]);
+2021-04-07 03:16:24.549 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_PostCategories_CategoryId] ON [PostCategories] ([CategoryId]);
+2021-04-07 03:16:24.552 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.556 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.564 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Posts_ParentId] ON [Posts] ([ParentId]);
+2021-04-07 03:16:24.581 +06:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Posts_ParentId] ON [Posts] ([ParentId]);
+2021-04-07 03:16:24.602 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.604 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:24.607 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Posts_Slug] ON [Posts] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.614 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Posts_Slug] ON [Posts] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.617 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.620 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:24.622 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_PostTags_TagId] ON [PostTags] ([TagId]);
+2021-04-07 03:16:24.660 +06:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_PostTags_TagId] ON [PostTags] ([TagId]);
+2021-04-07 03:16:24.663 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.666 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:24.668 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Tags_ParentId] ON [Tags] ([ParentId]);
+2021-04-07 03:16:24.673 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Tags_ParentId] ON [Tags] ([ParentId]);
+2021-04-07 03:16:24.676 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.679 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:24.681 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Tags_Slug] ON [Tags] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.722 +06:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Tags_Slug] ON [Tags] ([Slug]) WHERE [Slug] IS NOT NULL;
+2021-04-07 03:16:24.737 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.743 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (6ms).
+2021-04-07 03:16:24.751 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210406211554_initial', N'5.0.0');
+2021-04-07 03:16:24.798 +06:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210406211554_initial', N'5.0.0');
+2021-04-07 03:16:24.807 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:24.813 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:24.818 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:24.819 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.821 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.826 +06:00 [DBG] 'AppDbContext' disposed.
+2021-04-07 03:16:24.881 +06:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2021-04-07 03:16:24.884 +06:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2021-04-07 03:16:24.892 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: MigrationsAssembly=CA.Infrastructure.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-07 03:16:24.897 +06:00 [DBG] Migrating using database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.899 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.916 +06:00 [DBG] An error occurred using the connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.918 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.923 +06:00 [DBG] An error occurred using the connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.925 +06:00 [DBG] Opening connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.926 +06:00 [DBG] Opened connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:24.928 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:24.931 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:24.933 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [CaIdentity];
+2021-04-07 03:16:26.073 +06:00 [INF] Executed DbCommand (1,140ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [CaIdentity];
+2021-04-07 03:16:26.080 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.082 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:26.084 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CaIdentity] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-04-07 03:16:26.172 +06:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CaIdentity] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2021-04-07 03:16:26.176 +06:00 [DBG] Closing connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.178 +06:00 [DBG] Closed connection to database 'master' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.181 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.434 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.438 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.442 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:26.447 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:26.454 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:26.460 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.467 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.472 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:26.473 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:26.477 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.481 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2021-04-07 03:16:26.485 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.488 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.490 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-04-07 03:16:26.616 +06:00 [INF] Executed DbCommand (126ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2021-04-07 03:16:26.620 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.627 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.630 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.636 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.640 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.642 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:26.648 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:26.653 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2021-04-07 03:16:26.659 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.661 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.666 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-07 03:16:26.669 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (2ms).
+2021-04-07 03:16:26.671 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.675 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.677 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-04-07 03:16:26.699 +06:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2021-04-07 03:16:26.702 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.704 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.706 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:26.708 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:26.710 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.714 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.716 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-04-07 03:16:26.723 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2021-04-07 03:16:26.730 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:26.736 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.746 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.754 +06:00 [INF] Applying migration '20210406211503_intial'.
+2021-04-07 03:16:26.782 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.784 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:26.786 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:26.790 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:26.792 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.794 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:26.798 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [Id] nvarchar(85) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(85) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:26.841 +06:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [Id] nvarchar(85) NOT NULL,
+    [Description] nvarchar(max) NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(85) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:26.858 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.859 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:26.864 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] nvarchar(85) NOT NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(85) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(85) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:26.874 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] nvarchar(85) NOT NULL,
+    [FirstName] nvarchar(max) NULL,
+    [LastName] nvarchar(max) NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(85) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(85) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2021-04-07 03:16:26.881 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.886 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2021-04-07 03:16:26.888 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(85) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RoleClaims_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:26.946 +06:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(85) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RoleClaims_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:26.975 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:26.982 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (6ms).
+2021-04-07 03:16:26.986 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(85) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_UserClaims_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:26.999 +06:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(85) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_UserClaims_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.004 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.006 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.010 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(85) NOT NULL,
+    [ProviderKey] nvarchar(85) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(85) NOT NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_UserLogins_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.019 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(85) NOT NULL,
+    [ProviderKey] nvarchar(85) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(85) NOT NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_UserLogins_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.023 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.025 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.026 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(85) NOT NULL,
+    [RoleId] nvarchar(85) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_UserRoles_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_UserRoles_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.038 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(85) NOT NULL,
+    [RoleId] nvarchar(85) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_UserRoles_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_UserRoles_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.047 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.050 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:27.053 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(85) NOT NULL,
+    [LoginProvider] nvarchar(85) NOT NULL,
+    [Name] nvarchar(85) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_UserTokens_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.115 +06:00 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(85) NOT NULL,
+    [LoginProvider] nvarchar(85) NOT NULL,
+    [Name] nvarchar(85) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_UserTokens_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2021-04-07 03:16:27.124 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.128 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (3ms).
+2021-04-07 03:16:27.131 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RoleClaims_RoleId] ON [RoleClaims] ([RoleId]);
+2021-04-07 03:16:27.139 +06:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RoleClaims_RoleId] ON [RoleClaims] ([RoleId]);
+2021-04-07 03:16:27.142 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.144 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.149 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [Roles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2021-04-07 03:16:27.154 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [Roles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2021-04-07 03:16:27.158 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.160 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.163 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserClaims_UserId] ON [UserClaims] ([UserId]);
+2021-04-07 03:16:27.167 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserClaims_UserId] ON [UserClaims] ([UserId]);
+2021-04-07 03:16:27.171 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.173 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.175 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserLogins_UserId] ON [UserLogins] ([UserId]);
+2021-04-07 03:16:27.181 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserLogins_UserId] ON [UserLogins] ([UserId]);
+2021-04-07 03:16:27.184 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.185 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.188 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserRoles_RoleId] ON [UserRoles] ([RoleId]);
+2021-04-07 03:16:27.192 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserRoles_RoleId] ON [UserRoles] ([RoleId]);
+2021-04-07 03:16:27.195 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.198 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2021-04-07 03:16:27.200 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [Users] ([NormalizedEmail]);
+2021-04-07 03:16:27.204 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [Users] ([NormalizedEmail]);
+2021-04-07 03:16:27.208 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.209 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.212 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [Users] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2021-04-07 03:16:27.218 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [Users] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2021-04-07 03:16:27.221 +06:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2021-04-07 03:16:27.222 +06:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2021-04-07 03:16:27.224 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210406211503_intial', N'5.0.0');
+2021-04-07 03:16:27.264 +06:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210406211503_intial', N'5.0.0');
+2021-04-07 03:16:27.268 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:27.270 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:27.271 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:27.274 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.276 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.278 +06:00 [DBG] 'IdentityContext' disposed.
+2021-04-07 03:16:27.321 +06:00 [INF] User profile is available. Using 'C:\Users\Masum\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-07 03:16:27.373 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'IdentityContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: MigrationsAssembly=CA.Infrastructure.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-07 03:16:27.450 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationRole>()
+    .Any()'
+2021-04-07 03:16:27.599 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<bool>(
+    asyncEnumerable: new SingleQueryingEnumerable<bool>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT EXISTS (
+                Projection Mapping:
+                SELECT 1
+                FROM Roles AS r)), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-07 03:16:27.644 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:27.645 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:27.647 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.649 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.651 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-04-07 03:16:27.661 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-04-07 03:16:27.673 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:27.675 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.677 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.691 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationRole>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+2021-04-07 03:16:27.763 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationRole.Id (string) Required PK AfterSave:Throw MaxLength(85), 0], [Property: ApplicationRole.ConcurrencyStamp (string) Concurrency, 1], [Property: ApplicationRole.Description (string), 2], [Property: ApplicationRole.Name (string) MaxLength(256), 3], [Property: ApplicationRole.NormalizedName (string) Index MaxLength(85), 4], }
+            SELECT TOP(1) r.Id, r.ConcurrencyStamp, r.Description, r.Name, r.NormalizedName
+            FROM Roles AS r
+            WHERE r.NormalizedName == @__normalizedName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationRole>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-07 03:16:27.787 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:27.789 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:27.796 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.798 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.804 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:27.832 +06:00 [INF] Executed DbCommand (32ms) [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:27.843 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:27.844 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.847 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.926 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:27.934 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:27.937 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:27.944 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:27.965 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.967 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:27.969 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:27.972 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:28.022 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.024 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.026 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.082 +06:00 [INF] Executed DbCommand (56ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.090 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.094 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:28.095 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:28.097 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.099 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.103 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:28.116 +06:00 [DBG] An entity of type 'ApplicationRole' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.123 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 1 entities written to the database.
+2021-04-07 03:16:28.131 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.133 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.135 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.138 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.141 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.188 +06:00 [INF] Executed DbCommand (48ms) [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.193 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.196 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.199 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.201 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.204 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.206 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.212 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:28.214 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.216 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.219 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:28.221 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:28.223 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.225 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.228 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.236 +06:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.240 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.242 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:28.244 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:28.247 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.249 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.251 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:28.253 +06:00 [DBG] An entity of type 'ApplicationRole' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.256 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 1 entities written to the database.
+2021-04-07 03:16:28.259 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.260 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.262 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.264 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.268 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.275 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.283 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.285 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.287 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.290 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.294 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.296 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.301 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:28.303 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.306 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.314 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:28.319 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:28.322 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.324 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:28.327 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.340 +06:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.349 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.351 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:28.354 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:28.356 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.359 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.362 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:28.364 +06:00 [DBG] An entity of type 'ApplicationRole' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.371 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 1 entities written to the database.
+2021-04-07 03:16:28.373 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.375 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.378 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.382 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.384 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.394 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2021-04-07 03:16:28.403 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.404 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.406 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.410 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.416 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.419 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.421 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:28.423 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.426 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.429 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:28.434 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:28.435 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.438 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:28.440 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.450 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Description], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2021-04-07 03:16:28.457 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.460 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:28.464 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:28.466 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.470 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.472 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:28.473 +06:00 [DBG] An entity of type 'ApplicationRole' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.480 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 1 entities written to the database.
+2021-04-07 03:16:28.485 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2021-04-07 03:16:28.493 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw MaxLength(85), 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.FirstName (string), 5], [Property: ApplicationUser.LastName (string), 6], [Property: ApplicationUser.LockoutEnabled (bool) Required, 7], [Property: ApplicationUser.LockoutEnd (Nullable<DateTimeOffset>), 8], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(85), 9], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(85), 10], [Property: ApplicationUser.PasswordHash (string), 11], [Property: ApplicationUser.PhoneNumber (string), 12], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 13], [Property: ApplicationUser.SecurityStamp (string), 14], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 15], [Property: ApplicationUser.UserName (string) MaxLength(256), 16], }
+            SELECT TOP(1) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.FirstName, u.LastName, u.LockoutEnabled, u.LockoutEnd, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM Users AS u
+            WHERE u.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-07 03:16:28.503 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.507 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (3ms).
+2021-04-07 03:16:28.509 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.511 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.513 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:28.523 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:28.533 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.534 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.537 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.575 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.577 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.581 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.583 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.586 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:28.595 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:28.606 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.607 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.609 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.665 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.668 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.670 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:28.680 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:28.682 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.685 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.687 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:28.690 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:28.691 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.694 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:28.699 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 85), @p10='?' (Size = 85), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2021-04-07 03:16:28.778 +06:00 [INF] Executed DbCommand (80ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 85), @p10='?' (Size = 85), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2021-04-07 03:16:28.784 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.785 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:28.789 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:28.791 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.793 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.796 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:28.799 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:28.802 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 1 entities written to the database.
+2021-04-07 03:16:28.814 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationRole>()
+    .SingleOrDefault(r => r.NormalizedName == __normalizedRoleName_0)'
+2021-04-07 03:16:28.823 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationRole.Id (string) Required PK AfterSave:Throw MaxLength(85), 0], [Property: ApplicationRole.ConcurrencyStamp (string) Concurrency, 1], [Property: ApplicationRole.Description (string), 2], [Property: ApplicationRole.Name (string) MaxLength(256), 3], [Property: ApplicationRole.NormalizedName (string) Index MaxLength(85), 4], }
+            SELECT TOP(2) r.Id, r.ConcurrencyStamp, r.Description, r.Name, r.NormalizedName
+            FROM Roles AS r
+            WHERE r.NormalizedName == @__normalizedRoleName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationRole>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-07 03:16:28.831 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.834 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:28.841 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.844 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.846 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:28.856 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:28.868 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.869 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.871 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.884 +06:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .FirstOrDefault(e => EF.Property<string>(e, "UserId") == __p_0 && EF.Property<string>(e, "RoleId") == __p_1)'
+2021-04-07 03:16:28.903 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUserRole<string>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUserRole<string>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUserRole<string>.UserId (string) Required PK FK AfterSave:Throw MaxLength(85), 0], [Property: IdentityUserRole<string>.RoleId (string) Required PK FK Index AfterSave:Throw MaxLength(85), 1], }
+            SELECT TOP(1) u.UserId, u.RoleId
+            FROM UserRoles AS u
+            WHERE (u.UserId == @__p_0) && (u.RoleId == @__p_1)), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUserRole<string>>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-07 03:16:28.910 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.912 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:28.917 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.919 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.922 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:28.933 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:28.938 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.939 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.942 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.952 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:28.956 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (3ms).
+2021-04-07 03:16:28.960 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.977 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:28.979 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:28.990 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:28.996 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:28.998 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.000 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.014 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.018 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.019 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.021 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.023 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.026 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.036 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.042 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.043 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.047 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.053 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.056 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.060 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.062 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:29.065 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.067 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.069 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:29.072 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:29.084 +06:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2021-04-07 03:16:29.087 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.089 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:29.091 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.155 +06:00 [INF] Executed DbCommand (64ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.161 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.173 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.186 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (12ms).
+2021-04-07 03:16:29.194 +06:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.350 +06:00 [INF] Executed DbCommand (157ms) [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.373 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.374 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:29.379 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:29.381 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.384 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.388 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:29.391 +06:00 [DBG] An entity of type 'IdentityUserRole<string>' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.394 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.402 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 2 entities written to the database.
+2021-04-07 03:16:29.406 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.408 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.411 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.415 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.419 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.439 +06:00 [INF] Executed DbCommand (20ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.446 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.448 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.451 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.457 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.460 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (3ms).
+2021-04-07 03:16:29.463 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.468 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.472 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:29.484 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:29.488 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.491 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.493 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.495 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.496 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.500 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.502 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.504 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.512 +06:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.517 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.519 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.521 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.525 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.528 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.530 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.535 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.537 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.540 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.548 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.554 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.555 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.559 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.561 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.564 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.566 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.569 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:29.571 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.573 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.575 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:29.577 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:29.580 +06:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2021-04-07 03:16:29.583 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.585 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.589 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.601 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.621 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.625 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.627 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:29.630 +06:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.649 +06:00 [INF] Executed DbCommand (19ms) [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.657 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.659 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:29.661 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:29.662 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.664 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.668 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:29.672 +06:00 [DBG] An entity of type 'IdentityUserRole<string>' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.677 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.680 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 2 entities written to the database.
+2021-04-07 03:16:29.683 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.685 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.688 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.691 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.693 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.704 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.710 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.712 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.717 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.721 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.722 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.724 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.730 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.732 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:29.741 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:29.745 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.750 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.752 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.755 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.757 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:29.760 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.762 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.764 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.773 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.779 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.781 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.783 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.785 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.791 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.793 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.795 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.797 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.799 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.820 +06:00 [INF] Executed DbCommand (18ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:29.827 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.829 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.833 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.837 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.840 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.843 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:29.845 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:29.847 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.850 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.854 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:29.857 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:29.858 +06:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2021-04-07 03:16:29.862 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.864 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:29.869 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.879 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:29.889 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.892 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.893 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.896 +06:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.914 +06:00 [INF] Executed DbCommand (18ms) [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:29.922 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.924 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:29.925 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:29.926 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.928 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.931 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:29.935 +06:00 [DBG] An entity of type 'IdentityUserRole<string>' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.938 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:29.942 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 2 entities written to the database.
+2021-04-07 03:16:29.945 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.946 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.948 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.952 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.954 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.966 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:29.971 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:29.973 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.975 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.979 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:29.980 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:29.982 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.986 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:29.989 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:29.995 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE ([u].[UserId] = @__p_0) AND ([u].[RoleId] = @__p_1)
+2021-04-07 03:16:30.002 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:30.003 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.005 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.008 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:30.011 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-07 03:16:30.013 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.017 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.019 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:30.036 +06:00 [INF] Executed DbCommand (17ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2021-04-07 03:16:30.051 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:30.052 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.054 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.058 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:30.062 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:30.064 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:30.069 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.071 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.074 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:30.084 +06:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2021-04-07 03:16:30.090 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:30.092 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.095 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.099 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:30.102 +06:00 [DBG] SaveChanges starting for 'IdentityContext'.
+2021-04-07 03:16:30.105 +06:00 [DBG] DetectChanges starting for 'IdentityContext'.
+2021-04-07 03:16:30.108 +06:00 [DBG] DetectChanges completed for 'IdentityContext'.
+2021-04-07 03:16:30.110 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.111 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.114 +06:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2021-04-07 03:16:30.117 +06:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2021-04-07 03:16:30.119 +06:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2021-04-07 03:16:30.123 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:30.125 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:30.128 +06:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:30.140 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 85), @p1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2021-04-07 03:16:30.144 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:30.147 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-07 03:16:30.148 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-07 03:16:30.152 +06:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:30.167 +06:00 [INF] Executed DbCommand (15ms) [Parameters=[@p16='?' (Size = 85), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 85), @p9='?' (Size = 85), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [FirstName] = @p4, [LastName] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2021-04-07 03:16:30.174 +06:00 [DBG] A data reader was disposed.
+2021-04-07 03:16:30.176 +06:00 [DBG] Committing transaction.
+2021-04-07 03:16:30.178 +06:00 [DBG] Committed transaction.
+2021-04-07 03:16:30.179 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.181 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'DESKTOP-3FV4KTO\SQLEXPRESS'.
+2021-04-07 03:16:30.184 +06:00 [DBG] Disposing transaction.
+2021-04-07 03:16:30.187 +06:00 [DBG] An entity of type 'IdentityUserRole<string>' tracked by 'IdentityContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:30.190 +06:00 [DBG] An entity of type 'ApplicationUser' tracked by 'IdentityContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-07 03:16:30.193 +06:00 [DBG] SaveChanges completed for 'IdentityContext' with 2 entities written to the database.
+2021-04-07 03:16:30.197 +06:00 [DBG] 'IdentityContext' disposed.
+2021-04-07 03:16:30.203 +06:00 [DBG] Hosting starting
+2021-04-07 03:16:30.241 +06:00 [DBG] Reading data from file 'C:\Users\Masum\AppData\Local\ASP.NET\DataProtection-Keys\key-19d2cf83-4894-4a28-9a94-6fa2ffe363b1.xml'.
+2021-04-07 03:16:30.305 +06:00 [DBG] Found key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1}.
+2021-04-07 03:16:30.329 +06:00 [DBG] Considering key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} with expiration date 2021-04-28 09:35:54Z as default key.
+2021-04-07 03:16:30.341 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.11.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-04-07 03:16:30.346 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2021-04-07 03:16:30.351 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.11.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-04-07 03:16:30.355 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2021-04-07 03:16:30.359 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2021-04-07 03:16:30.364 +06:00 [DBG] Using key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} as the default key.
+2021-04-07 03:16:30.368 +06:00 [DBG] Key ring with default key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} was loaded during application startup.
+2021-04-07 03:16:32.294 +06:00 [DBG] Using development certificate: CN=localhost (Thumbprint: B4BE6E055303B2BDF9A37EEC00DA64F1029A0AC9)
+2021-04-07 03:16:32.435 +06:00 [INF] Now listening on: https://localhost:5001
+2021-04-07 03:16:32.437 +06:00 [INF] Now listening on: http://localhost:5000
+2021-04-07 03:16:32.439 +06:00 [DBG] Loaded hosting startup assembly CA.Web.Mvc
+2021-04-07 03:16:32.442 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+2021-04-07 03:16:32.445 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-07 03:16:32.448 +06:00 [INF] Hosting environment: Development
+2021-04-07 03:16:32.451 +06:00 [INF] Content root path: D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc
+2021-04-07 03:16:32.454 +06:00 [DBG] Hosting started
+2021-04-07 03:16:32.585 +06:00 [DBG] Connection id "0HM7P850AE74K" accepted.
+2021-04-07 03:16:32.595 +06:00 [DBG] Connection id "0HM7P850AE74K" started.
+2021-04-07 03:16:32.596 +06:00 [DBG] Connection id "0HM7P850AE74K" received FIN.
+2021-04-07 03:16:32.621 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-04-07 03:16:32.676 +06:00 [DBG] Connection id "0HM7P850AE74K" stopped.
+2021-04-07 03:16:32.681 +06:00 [DBG] Connection id "0HM7P850AE74K" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-04-07 03:16:33.402 +06:00 [DBG] Connection id "0HM7P850AE74L" accepted.
+2021-04-07 03:16:33.527 +06:00 [DBG] Connection id "0HM7P850AE74L" started.
+2021-04-07 03:16:33.648 +06:00 [DBG] Connection "0HM7P850AE74L" established using the following protocol: "Tls12"
+2021-04-07 03:16:33.749 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2021-04-07 03:16:33.756 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-04-07 03:16:33.759 +06:00 [DBG] The request path / does not match a supported file type
+2021-04-07 03:16:33.812 +06:00 [DBG] 1 candidate(s) found for the request path '/'
+2021-04-07 03:16:33.814 +06:00 [DBG] Endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/'
+2021-04-07 03:16:33.819 +06:00 [DBG] Request matched endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:33.829 +06:00 [INF] Executing endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:33.848 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-04-07 03:16:33.890 +06:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc).
+2021-04-07 03:16:33.894 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-04-07 03:16:33.897 +06:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-07 03:16:33.905 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-04-07 03:16:33.912 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-04-07 03:16:33.916 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-07 03:16:33.923 +06:00 [DBG] Executing controller factory for controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc)
+2021-04-07 03:16:33.925 +06:00 [DBG] Executed controller factory for controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc)
+2021-04-07 03:16:33.950 +06:00 [DBG] View lookup cache miss for view 'Index' in controller 'Home'.
+2021-04-07 03:16:33.970 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Dashboard/Index.cshtml'.
+2021-04-07 03:16:33.972 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Post/Add.cshtml'.
+2021-04-07 03:16:33.974 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Post/Index.cshtml'.
+2021-04-07 03:16:33.977 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_Footer.cshtml'.
+2021-04-07 03:16:33.978 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_Layout.cshtml'.
+2021-04-07 03:16:33.981 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_NavBar.cshtml'.
+2021-04-07 03:16:33.983 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_SideBar.cshtml'.
+2021-04-07 03:16:33.984 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/_ViewImports.cshtml'.
+2021-04-07 03:16:33.987 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/_ViewStart.cshtml'.
+2021-04-07 03:16:33.990 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2021-04-07 03:16:33.992 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2021-04-07 03:16:33.994 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2021-04-07 03:16:33.997 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2021-04-07 03:16:34.000 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2021-04-07 03:16:34.002 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2021-04-07 03:16:34.004 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2021-04-07 03:16:34.052 +06:00 [INF] Executing ViewResult, running view Index.
+2021-04-07 03:16:34.062 +06:00 [DBG] The view path '/Views/Home/Index.cshtml' was found in 106.4927ms.
+2021-04-07 03:16:34.122 +06:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Home'.
+2021-04-07 03:16:34.193 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:34.209 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Index", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-07 03:16:34.217 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2021-04-07 03:16:34.234 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2021-04-07 03:16:34.242 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:34.248 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Index", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-07 03:16:34.253 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2021-04-07 03:16:34.258 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2021-04-07 03:16:34.262 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:34.265 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Privacy", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-07 03:16:34.275 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/Privacy and 
+2021-04-07 03:16:34.278 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Home/Privacy
+2021-04-07 03:16:34.282 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:34.285 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Privacy", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-07 03:16:34.296 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/Privacy and 
+2021-04-07 03:16:34.299 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Home/Privacy
+2021-04-07 03:16:34.444 +06:00 [INF] Executed ViewResult - view Index executed in 495.1308ms.
+2021-04-07 03:16:34.447 +06:00 [INF] Executed action CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc) in 526.1385ms
+2021-04-07 03:16:34.449 +06:00 [INF] Executed endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:34.453 +06:00 [INF] HTTP GET / responded 200 in 623.9977 ms
+2021-04-07 03:16:34.477 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 728.2595ms
+2021-04-07 03:16:34.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.min.js - -
+2021-04-07 03:16:34.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/css/site.css - -
+2021-04-07 03:16:34.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=PO_8e6bIDi7De8_fdNEN0tfEE9tOM_13R3l4268U5_Y - -
+2021-04-07 03:16:34.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2021-04-07 03:16:34.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2021-04-07 03:16:34.541 +06:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\js\site.js'
+2021-04-07 03:16:34.545 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=PO_8e6bIDi7De8_fdNEN0tfEE9tOM_13R3l4268U5_Y - - - 200 33 application/javascript 32.4965ms
+2021-04-07 03:16:34.643 +06:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\css\site.css'
+2021-04-07 03:16:34.649 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/css/site.css - - - 200 730 text/css 137.2161ms
+2021-04-07 03:16:34.850 +06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2021-04-07 03:16:34.858 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 121263 text/css 345.8000ms
+2021-04-07 03:16:35.343 +06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js'
+2021-04-07 03:16:35.347 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.min.js - - - 200 36871 application/javascript 835.3688ms
+2021-04-07 03:16:35.365 +06:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\jquery\dist\jquery.min.js'
+2021-04-07 03:16:35.373 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 85592 application/javascript 860.6510ms
+2021-04-07 03:16:36.293 +06:00 [DBG] Connection id "0HM7P850AE74L" received FIN.
+2021-04-07 03:16:36.296 +06:00 [DBG] Connection id "0HM7P850AE74L" is closed. The last processed stream ID was 11.
+2021-04-07 03:16:36.299 +06:00 [DBG] Connection id "0HM7P850AE74L" sending FIN because: "The client closed the connection."
+2021-04-07 03:16:36.305 +06:00 [DBG] Connection id "0HM7P850AE74L" stopped.
+2021-04-07 03:16:48.921 +06:00 [DBG] Connection id "0HM7P850AE74M" accepted.
+2021-04-07 03:16:48.935 +06:00 [DBG] Connection id "0HM7P850AE74M" started.
+2021-04-07 03:16:48.953 +06:00 [DBG] Connection "0HM7P850AE74M" established using the following protocol: "Tls12"
+2021-04-07 03:16:48.957 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/admin - -
+2021-04-07 03:16:48.958 +06:00 [DBG] The request path /admin does not match a supported file type
+2021-04-07 03:16:48.966 +06:00 [DBG] 1 candidate(s) found for the request path '/admin'
+2021-04-07 03:16:48.969 +06:00 [DBG] Endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)' with route pattern 'Admin/{controller=Dashboard}/{action=Index}/{id?}' is valid for the request path '/admin'
+2021-04-07 03:16:48.974 +06:00 [DBG] Request matched endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:48.977 +06:00 [INF] Executing endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:48.982 +06:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc).
+2021-04-07 03:16:48.990 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-04-07 03:16:48.994 +06:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-07 03:16:48.998 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-04-07 03:16:49.005 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-04-07 03:16:49.009 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-07 03:16:49.028 +06:00 [DBG] Executing controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc)
+2021-04-07 03:16:49.038 +06:00 [DBG] Executed controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc)
+2021-04-07 03:16:49.042 +06:00 [DBG] View lookup cache miss for view 'Index' in controller 'Dashboard'.
+2021-04-07 03:16:49.058 +06:00 [INF] Executing ViewResult, running view Index.
+2021-04-07 03:16:49.061 +06:00 [DBG] The view path '/Areas/Admin/Views/Dashboard/Index.cshtml' was found in 19.2276ms.
+2021-04-07 03:16:49.092 +06:00 [DBG] View lookup cache miss for view '_NavBar' in controller 'Dashboard'.
+2021-04-07 03:16:49.121 +06:00 [DBG] View lookup cache miss for view '_SideBar' in controller 'Dashboard'.
+2021-04-07 03:16:49.131 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:49.136 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin and 
+2021-04-07 03:16:49.139 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin
+2021-04-07 03:16:49.144 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-07 03:16:49.147 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin and 
+2021-04-07 03:16:49.154 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin
+2021-04-07 03:16:49.158 +06:00 [DBG] View lookup cache miss for view '_Footer' in controller 'Dashboard'.
+2021-04-07 03:16:49.171 +06:00 [INF] Executed ViewResult - view Index executed in 129.1864ms.
+2021-04-07 03:16:49.173 +06:00 [INF] Executed action CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc) in 144.7065ms
+2021-04-07 03:16:49.175 +06:00 [INF] Executed endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-07 03:16:49.177 +06:00 [INF] HTTP GET /admin responded 200 in 199.7443 ms
+2021-04-07 03:16:49.181 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/admin - - - 200 - text/html;+charset=utf-8 224.5221ms
+2021-04-07 03:16:49.216 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/css/all.min.css - -
+2021-04-07 03:16:49.217 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user1-128x128.jpg - -
+2021-04-07 03:16:49.217 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/css/adminlte.min.css - -
+2021-04-07 03:16:49.221 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user3-128x128.jpg - -
+2021-04-07 03:16:49.221 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user2-160x160.jpg - -
+2021-04-07 03:16:49.225 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/jquery/jquery.min.js - -
+2021-04-07 03:16:49.217 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user8-128x128.jpg - -
+2021-04-07 03:16:49.225 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/AdminLTELogo.png - -
+2021-04-07 03:16:49.236 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/js/adminlte.min.js - -
+2021-04-07 03:16:49.244 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js - -
+2021-04-07 03:16:49.314 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user2-160x160.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user2-160x160.jpg'
+2021-04-07 03:16:49.314 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user3-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user3-128x128.jpg'
+2021-04-07 03:16:49.314 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user1-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user1-128x128.jpg'
+2021-04-07 03:16:49.315 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/css/all.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\css\all.min.css'
+2021-04-07 03:16:49.317 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user2-160x160.jpg - - - 200 6905 image/jpeg 95.6351ms
+2021-04-07 03:16:49.321 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user3-128x128.jpg - - - 200 3398 image/jpeg 100.1545ms
+2021-04-07 03:16:49.326 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user1-128x128.jpg - - - 200 2750 image/jpeg 108.7589ms
+2021-04-07 03:16:49.329 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/css/all.min.css - - - 200 59344 text/css 112.5946ms
+2021-04-07 03:16:49.390 +06:00 [INF] Sending file. Request path: '/adminAssets/js/adminlte.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\js\adminlte.min.js'
+2021-04-07 03:16:49.393 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/js/adminlte.min.js - - - 200 40680 application/javascript 157.3967ms
+2021-04-07 03:16:49.420 +06:00 [INF] Sending file. Request path: '/adminAssets/img/AdminLTELogo.png'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\AdminLTELogo.png'
+2021-04-07 03:16:49.423 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/AdminLTELogo.png - - - 200 2637 image/png 199.4039ms
+2021-04-07 03:16:49.425 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user8-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user8-128x128.jpg'
+2021-04-07 03:16:49.431 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user8-128x128.jpg - - - 200 4983 image/jpeg 213.9115ms
+2021-04-07 03:16:49.500 +06:00 [INF] Sending file. Request path: '/adminAssets/css/adminlte.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\css\adminlte.min.css'
+2021-04-07 03:16:49.509 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/css/adminlte.min.css - - - 200 740295 text/css 291.8161ms
+2021-04-07 03:16:49.516 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\bootstrap\js\bootstrap.bundle.min.js'
+2021-04-07 03:16:49.521 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js - - - 200 84152 application/javascript 283.1505ms
+2021-04-07 03:16:49.529 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/jquery/jquery.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\jquery\jquery.min.js'
+2021-04-07 03:16:49.532 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/jquery/jquery.min.js - - - 200 89476 application/javascript 306.8766ms
+2021-04-07 03:16:50.078 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2 - -
+2021-04-07 03:16:50.079 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2 - -
+2021-04-07 03:16:50.228 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\webfonts\fa-regular-400.woff2'
+2021-04-07 03:16:50.236 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\webfonts\fa-solid-900.woff2'
+2021-04-07 03:16:50.240 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2 - - - 200 13548 font/woff2 160.8998ms
+2021-04-07 03:16:50.245 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2 - - - 200 80300 font/woff2 166.9479ms
+2021-04-07 03:16:51.297 +06:00 [DBG] Connection id "0HM7P850AE74M" received FIN.
+2021-04-07 03:16:51.302 +06:00 [DBG] Connection id "0HM7P850AE74M" sending FIN because: "The client closed the connection."
+2021-04-07 03:16:51.302 +06:00 [DBG] Connection id "0HM7P850AE74M" is closed. The last processed stream ID was 25.
+2021-04-07 03:16:51.310 +06:00 [DBG] Connection id "0HM7P850AE74M" stopped.
+2021-04-07 03:16:56.396 +06:00 [DBG] Connection id "0HM7P850AE74N" accepted.
+2021-04-07 03:16:56.398 +06:00 [DBG] Connection id "0HM7P850AE74N" started.
+2021-04-07 03:16:56.406 +06:00 [DBG] Connection "0HM7P850AE74N" established using the following protocol: "Tls12"
+2021-04-07 03:16:56.409 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/admin/category - -
+2021-04-07 03:16:56.410 +06:00 [DBG] The request path /admin/category does not match a supported file type
+2021-04-07 03:16:56.413 +06:00 [DBG] No candidates found for the request path '/admin/category'
+2021-04-07 03:16:56.416 +06:00 [DBG] Request did not match any endpoints
+2021-04-07 03:16:56.417 +06:00 [INF] HTTP GET /admin/category responded 404 in 0.1668 ms
+2021-04-07 03:16:56.420 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/admin/category - - - 404 0 - 11.1599ms
+2021-04-07 03:17:01.391 +06:00 [DBG] Connection id "0HM7P850AE74N" received FIN.
+2021-04-07 03:17:01.393 +06:00 [DBG] Connection id "0HM7P850AE74N" is closed. The last processed stream ID was 1.
+2021-04-07 03:17:01.398 +06:00 [DBG] Connection id "0HM7P850AE74N" sending FIN because: "The client closed the connection."
+2021-04-07 03:17:01.404 +06:00 [DBG] Connection id "0HM7P850AE74N" stopped.
