@@ -1,0 +1,741 @@
+2021-04-06 03:36:21.645 +06:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2021-04-06 03:36:25.741 +06:00 [DBG] The index {'PostId'} was not created on entity type 'PostCategory' as the properties are already covered by the index {'PostId', 'CategoryId'}.
+2021-04-06 03:36:25.744 +06:00 [DBG] The index {'PostId'} was not created on entity type 'PostTag' as the properties are already covered by the index {'PostId', 'TagId'}.
+2021-04-06 03:36:26.022 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'AppDbContext' using provider 'MySql.EntityFrameworkCore' with options: MigrationsAssembly=CA.Infrastructure.Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-06 03:36:26.044 +06:00 [DBG] Migrating using database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:27.869 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-06 03:36:27.880 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (9ms).
+2021-04-06 03:36:27.891 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:27.962 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:27.973 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaPersistence' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.066 +06:00 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaPersistence' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.077 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.083 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.094 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-06 03:36:28.096 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2021-04-06 03:36:28.097 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.100 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.102 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaPersistence' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.106 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaPersistence' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.108 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.109 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.129 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:28.131 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:28.132 +06:00 [DBG] Opening connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.136 +06:00 [DBG] Opened connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.138 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2021-04-06 03:36:28.265 +06:00 [INF] Executed DbCommand (127ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2021-04-06 03:36:28.275 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:28.277 +06:00 [DBG] Closing connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.280 +06:00 [DBG] Closed connection to database 'CaPersistence' on server 'localhost'.
+2021-04-06 03:36:28.307 +06:00 [INF] No migrations were applied. The database is already up to date.
+2021-04-06 03:36:28.311 +06:00 [DBG] 'AppDbContext' disposed.
+2021-04-06 03:36:28.368 +06:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<string>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2021-04-06 03:36:28.371 +06:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<string>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2021-04-06 03:36:28.378 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'IdentityContext' using provider 'MySql.EntityFrameworkCore' with options: MigrationsAssembly=CA.Infrastructure.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-06 03:36:28.382 +06:00 [DBG] Migrating using database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.396 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-06 03:36:28.398 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2021-04-06 03:36:28.400 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.440 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.443 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaIdentity' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.448 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaIdentity' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.452 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.454 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.458 +06:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2021-04-06 03:36:28.460 +06:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2021-04-06 03:36:28.463 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.465 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.467 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaIdentity' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.474 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='CaIdentity' AND TABLE_NAME='__EFMigrationsHistory';
+2021-04-06 03:36:28.477 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.479 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.483 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:28.485 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:28.488 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.496 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.497 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2021-04-06 03:36:28.527 +06:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `MigrationId`, `ProductVersion`
+FROM `__EFMigrationsHistory`
+ORDER BY `MigrationId`;
+2021-04-06 03:36:28.531 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:28.532 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.535 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.540 +06:00 [INF] No migrations were applied. The database is already up to date.
+2021-04-06 03:36:28.541 +06:00 [DBG] 'IdentityContext' disposed.
+2021-04-06 03:36:28.577 +06:00 [INF] User profile is available. Using 'C:\Users\Masum\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-04-06 03:36:28.617 +06:00 [INF] Entity Framework Core 5.0.0 initialized 'IdentityContext' using provider 'MySql.EntityFrameworkCore' with options: MigrationsAssembly=CA.Infrastructure.Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null 
+2021-04-06 03:36:28.692 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationRole>()
+    .Any()'
+2021-04-06 03:36:28.848 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<bool>(
+    asyncEnumerable: new SingleQueryingEnumerable<bool>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT EXISTS (
+                Projection Mapping:
+                SELECT 1
+                FROM Role AS r)), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-06 03:36:28.884 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:28.887 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:28.889 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.892 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.895 +06:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Role` AS `r`)
+2021-04-06 03:36:28.923 +06:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM `Role` AS `r`)
+2021-04-06 03:36:28.931 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:28.934 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.937 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:28.950 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationUser>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2021-04-06 03:36:29.016 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationUser>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationUser>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationUser.Id (string) Required PK AfterSave:Throw MaxLength(85), 0], [Property: ApplicationUser.AccessFailedCount (int) Required, 1], [Property: ApplicationUser.ConcurrencyStamp (string) Concurrency, 2], [Property: ApplicationUser.Email (string) MaxLength(256), 3], [Property: ApplicationUser.EmailConfirmed (bool) Required, 4], [Property: ApplicationUser.FirstName (string), 5], [Property: ApplicationUser.LastName (string), 6], [Property: ApplicationUser.LockoutEnabled (bool) Required, 7], [Property: ApplicationUser.LockoutEnd (Nullable<DateTimeOffset>), 8], [Property: ApplicationUser.NormalizedEmail (string) Index MaxLength(85), 9], [Property: ApplicationUser.NormalizedUserName (string) Index MaxLength(85), 10], [Property: ApplicationUser.PasswordHash (string), 11], [Property: ApplicationUser.PhoneNumber (string), 12], [Property: ApplicationUser.PhoneNumberConfirmed (bool) Required, 13], [Property: ApplicationUser.SecurityStamp (string), 14], [Property: ApplicationUser.TwoFactorEnabled (bool) Required, 15], [Property: ApplicationUser.UserName (string) MaxLength(256), 16], }
+            SELECT TOP(1) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.FirstName, u.LastName, u.LockoutEnabled, u.LockoutEnd, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM User AS u
+            WHERE u.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationUser>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-06 03:36:29.044 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.046 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:29.064 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.067 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.071 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.132 +06:00 [INF] Executed DbCommand (64ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.140 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.141 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.145 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.183 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.187 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (3ms).
+2021-04-06 03:36:29.189 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.194 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.196 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.208 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.253 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationUser' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.311 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.312 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.315 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.321 +06:00 [WRN] User validation failed: DuplicateUserName.
+2021-04-06 03:36:29.327 +06:00 [DBG] Compiling query expression: 
+'DbSet<ApplicationRole>()
+    .SingleOrDefault(r => r.NormalizedName == __normalizedRoleName_0)'
+2021-04-06 03:36:29.338 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<ApplicationRole>(
+    asyncEnumerable: new SingleQueryingEnumerable<ApplicationRole>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: ApplicationRole.Id (string) Required PK AfterSave:Throw MaxLength(85), 0], [Property: ApplicationRole.ConcurrencyStamp (string) Concurrency, 1], [Property: ApplicationRole.Description (string), 2], [Property: ApplicationRole.Name (string) MaxLength(256), 3], [Property: ApplicationRole.NormalizedName (string) Index MaxLength(85), 4], }
+            SELECT TOP(2) r.Id, r.ConcurrencyStamp, r.Description, r.Name, r.NormalizedName
+            FROM Role AS r
+            WHERE r.NormalizedName == @__normalizedRoleName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, ApplicationRole>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-06 03:36:29.345 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.347 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.352 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.355 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.356 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.365 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.376 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.386 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.387 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.390 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.403 +06:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUserRole<string>>()
+    .FirstOrDefault(e => EF.Property<string>(e, "UserId") == __p_0 && EF.Property<string>(e, "RoleId") == __p_1)'
+2021-04-06 03:36:29.418 +06:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUserRole<string>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUserRole<string>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUserRole<string>.UserId (string) Required PK FK AfterSave:Throw MaxLength(85), 0], [Property: IdentityUserRole<string>.RoleId (string) Required PK FK Index AfterSave:Throw MaxLength(85), 1], }
+            SELECT TOP(1) u.UserId, u.RoleId
+            FROM UserRoles AS u
+            WHERE (u.UserId == @__p_0) && (u.RoleId == @__p_1)), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUserRole<string>>, 
+        CA.Infrastructure.Identity.Context.IdentityContext, 
+        False, 
+        False
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2021-04-06 03:36:29.424 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.425 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.430 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.432 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.434 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.476 +06:00 [INF] Executed DbCommand (42ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.481 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.483 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.485 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.492 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.494 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.498 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.500 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.502 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.508 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.513 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.514 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.517 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.546 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.550 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.551 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.554 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.558 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.560 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.565 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.575 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.578 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.580 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.583 +06:00 [WRN] User validation failed: DuplicateUserName.
+2021-04-06 03:36:29.585 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.589 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2021-04-06 03:36:29.592 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.595 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.599 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.605 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.610 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.616 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.618 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.622 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.626 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.628 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:29.631 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.634 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.636 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.641 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.648 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.650 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.652 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.656 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.658 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.660 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.662 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.665 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.671 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.676 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.677 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.680 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.682 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.686 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.690 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (3ms).
+2021-04-06 03:36:29.692 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.695 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.696 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.702 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.708 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.710 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.712 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.715 +06:00 [WRN] User validation failed: DuplicateUserName.
+2021-04-06 03:36:29.717 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.718 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.720 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.725 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.727 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.732 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.738 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.741 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.743 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.746 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.749 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.751 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.755 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.758 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.760 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.767 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.776 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.777 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.780 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.783 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.785 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:29.790 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.793 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.795 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.800 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.809 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.810 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.812 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.816 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.821 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.822 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.826 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.828 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.830 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.839 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.847 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.849 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.851 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.855 +06:00 [WRN] User validation failed: DuplicateUserName.
+2021-04-06 03:36:29.857 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.858 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.860 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.863 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.866 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.874 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.880 +06:00 [DBG] Context 'IdentityContext' started tracking 'ApplicationRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.883 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.885 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.888 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.892 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.894 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:29.896 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.898 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.901 +06:00 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.907 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (Size = 85), @__p_1='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`UserId`, `u`.`RoleId`
+FROM `UserRoles` AS `u`
+WHERE (`u`.`UserId` = @__p_0) AND (`u`.`RoleId` = @__p_1)
+LIMIT 1
+2021-04-06 03:36:29.914 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.916 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.917 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.920 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.922 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2021-04-06 03:36:29.925 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.927 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.929 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.936 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `r`.`Id`, `r`.`ConcurrencyStamp`, `r`.`Description`, `r`.`Name`, `r`.`NormalizedName`
+FROM `Role` AS `r`
+WHERE `r`.`NormalizedName` = @__normalizedRoleName_0
+LIMIT 2
+2021-04-06 03:36:29.942 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.944 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.947 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.949 +06:00 [DBG] Context 'IdentityContext' started tracking 'IdentityUserRole<string>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2021-04-06 03:36:29.953 +06:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-04-06 03:36:29.955 +06:00 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2021-04-06 03:36:29.958 +06:00 [DBG] Opening connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.960 +06:00 [DBG] Opened connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.962 +06:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.969 +06:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 85)], CommandType='"Text"', CommandTimeout='30']
+SELECT `u`.`Id`, `u`.`AccessFailedCount`, `u`.`ConcurrencyStamp`, `u`.`Email`, `u`.`EmailConfirmed`, `u`.`FirstName`, `u`.`LastName`, `u`.`LockoutEnabled`, `u`.`LockoutEnd`, `u`.`NormalizedEmail`, `u`.`NormalizedUserName`, `u`.`PasswordHash`, `u`.`PhoneNumber`, `u`.`PhoneNumberConfirmed`, `u`.`SecurityStamp`, `u`.`TwoFactorEnabled`, `u`.`UserName`
+FROM `User` AS `u`
+WHERE `u`.`NormalizedUserName` = @__normalizedUserName_0
+LIMIT 1
+2021-04-06 03:36:29.976 +06:00 [DBG] A data reader was disposed.
+2021-04-06 03:36:29.977 +06:00 [DBG] Closing connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.980 +06:00 [DBG] Closed connection to database 'CaIdentity' on server 'localhost'.
+2021-04-06 03:36:29.982 +06:00 [WRN] User validation failed: DuplicateUserName.
+2021-04-06 03:36:29.985 +06:00 [DBG] 'IdentityContext' disposed.
+2021-04-06 03:36:29.988 +06:00 [DBG] Hosting starting
+2021-04-06 03:36:30.027 +06:00 [DBG] Reading data from file 'C:\Users\Masum\AppData\Local\ASP.NET\DataProtection-Keys\key-19d2cf83-4894-4a28-9a94-6fa2ffe363b1.xml'.
+2021-04-06 03:36:30.075 +06:00 [DBG] Found key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1}.
+2021-04-06 03:36:30.095 +06:00 [DBG] Considering key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} with expiration date 2021-04-28 09:35:54Z as default key.
+2021-04-06 03:36:30.108 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.11.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-04-06 03:36:30.114 +06:00 [DBG] Decrypting secret element using Windows DPAPI.
+2021-04-06 03:36:30.117 +06:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.11.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2021-04-06 03:36:30.123 +06:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2021-04-06 03:36:30.127 +06:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2021-04-06 03:36:30.131 +06:00 [DBG] Using key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} as the default key.
+2021-04-06 03:36:30.136 +06:00 [DBG] Key ring with default key {19d2cf83-4894-4a28-9a94-6fa2ffe363b1} was loaded during application startup.
+2021-04-06 03:36:31.616 +06:00 [DBG] Using development certificate: CN=localhost (Thumbprint: B4BE6E055303B2BDF9A37EEC00DA64F1029A0AC9)
+2021-04-06 03:36:31.627 +06:00 [INF] Now listening on: https://localhost:5001
+2021-04-06 03:36:31.636 +06:00 [INF] Now listening on: http://localhost:5000
+2021-04-06 03:36:31.638 +06:00 [DBG] Loaded hosting startup assembly CA.Web.Mvc
+2021-04-06 03:36:31.640 +06:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+2021-04-06 03:36:31.642 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-04-06 03:36:31.645 +06:00 [INF] Hosting environment: Development
+2021-04-06 03:36:31.647 +06:00 [INF] Content root path: D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc
+2021-04-06 03:36:31.652 +06:00 [DBG] Hosting started
+2021-04-06 03:36:32.087 +06:00 [DBG] Connection id "0HM7OFBGJ6ODS" received FIN.
+2021-04-06 03:36:32.087 +06:00 [DBG] Connection id "0HM7OFBGJ6ODT" received FIN.
+2021-04-06 03:36:32.095 +06:00 [DBG] Connection id "0HM7OFBGJ6ODT" accepted.
+2021-04-06 03:36:32.095 +06:00 [DBG] Connection id "0HM7OFBGJ6ODS" accepted.
+2021-04-06 03:36:32.098 +06:00 [DBG] Connection id "0HM7OFBGJ6ODT" started.
+2021-04-06 03:36:32.101 +06:00 [DBG] Connection id "0HM7OFBGJ6ODS" started.
+2021-04-06 03:36:32.128 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-04-06 03:36:32.128 +06:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2021-04-06 03:36:32.228 +06:00 [DBG] Connection id "0HM7OFBGJ6ODS" stopped.
+2021-04-06 03:36:32.228 +06:00 [DBG] Connection id "0HM7OFBGJ6ODT" stopped.
+2021-04-06 03:36:32.240 +06:00 [DBG] Connection id "0HM7OFBGJ6ODS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-04-06 03:36:32.240 +06:00 [DBG] Connection id "0HM7OFBGJ6ODT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2021-04-06 03:36:32.740 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" accepted.
+2021-04-06 03:36:32.960 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" accepted.
+2021-04-06 03:36:32.961 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" started.
+2021-04-06 03:36:32.977 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" started.
+2021-04-06 03:36:33.015 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" received FIN.
+2021-04-06 03:36:33.027 +06:00 [DBG] Connection "0HM7OFBGJ6ODV" established using the following protocol: "Tls12"
+2021-04-06 03:36:33.027 +06:00 [DBG] Connection "0HM7OFBGJ6ODU" established using the following protocol: "Tls12"
+2021-04-06 03:36:33.044 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" is closed. The last processed stream ID was 0.
+2021-04-06 03:36:33.046 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" sending FIN because: "The client closed the connection."
+2021-04-06 03:36:33.051 +06:00 [DBG] Connection id "0HM7OFBGJ6ODV" stopped.
+2021-04-06 03:36:33.118 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - -
+2021-04-06 03:36:33.122 +06:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2021-04-06 03:36:33.127 +06:00 [DBG] The request path / does not match a supported file type
+2021-04-06 03:36:33.177 +06:00 [DBG] 1 candidate(s) found for the request path '/'
+2021-04-06 03:36:33.181 +06:00 [DBG] Endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)' with route pattern '{controller=Home}/{action=Index}/{id?}' is valid for the request path '/'
+2021-04-06 03:36:33.186 +06:00 [DBG] Request matched endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:33.194 +06:00 [INF] Executing endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:33.210 +06:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2021-04-06 03:36:33.267 +06:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc).
+2021-04-06 03:36:33.276 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-04-06 03:36:33.282 +06:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:33.285 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-04-06 03:36:33.288 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-04-06 03:36:33.300 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:33.310 +06:00 [DBG] Executing controller factory for controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc)
+2021-04-06 03:36:33.313 +06:00 [DBG] Executed controller factory for controller CA.Web.Mvc.Controllers.HomeController (CA.Web.Mvc)
+2021-04-06 03:36:33.332 +06:00 [DBG] View lookup cache miss for view 'Index' in controller 'Home'.
+2021-04-06 03:36:33.344 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Dashboard/Index.cshtml'.
+2021-04-06 03:36:33.346 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Post/Add.cshtml'.
+2021-04-06 03:36:33.347 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Post/Index.cshtml'.
+2021-04-06 03:36:33.349 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_Footer.cshtml'.
+2021-04-06 03:36:33.350 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_Layout.cshtml'.
+2021-04-06 03:36:33.355 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_NavBar.cshtml'.
+2021-04-06 03:36:33.357 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/Shared/_SideBar.cshtml'.
+2021-04-06 03:36:33.361 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/_ViewImports.cshtml'.
+2021-04-06 03:36:33.365 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Areas/Admin/Views/_ViewStart.cshtml'.
+2021-04-06 03:36:33.367 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Index.cshtml'.
+2021-04-06 03:36:33.369 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Home/Privacy.cshtml'.
+2021-04-06 03:36:33.370 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/Error.cshtml'.
+2021-04-06 03:36:33.372 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_Layout.cshtml'.
+2021-04-06 03:36:33.376 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/Shared/_ValidationScriptsPartial.cshtml'.
+2021-04-06 03:36:33.380 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewImports.cshtml'.
+2021-04-06 03:36:33.382 +06:00 [DBG] Initializing Razor view compiler with compiled view: '/Views/_ViewStart.cshtml'.
+2021-04-06 03:36:33.418 +06:00 [INF] Executing ViewResult, running view Index.
+2021-04-06 03:36:33.427 +06:00 [DBG] The view path '/Views/Home/Index.cshtml' was found in 89.0311ms.
+2021-04-06 03:36:33.493 +06:00 [DBG] View lookup cache miss for view '_Layout' in controller 'Home'.
+2021-04-06 03:36:33.553 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:33.572 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Index", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-06 03:36:33.582 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2021-04-06 03:36:33.599 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2021-04-06 03:36:33.605 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:33.609 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Index", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-06 03:36:33.619 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in  and 
+2021-04-06 03:36:33.622 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /
+2021-04-06 03:36:33.629 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:33.631 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Privacy", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-06 03:36:33.643 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/Privacy and 
+2021-04-06 03:36:33.648 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Home/Privacy
+2021-04-06 03:36:33.652 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:33.655 +06:00 [DBG] Failed to process the template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?}. A required route value is missing, or has a different value from the required default values. Supplied ambient values { "action": "Index", "controller": "Home" } and { "action": "Privacy", "area": "", "controller": "Home" } with default values { "action": "Index", "area": "Admin", "controller": "Dashboard" }
+2021-04-06 03:36:33.661 +06:00 [DBG] Successfully processed template {controller=Home}/{action=Index}/{id?} for Route: {controller=Home}/{action=Index}/{id?} resulting in /Home/Privacy and 
+2021-04-06 03:36:33.664 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Home/Privacy
+2021-04-06 03:36:33.778 +06:00 [INF] Executed ViewResult - view Index executed in 447.7468ms.
+2021-04-06 03:36:33.783 +06:00 [INF] Executed action CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc) in 476.5555ms
+2021-04-06 03:36:33.785 +06:00 [INF] Executed endpoint 'CA.Web.Mvc.Controllers.HomeController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:33.793 +06:00 [INF] HTTP GET / responded 200 in 596.6266 ms
+2021-04-06 03:36:33.805 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html;+charset=utf-8 688.8134ms
+2021-04-06 03:36:33.859 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/css/site.css - -
+2021-04-06 03:36:33.860 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - -
+2021-04-06 03:36:33.860 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.min.js - -
+2021-04-06 03:36:33.859 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2021-04-06 03:36:33.860 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/js/site.js?v=PO_8e6bIDi7De8_fdNEN0tfEE9tOM_13R3l4268U5_Y - -
+2021-04-06 03:36:33.873 +06:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\js\site.js'
+2021-04-06 03:36:33.881 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/js/site.js?v=PO_8e6bIDi7De8_fdNEN0tfEE9tOM_13R3l4268U5_Y - - - 200 33 application/javascript 20.6684ms
+2021-04-06 03:36:33.929 +06:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\css\site.css'
+2021-04-06 03:36:33.951 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/css/site.css - - - 200 730 text/css 91.8018ms
+2021-04-06 03:36:34.041 +06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2021-04-06 03:36:34.045 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 121263 text/css 185.8419ms
+2021-04-06 03:36:34.305 +06:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js'
+2021-04-06 03:36:34.313 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/bootstrap/dist/js/bootstrap.min.js - - - 200 36871 application/javascript 452.8946ms
+2021-04-06 03:36:34.401 +06:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\lib\jquery\dist\jquery.min.js'
+2021-04-06 03:36:34.420 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/lib/jquery/dist/jquery.min.js - - - 200 85592 application/javascript 559.9343ms
+2021-04-06 03:36:34.473 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - -
+2021-04-06 03:36:34.494 +06:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\favicon.ico'
+2021-04-06 03:36:34.498 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - - - 200 5430 image/x-icon 24.9688ms
+2021-04-06 03:36:37.537 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/admin - -
+2021-04-06 03:36:37.541 +06:00 [DBG] The request path /admin does not match a supported file type
+2021-04-06 03:36:37.548 +06:00 [DBG] 1 candidate(s) found for the request path '/admin'
+2021-04-06 03:36:37.550 +06:00 [DBG] Endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)' with route pattern 'Admin/{controller=Dashboard}/{action=Index}/{id?}' is valid for the request path '/admin'
+2021-04-06 03:36:37.556 +06:00 [DBG] Request matched endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:37.569 +06:00 [INF] Executing endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:37.572 +06:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc).
+2021-04-06 03:36:37.579 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-04-06 03:36:37.581 +06:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:37.599 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-04-06 03:36:37.606 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-04-06 03:36:37.609 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:37.616 +06:00 [DBG] Executing controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc)
+2021-04-06 03:36:37.620 +06:00 [DBG] Executed controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.DashboardController (CA.Web.Mvc)
+2021-04-06 03:36:37.624 +06:00 [DBG] View lookup cache miss for view 'Index' in controller 'Dashboard'.
+2021-04-06 03:36:37.631 +06:00 [INF] Executing ViewResult, running view Index.
+2021-04-06 03:36:37.634 +06:00 [DBG] The view path '/Areas/Admin/Views/Dashboard/Index.cshtml' was found in 9.7455ms.
+2021-04-06 03:36:37.665 +06:00 [DBG] View lookup cache miss for view '_NavBar' in controller 'Dashboard'.
+2021-04-06 03:36:37.694 +06:00 [DBG] View lookup cache miss for view '_SideBar' in controller 'Dashboard'.
+2021-04-06 03:36:37.715 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:37.720 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin and 
+2021-04-06 03:36:37.725 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin
+2021-04-06 03:36:37.732 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:37.735 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin and 
+2021-04-06 03:36:37.739 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin
+2021-04-06 03:36:37.746 +06:00 [DBG] View lookup cache miss for view '_Footer' in controller 'Dashboard'.
+2021-04-06 03:36:37.756 +06:00 [INF] Executed ViewResult - view Index executed in 132.6545ms.
+2021-04-06 03:36:37.775 +06:00 [INF] Executed action CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc) in 158.9637ms
+2021-04-06 03:36:37.781 +06:00 [INF] Executed endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index (CA.Web.Mvc)'
+2021-04-06 03:36:37.783 +06:00 [INF] HTTP GET /admin responded 200 in 214.0855 ms
+2021-04-06 03:36:37.788 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/admin - - - 200 - text/html;+charset=utf-8 251.0645ms
+2021-04-06 03:36:37.812 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/css/all.min.css - -
+2021-04-06 03:36:37.818 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/css/adminlte.min.css - -
+2021-04-06 03:36:37.827 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user1-128x128.jpg - -
+2021-04-06 03:36:37.837 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user8-128x128.jpg - -
+2021-04-06 03:36:37.842 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user3-128x128.jpg - -
+2021-04-06 03:36:37.864 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/user2-160x160.jpg - -
+2021-04-06 03:36:37.880 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/img/AdminLTELogo.png - -
+2021-04-06 03:36:37.891 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user1-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user1-128x128.jpg'
+2021-04-06 03:36:37.894 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user1-128x128.jpg - - - 200 2750 image/jpeg 67.2977ms
+2021-04-06 03:36:37.933 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/jquery/jquery.min.js - -
+2021-04-06 03:36:37.938 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/js/adminlte.min.js - -
+2021-04-06 03:36:37.938 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js - -
+2021-04-06 03:36:38.014 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/css/all.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\css\all.min.css'
+2021-04-06 03:36:38.017 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/css/all.min.css - - - 200 59344 text/css 205.2084ms
+2021-04-06 03:36:38.115 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user8-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user8-128x128.jpg'
+2021-04-06 03:36:38.118 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user8-128x128.jpg - - - 200 4983 image/jpeg 281.1202ms
+2021-04-06 03:36:38.183 +06:00 [INF] Sending file. Request path: '/adminAssets/img/AdminLTELogo.png'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\AdminLTELogo.png'
+2021-04-06 03:36:38.185 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/AdminLTELogo.png - - - 200 2637 image/png 305.3769ms
+2021-04-06 03:36:38.306 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user2-160x160.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user2-160x160.jpg'
+2021-04-06 03:36:38.311 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user2-160x160.jpg - - - 200 6905 image/jpeg 449.1338ms
+2021-04-06 03:36:38.361 +06:00 [INF] Sending file. Request path: '/adminAssets/img/user3-128x128.jpg'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\img\user3-128x128.jpg'
+2021-04-06 03:36:38.370 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/img/user3-128x128.jpg - - - 200 3398 image/jpeg 528.2961ms
+2021-04-06 03:36:38.375 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/jquery/jquery.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\jquery\jquery.min.js'
+2021-04-06 03:36:38.377 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/jquery/jquery.min.js - - - 200 89476 application/javascript 444.5775ms
+2021-04-06 03:36:38.403 +06:00 [INF] Sending file. Request path: '/adminAssets/js/adminlte.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\js\adminlte.min.js'
+2021-04-06 03:36:38.408 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/js/adminlte.min.js - - - 200 40680 application/javascript 469.6869ms
+2021-04-06 03:36:38.444 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\bootstrap\js\bootstrap.bundle.min.js'
+2021-04-06 03:36:38.453 +06:00 [INF] Sending file. Request path: '/adminAssets/css/adminlte.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\css\adminlte.min.css'
+2021-04-06 03:36:38.457 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/bootstrap/js/bootstrap.bundle.min.js - - - 200 84152 application/javascript 518.4023ms
+2021-04-06 03:36:38.460 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/css/adminlte.min.css - - - 200 740295 text/css 641.8047ms
+2021-04-06 03:36:40.595 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/admin/post/add - -
+2021-04-06 03:36:40.597 +06:00 [DBG] The request path /admin/post/add does not match a supported file type
+2021-04-06 03:36:40.608 +06:00 [DBG] 1 candidate(s) found for the request path '/admin/post/add'
+2021-04-06 03:36:40.610 +06:00 [DBG] Endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add (CA.Web.Mvc)' with route pattern 'Admin/{controller=Dashboard}/{action=Index}/{id?}' is valid for the request path '/admin/post/add'
+2021-04-06 03:36:40.617 +06:00 [DBG] Request matched endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add (CA.Web.Mvc)'
+2021-04-06 03:36:40.622 +06:00 [INF] Executing endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add (CA.Web.Mvc)'
+2021-04-06 03:36:40.626 +06:00 [INF] Route matched with {area = "Admin", action = "Add", controller = "Post"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add() on controller CA.Web.Mvc.Areas.Admin.Controllers.PostController (CA.Web.Mvc).
+2021-04-06 03:36:40.629 +06:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2021-04-06 03:36:40.638 +06:00 [DBG] Execution plan of resource filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:40.641 +06:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.Filters.ControllerActionFilter (Order: -2147483648)","Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)"]
+2021-04-06 03:36:40.647 +06:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2021-04-06 03:36:40.651 +06:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.ViewFeatures.Filters.SaveTempDataFilter"]
+2021-04-06 03:36:40.656 +06:00 [DBG] Executing controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.PostController (CA.Web.Mvc)
+2021-04-06 03:36:40.659 +06:00 [DBG] Executed controller factory for controller CA.Web.Mvc.Areas.Admin.Controllers.PostController (CA.Web.Mvc)
+2021-04-06 03:36:40.663 +06:00 [DBG] View lookup cache miss for view 'Add' in controller 'Post'.
+2021-04-06 03:36:40.678 +06:00 [INF] Executing ViewResult, running view Add.
+2021-04-06 03:36:40.684 +06:00 [DBG] The view path '/Areas/Admin/Views/Post/Add.cshtml' was found in 20.8841ms.
+2021-04-06 03:36:40.712 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:40.717 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin/Post/Add and 
+2021-04-06 03:36:40.720 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin/Post/Add
+2021-04-06 03:36:40.740 +06:00 [DBG] A new antiforgery cookie token was created.
+2021-04-06 03:36:40.779 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:40.783 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin/Post and 
+2021-04-06 03:36:40.788 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin/Post
+2021-04-06 03:36:40.794 +06:00 [DBG] View lookup cache miss for view '_NavBar' in controller 'Post'.
+2021-04-06 03:36:40.796 +06:00 [DBG] View lookup cache miss for view '_SideBar' in controller 'Post'.
+2021-04-06 03:36:40.801 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:40.804 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin/Post and 
+2021-04-06 03:36:40.810 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin/Post
+2021-04-06 03:36:40.815 +06:00 [DBG] Found the endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] for address Microsoft.AspNetCore.Routing.RouteValuesAddress
+2021-04-06 03:36:40.819 +06:00 [DBG] Successfully processed template Admin/{controller=Dashboard}/{action=Index}/{id?} for Route: Admin/{controller=Dashboard}/{action=Index}/{id?} resulting in /Admin/Post/Add and 
+2021-04-06 03:36:40.822 +06:00 [DBG] Link generation succeeded for endpoints ["Route: Admin/{controller=Dashboard}/{action=Index}/{id?}","Route: {controller=Home}/{action=Index}/{id?}"] with result /Admin/Post/Add
+2021-04-06 03:36:40.826 +06:00 [DBG] View lookup cache miss for view '_Footer' in controller 'Post'.
+2021-04-06 03:36:40.835 +06:00 [INF] Executed ViewResult - view Add executed in 172.6701ms.
+2021-04-06 03:36:40.839 +06:00 [INF] Executed action CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add (CA.Web.Mvc) in 183.7107ms
+2021-04-06 03:36:40.842 +06:00 [INF] Executed endpoint 'CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add (CA.Web.Mvc)'
+2021-04-06 03:36:40.845 +06:00 [INF] HTTP GET /admin/post/add responded 200 in 223.2404 ms
+2021-04-06 03:36:40.850 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/admin/post/add - - - 200 - text/html;+charset=utf-8 255.1856ms
+2021-04-06 03:36:40.870 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/summernote-bs4.min.css - -
+2021-04-06 03:36:40.875 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/summernote-bs4.min.js - -
+2021-04-06 03:36:40.937 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/summernote/summernote-bs4.min.css'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\summernote\summernote-bs4.min.css'
+2021-04-06 03:36:40.940 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/summernote-bs4.min.css - - - 200 19403 text/css 69.9854ms
+2021-04-06 03:36:41.016 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/summernote/summernote-bs4.min.js'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\summernote\summernote-bs4.min.js'
+2021-04-06 03:36:41.019 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/summernote-bs4.min.js - - - 200 151398 application/javascript 144.0746ms
+2021-04-06 03:36:41.095 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2 - -
+2021-04-06 03:36:41.095 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2 - -
+2021-04-06 03:36:41.207 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\webfonts\fa-regular-400.woff2'
+2021-04-06 03:36:41.210 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\fontawesome-free\webfonts\fa-solid-900.woff2'
+2021-04-06 03:36:41.213 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-regular-400.woff2 - - - 200 13548 font/woff2 118.0036ms
+2021-04-06 03:36:41.219 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/fontawesome-free/webfonts/fa-solid-900.woff2 - - - 200 80300 font/woff2 123.7212ms
+2021-04-06 03:36:41.419 +06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/font/summernote.woff2 - -
+2021-04-06 03:36:41.463 +06:00 [INF] Sending file. Request path: '/adminAssets/plugins/summernote/font/summernote.woff2'. Physical path: 'D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\wwwroot\adminAssets\plugins\summernote\font\summernote.woff2'
+2021-04-06 03:36:41.467 +06:00 [INF] Request finished HTTP/2 GET https://localhost:5001/adminAssets/plugins/summernote/font/summernote.woff2 - - - 200 6156 font/woff2 47.1712ms
+2021-04-06 03:36:42.833 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" received FIN.
+2021-04-06 03:36:42.837 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" is closed. The last processed stream ID was 47.
+2021-04-06 03:36:42.839 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" sending FIN because: "The client closed the connection."
+2021-04-06 03:36:42.843 +06:00 [DBG] Connection id "0HM7OFBGJ6ODU" stopped.

@@ -47,6 +47,8 @@ namespace CA.Infrastructure.Persistence.Context
                 options.HasOne(x => x.ParentCategory)
                     .WithMany(y => y.ChildCategories)
                     .HasForeignKey(x => x.ParentId);
+                options.HasIndex(x => x.Slug)
+                    .IsUnique();
             });
 
             modelBuilder.Entity<Post>(options =>
@@ -56,6 +58,8 @@ namespace CA.Infrastructure.Persistence.Context
                     .WithMany(y => y.ChildPosts)
                     .HasForeignKey(x => x.ParentId);
                 options.Property(x => x.Content).HasColumnType("LONGTEXT");
+                options.HasIndex(x => x.Slug)
+                    .IsUnique();
             });
 
             modelBuilder.Entity<PostCategory>(options =>
@@ -83,6 +87,8 @@ namespace CA.Infrastructure.Persistence.Context
                 options.HasOne(x => x.ParentTag)
                     .WithMany(y => y.ChildTags)
                     .HasForeignKey(x => x.ParentId);
+                options.HasIndex(x => x.Slug)
+                    .IsUnique();
             });
 
             modelBuilder.Entity<PostTag>(options =>

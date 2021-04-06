@@ -20,6 +20,9 @@ namespace CA.Infrastructure.Persistence.Container
         {
             services.AddTransient(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
             services.AddTransient<IPersistenceUnitOfWork, PersistenceUnitOfWork>();
+            services.AddTransient<IPostRepositoryAsync, PostRepositoryAsync>();
+            services.AddTransient<ICategoryRepositoryAsync, CategoryRepositoryAsync>();
+            services.AddTransient<ITagRepositoryAsync, TagRepositoryAsync>();
         }
     }
 }

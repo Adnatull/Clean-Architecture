@@ -12,18 +12,23 @@ namespace CA.Infrastructure.Persistence.Repositories
     {
         private readonly AppDbContext _dbContext;
         private bool _disposed;
-        public IRepositoryAsync<Post> Post { get; }
+        public IPostRepositoryAsync Post { get; }
+        public ICategoryRepositoryAsync Category { get; }
+        public ITagRepositoryAsync Tag { get; }
         public IRepositoryAsync<Comment> Comment { get; }
         public DataConnection Linq2Db { get; }
-        public PersistenceUnitOfWork(AppDbContext appDbContext, 
-                                        IRepositoryAsync<Post> post, 
-                                        IRepositoryAsync<Comment> comment)
+        public PersistenceUnitOfWork(AppDbContext appDbContext,
+                                        IPostRepositoryAsync post, 
+                                        IRepositoryAsync<Comment> comment,
+                                        ICategoryRepositoryAsync category,
+                                        ITagRepositoryAsync tag)
         {
             _dbContext = appDbContext;
             Linq2Db = _dbContext.CreateLinqToDbConnection();
             Post = post;
             Comment = comment;
-
+            Category = category;
+            Tag = tag;
         }
         public void Dispose()
         {
