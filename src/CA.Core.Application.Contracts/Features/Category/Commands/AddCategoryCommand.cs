@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CA.Core.Application.Contracts.Response;
-using CA.Core.Domain.Persistence.ValidationAttributes;
+using CA.Core.Application.Contracts.ValidationAttributes;
 using MediatR;
 
 namespace CA.Core.Application.Contracts.Features.Category.Commands

@@ -7,6 +7,7 @@ using CA.Core.Application.Contracts.Features.Category.Commands;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : BaseController
     {
         [HttpGet]
@@ -15,7 +16,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
             return View(new AddCategoryCommand());
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Add(AddCategoryCommand add)
         {
             if (!ModelState.IsValid)

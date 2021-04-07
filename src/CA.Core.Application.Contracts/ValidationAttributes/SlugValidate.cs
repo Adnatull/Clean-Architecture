@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace CA.Core.Domain.Persistence.ValidationAttributes
+namespace CA.Core.Application.Contracts.ValidationAttributes
 {
     public class SlugValidate : ValidationAttribute
     {
@@ -19,11 +19,11 @@ namespace CA.Core.Domain.Persistence.ValidationAttributes
                 return new ValidationResult(errorMessage);
             }
 
-            if (txt != null && txt.Count(char.IsLetterOrDigit) == txt.Length)
+            if (txt != null && txt.Count(c => char.IsLetterOrDigit(c) || c =='-') == txt.Length)
             {
                 return ValidationResult.Success;
             }
-            return new ValidationResult("Invalid slug. please enter only letter & numbers");
+            return new ValidationResult("Invalid slug. please enter only letter, numbers and hiphen(-)");
         }
     }
 }

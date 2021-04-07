@@ -2,10 +2,12 @@
 using CA.Core.Application.Contracts.Response;
 using MediatR;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CA.Core.Domain.Persistence.Contracts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace CA.Core.Application.Features.Category
@@ -27,9 +29,12 @@ namespace CA.Core.Application.Features.Category
 
         public async Task<Response<int>> Handle(AddCategoryCommand command, CancellationToken cancellationToken)
         {
+            if (await _persistenceUnitOfWork.Category.Entity.Where(x => x.Slug == command.Slug)
+                .AnyAsync(cancellationToken: cancellationToken))
+                return Response<int>.Fail("The slug already exists. Please try a different one");
+            var category = _mapper.Map<Domain.Persistence.Entities.Category>(command);
             try
             {
-                var category = _mapper.Map<Domain.Persistence.Entities.Category>(command);
                 await _persistenceUnitOfWork.Category.AddAsync(category);
                 await _persistenceUnitOfWork.CommitAsync();
                 return Response<int>.Success(category.Id, "Successfully added the category");
@@ -38,8 +43,8 @@ namespace CA.Core.Application.Features.Category
             {
                 _persistenceUnitOfWork.Dispose();
                 _logger.LogError(e, "Failed to add category: {category} ", command.Title);
+                return Response<int>.Fail("Failed to add the category");
             }
-            return Response<int>.Fail("Failed to add the category");
         }
     }
 }

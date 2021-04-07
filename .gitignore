@@ -19,3 +19,4 @@ src/CA.Infrastructure.Identity/obj
 src/CA.Web.Mvc/bin
 src/CA.Web.Mvc/obj
 src/CA.Web.Mvc/serilogs
+src/CA.Web.Mvc/logs
