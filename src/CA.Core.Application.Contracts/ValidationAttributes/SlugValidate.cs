@@ -19,7 +19,7 @@ namespace CA.Core.Application.Contracts.ValidationAttributes
                 return new ValidationResult(errorMessage);
             }
 
-            if (txt != null && txt.Count(c => char.IsLetterOrDigit(c) || c =='-') == txt.Length)
+            if (txt != null && txt.Count(c => char.IsLetterOrDigit(c) || (c == ',') || (c == '.') || (c == '-') || (c == '_') || (c == '=')) == txt.Length)
             {
                 return ValidationResult.Success;
             }

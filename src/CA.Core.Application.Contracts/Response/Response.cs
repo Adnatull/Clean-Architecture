@@ -9,6 +9,19 @@ namespace CA.Core.Application.Contracts.Response
         public string Message { get; protected set; }
         public List<string> Errors { get; set; }
 
+        public Response() { }
+        public Response(T data, string message)
+        {
+            Succeeded = true;
+            Data = data;
+            Message = message;
+        }
+
+        public Response(string message)
+        {
+            Succeeded = false;
+            Message = message;
+        }
         public static Response<T> Success()
         {
             var result = new Response<T> { Succeeded = true };
