@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Features.Category.Commands;
+﻿using CA.Core.Application.Contracts.Features.Category.Commands;
 using CA.Core.Application.Contracts.Features.Category.Queries;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
