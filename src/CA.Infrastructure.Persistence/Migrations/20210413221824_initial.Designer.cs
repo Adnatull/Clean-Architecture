@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CA.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210406211554_initial")]
+    [Migration("20210413221824_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -162,7 +162,7 @@ namespace CA.Infrastructure.Persistence.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Content")
-                        .HasColumnType("NVARCHAR(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");

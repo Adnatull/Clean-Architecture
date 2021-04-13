@@ -1,13 +1,13 @@
-﻿using CA.Core.Domain.Persistence.Contracts;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using CA.Core.Domain.Persistence.Contracts;
 using CA.Core.Domain.Persistence.Entities;
 using CA.Infrastructure.Persistence.Context;
 using CA.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CA.Test.Unit.DomainServices.Persistences
+namespace CA.Tests.DomainServices.Persistences
 {
     [TestFixture]
     public class PostRepositoryUnitTest
@@ -45,9 +45,9 @@ namespace CA.Test.Unit.DomainServices.Persistences
                     Content = "This is a big content"
                 }
             };
-            _dbContext = GetInMemoryDbContext.GetMemoryContext();
+            _dbContext = await GetInMemoryDbContext.GetMemoryContext();
          
-            await _dbContext.Database.EnsureDeletedAsync();
+            
             await _dbContext.Posts.AddRangeAsync(posts);
             await _dbContext.SaveChangesAsync();
             _postRepositoryAsync = new PostRepositoryAsync(_dbContext);

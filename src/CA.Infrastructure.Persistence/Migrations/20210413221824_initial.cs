@@ -64,7 +64,7 @@ namespace CA.Infrastructure.Persistence.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Slug = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Content = table.Column<string>(type: "NVARCHAR(MAX)", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PostViews = table.Column<int>(type: "int", nullable: false),
                     IsPublished = table.Column<bool>(type: "bit", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),

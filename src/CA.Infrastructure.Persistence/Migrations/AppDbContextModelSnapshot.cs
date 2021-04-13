@@ -160,7 +160,7 @@ namespace CA.Infrastructure.Persistence.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Content")
-                        .HasColumnType("NVARCHAR(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");

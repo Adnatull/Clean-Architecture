@@ -57,7 +57,6 @@ namespace CA.Infrastructure.Persistence.Context
                 options.HasOne(x => x.ParentPost)
                     .WithMany(y => y.ChildPosts)
                     .HasForeignKey(x => x.ParentId);
-                options.Property(x => x.Content).HasColumnType("NVARCHAR(MAX)");
                 options.HasIndex(x => x.Slug)
                     .IsUnique();
             });
