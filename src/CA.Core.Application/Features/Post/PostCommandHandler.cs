@@ -27,7 +27,7 @@ namespace CA.Core.Application.Features.Post
             var post = _mapper.Map<Domain.Persistence.Entities.Post>(command);
             try
             {
-                await _persistenceUnitOfWork.Post.AddAsync(post);
+                post = await _persistenceUnitOfWork.Post.AddAsync(post);
                 await _persistenceUnitOfWork.CommitAsync();
             }
             catch(Exception e)
@@ -37,5 +37,7 @@ namespace CA.Core.Application.Features.Post
             }
             return Response<int>.Success(post.Id, "Successfully saved post");
         }
+
+        
     }
 }
