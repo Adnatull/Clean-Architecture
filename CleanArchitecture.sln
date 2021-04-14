@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Infrastructure.Identity"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Web.Mvc", "src\CA.Web.Mvc\CA.Web.Mvc.csproj", "{D5EDCD55-E1AA-4206-A912-8372FF652D26}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Tests", "src\CA.Tests\CA.Tests.csproj", "{AACBBAA0-235B-4641-805C-104A85943964}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Test", "src\CA.Test\CA.Test.csproj", "{AACBBAA0-235B-4641-805C-104A85943964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

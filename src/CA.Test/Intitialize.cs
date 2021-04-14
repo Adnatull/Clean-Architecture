@@ -1,4 +1,4 @@
-﻿namespace CA.Test.Unit
+﻿namespace CA.Test
 {
     public class Intitialize
     {

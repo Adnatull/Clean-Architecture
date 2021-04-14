@@ -3,11 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using CA.Core.Domain.Persistence.Contracts;
 using CA.Core.Domain.Persistence.Entities;
-using CA.Infrastructure.Persistence.Context;
 using CA.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
-namespace CA.Tests.DomainServices.Persistences
+namespace CA.Test.DomainServices.Persistences
 {
     [TestFixture]
     public class PostRepositoryUnitTest
@@ -45,12 +44,9 @@ namespace CA.Tests.DomainServices.Persistences
                 }
             };
             var dbContext = await GetInMemoryDbContext.GetMemoryContext();
-         
-            
             await dbContext.Posts.AddRangeAsync(posts);
             await dbContext.SaveChangesAsync();
             _postRepositoryAsync = new PostRepositoryAsync(dbContext);
-
         }
 
         [Test]
@@ -60,7 +56,6 @@ namespace CA.Tests.DomainServices.Persistences
 
             Assert.AreEqual(3, items.Count);
             Assert.AreEqual("third Post", items.FirstOrDefault(x => x.Id == 3)?.Title);
-
         }
     }
 }

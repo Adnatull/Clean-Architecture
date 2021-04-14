@@ -7,7 +7,7 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
-namespace CA.Tests.DomainServices.Persistences
+namespace CA.Test.DomainServices.Persistences
 {
     public class GetInMemoryDbContext
     {

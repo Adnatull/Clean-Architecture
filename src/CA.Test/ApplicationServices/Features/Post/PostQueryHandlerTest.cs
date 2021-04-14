@@ -1,9 +1,6 @@
-﻿using NUnit.Framework;
-using System.Threading.Tasks;
-using MediatR;
-using Moq;
+﻿using System.Threading.Tasks;
 
-namespace CA.Tests.ApplicationServices.Features.Post
+namespace CA.Test.ApplicationServices.Features.Post
 {
     public class PostQueryHandlerTest
     {

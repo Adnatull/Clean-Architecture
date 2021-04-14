@@ -22,3 +22,5 @@ src/CA.Web.Mvc/serilogs
 src/CA.Web.Mvc/logs
 src/CA.Tests/bin
 src/CA.Tests/obj
+src/CA.Test/bin
+src/CA.Test/obj
