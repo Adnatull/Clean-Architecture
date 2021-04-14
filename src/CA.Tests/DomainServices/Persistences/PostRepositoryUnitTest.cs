@@ -13,7 +13,6 @@ namespace CA.Tests.DomainServices.Persistences
     public class PostRepositoryUnitTest
     {
         private  IPostRepositoryAsync _postRepositoryAsync;
-        public AppDbContext _dbContext { get; set; }
 
         [OneTimeSetUp]
         public async Task SetUp()
@@ -45,12 +44,12 @@ namespace CA.Tests.DomainServices.Persistences
                     Content = "This is a big content"
                 }
             };
-            _dbContext = await GetInMemoryDbContext.GetMemoryContext();
+            var dbContext = await GetInMemoryDbContext.GetMemoryContext();
          
             
-            await _dbContext.Posts.AddRangeAsync(posts);
-            await _dbContext.SaveChangesAsync();
-            _postRepositoryAsync = new PostRepositoryAsync(_dbContext);
+            await dbContext.Posts.AddRangeAsync(posts);
+            await dbContext.SaveChangesAsync();
+            _postRepositoryAsync = new PostRepositoryAsync(dbContext);
 
         }
 

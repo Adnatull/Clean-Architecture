@@ -14,27 +14,22 @@ namespace CA.Tests.ApplicationServices.Features.Post
     [TestFixture]
     public class PostCommandHandlerTest
     {
-        private Mock<ILogger<PostCommandHandler>> _logger;
-        private IMapper _mapper;
-        private Mock<IPersistenceUnitOfWork> _persistenceUnitOfWork;
+        
         private PostCommandHandler _postCommandHandler;
         [OneTimeSetUp]
         public void SetUp()
         {
-            _logger = new Mock<ILogger<PostCommandHandler>>();
-            _persistenceUnitOfWork = new Mock<IPersistenceUnitOfWork>();
-
+            var logger = new Mock<ILogger<PostCommandHandler>>();
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new PostMapperProfile());
             });
             var mapper = mappingConfig.CreateMapper();
-            _mapper = mapper;
-            _persistenceUnitOfWork = new Mock<IPersistenceUnitOfWork>(MockBehavior.Strict);
-            _persistenceUnitOfWork.Setup(x => x.Post.AddAsync(It.IsAny<Core.Domain.Persistence.Entities.Post>())).ReturnsAsync(new Core.Domain.Persistence.Entities.Post{Id = 1});
-            _persistenceUnitOfWork.Setup(x => x.CommitAsync());
-            _persistenceUnitOfWork.Setup(x => x.Dispose());
-            _postCommandHandler = new PostCommandHandler(_logger.Object, _mapper, _persistenceUnitOfWork.Object);
+            var persistenceUnitOfWork = new Mock<IPersistenceUnitOfWork>(MockBehavior.Strict);
+            persistenceUnitOfWork.Setup(x => x.Post.AddAsync(It.IsAny<Core.Domain.Persistence.Entities.Post>())).ReturnsAsync(new Core.Domain.Persistence.Entities.Post{Id = 1});
+            persistenceUnitOfWork.Setup(x => x.CommitAsync());
+            persistenceUnitOfWork.Setup(x => x.Dispose());
+            _postCommandHandler = new PostCommandHandler(logger.Object, mapper, persistenceUnitOfWork.Object);
         }
 
         [Test]
