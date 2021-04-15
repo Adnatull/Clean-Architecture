@@ -24,3 +24,5 @@ src/CA.Tests/bin
 src/CA.Tests/obj
 src/CA.Test/bin
 src/CA.Test/obj
+src/CA.Tests.Integration/bin
+src/CA.Tests.Integration/obj
