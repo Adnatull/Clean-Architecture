@@ -12,6 +12,10 @@
     <Product>CA.Web.Mvc</Product>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Learning\CleanArchitecture\CA\src\CA.Web.Mvc\CA.Web.Mvc.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
@@ -1982,5 +1986,9 @@
     <None Include="wwwroot\adminAssets\plugins\uplot\uPlot.iife.min.js" />
     <None Include="wwwroot\adminAssets\plugins\uplot\uPlot.min.css" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="" />
+  </Target>
 
 </Project>

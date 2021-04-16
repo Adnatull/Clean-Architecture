@@ -6,7 +6,7 @@ using CA.Core.Domain.Persistence.Entities;
 using CA.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
-namespace CA.Test.DomainServices.Persistences
+namespace CA.Tests.DomainServices.Persistences
 {
     [TestFixture]
     public class PostRepositoryUnitTest

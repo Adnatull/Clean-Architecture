@@ -5,10 +5,17 @@ using System.Threading.Tasks;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// Category Controller
+    /// </summary>
     [Area("Admin")]
     public class CategoryController : BaseController
     {
-
+        /// <summary>
+        /// Get All Categories
+        /// </summary>
+        /// <param name="getAllCategory"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Index(GetAllCategoryQuery getAllCategory)
         {

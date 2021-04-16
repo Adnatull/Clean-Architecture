@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CA.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.CategoryController">
+            <summary>
+            Category Controller
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.CategoryController.Index(CA.Core.Application.Contracts.Features.Category.Queries.GetAllCategoryQuery)">
+            <summary>
+            Get All Categories
+            </summary>
+            <param name="getAllCategory"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
