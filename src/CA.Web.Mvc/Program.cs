@@ -4,7 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
+using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace CA.Web.Mvc
@@ -13,6 +15,11 @@ namespace CA.Web.Mvc
     {
         public static async Task Main(string[] args)
         {
+            if (args.Length == 1 && (args[0] == "--version" || args[0] == "-Version" || args[0] == "-V" || args[0] == "--v"))
+            {
+                GetVersionInformation(args[0]);
+                return;
+            }
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
@@ -41,5 +48,21 @@ namespace CA.Web.Mvc
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static void GetVersionInformation(string s)
+        {
+            var runtimeVersion = typeof(Startup)
+                .GetTypeInfo()
+                .Assembly
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                ?.InformationalVersion;
+            Console.WriteLine("Clean Architecture Template: " + runtimeVersion);
+            var copyright = typeof(Startup)
+                .GetTypeInfo()
+                .Assembly
+                .GetCustomAttribute<AssemblyCopyrightAttribute>()
+                ?.Copyright;
+            Console.WriteLine("Copyright " + copyright);
+        }
     }
 }

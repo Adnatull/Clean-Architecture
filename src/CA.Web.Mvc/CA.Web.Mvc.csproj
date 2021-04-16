@@ -3,7 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
+    <Copyright>(C) 2021, www.a2masum.dev</Copyright>
+    <PackageLicenseExpression>This is open-source software</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Adnatull/Clean-Architecture</RepositoryUrl>
+    <Authors>a2masum.dev</Authors>
+    <PackageId>CA.Web.Mvc</PackageId>
+    <Product>CA.Web.Mvc</Product>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Copyright>(C) 2021, www.a2masum.dev</Copyright>
+    <PackageLicenseExpression>This is open-source software</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Adnatull/Clean-Architecture</PackageProjectUrl>
+    <Authors>a2masum.dev</Authors>
   </PropertyGroup>
 
   <ItemGroup>

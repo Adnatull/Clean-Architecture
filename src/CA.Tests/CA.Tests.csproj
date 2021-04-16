@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CA.Web.Framework\CA.Web.Framework.csproj" />
+    <ProjectReference Include="..\CA.Web.Mvc\CA.Web.Mvc.csproj" />
   </ItemGroup>
 
 </Project>
