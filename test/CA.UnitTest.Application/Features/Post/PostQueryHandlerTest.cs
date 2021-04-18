@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace CA.Tests.ApplicationServices.Features.Post
+namespace CA.UnitTest.Application.Features.Post
 {
     public class PostQueryHandlerTest
     {

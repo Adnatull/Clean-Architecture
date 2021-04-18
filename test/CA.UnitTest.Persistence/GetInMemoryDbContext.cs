@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Interfaces;
+﻿using CA.Core.Application.Contracts.Interfaces;
 using CA.Infrastructure.Persistence.Context;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Moq;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace CA.Tests.DomainServices.Persistences
+namespace CA.UnitTest.Persistence
 {
     public class GetInMemoryDbContext
     {
@@ -25,7 +25,7 @@ namespace CA.Tests.DomainServices.Persistences
             var authUser = new Mock<IAuthenticatedUser>(MockBehavior.Strict);
             authUser.Setup(r => r.UserId).Returns("");
             authUser.Setup(r => r.UserName).Returns("");
-            authUser.Setup(r => r.Roles).Returns(new List<string> {"SuperAdmin"});
+            authUser.Setup(r => r.Roles).Returns(new List<string> { "SuperAdmin" });
             var dbContext = new AppDbContext(options, dateTime.Object, authUser.Object);
             await dbContext.Database.EnsureDeletedAsync();
             await dbContext.Database.EnsureCreatedAsync();

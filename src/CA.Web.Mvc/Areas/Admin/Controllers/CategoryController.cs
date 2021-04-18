@@ -7,12 +7,14 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
     /// <summary>
     /// Category Controller
+    /// This controller does handle requests related to Catgegory. It add, delete, update, fetch categories. It also does filter based fetch.
     /// </summary>
     [Area("Admin")]
     public class CategoryController : BaseController
     {
         /// <summary>
-        /// Get All Categories
+        /// Get All Categories. This method is responsible for fetching all categories. Here GetAllCategoryQuery pass some parameter like PageSize, PageNumber
+        /// for papginated results.
         /// </summary>
         /// <param name="getAllCategory"></param>
         /// <returns></returns>

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace CA.Tests.ApplicationServices.Features.Post
+namespace CA.UnitTest.Application.Features.Post
 {
     [TestFixture]
     public class PostCommandHandlerTest

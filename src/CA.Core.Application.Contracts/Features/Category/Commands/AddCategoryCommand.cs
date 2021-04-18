@@ -12,6 +12,7 @@ namespace CA.Core.Application.Contracts.Features.Category.Commands
 
         [Required]
         [SlugValidate]
+        [MaxLength(20, ErrorMessage = "Too Long")]
         public string Slug { get; set; }
 
         [Required]

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Features.Post.Commands.Add;
 using NUnit.Framework;
 
-namespace CA.Tests.Integration.Mvc.Admin
+namespace CA.IntegrationTest.Mvc.Admin
 {
     [TestFixture]
     public class PostControllerIntegrationTest

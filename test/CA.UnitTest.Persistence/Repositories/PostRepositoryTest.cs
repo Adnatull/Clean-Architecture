@@ -1,17 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using CA.Core.Domain.Persistence.Contracts;
+﻿using CA.Core.Domain.Persistence.Contracts;
 using CA.Core.Domain.Persistence.Entities;
 using CA.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CA.Tests.DomainServices.Persistences
+namespace CA.UnitTest.Persistence.Repositories
 {
     [TestFixture]
-    public class PostRepositoryUnitTest
+    public class PostRepositoryTest
     {
-        private  IPostRepositoryAsync _postRepositoryAsync;
+        private IPostRepositoryAsync _postRepositoryAsync;
 
         [OneTimeSetUp]
         public async Task SetUp()

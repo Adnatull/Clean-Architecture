@@ -30,3 +30,9 @@ test/CA.Tests/bin
 test/CA.Tests/obj
 test/CA.Tests.Integration/bin
 test/CA.Tests.Integration/obj
+test/CA.IntegrationTest.Mvc/bin
+test/CA.IntegrationTest.Mvc/obj
+test/CA.UnitTest.Application/bin
+test/CA.UnitTest.Application/obj
+test/CA.UnitTest.Persistence/bin
+test/CA.UnitTest.Persistence/obj

@@ -5,8 +5,8 @@
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <Version>1.0.4</Version>
     <Copyright>(C) 2021, www.a2masum.dev</Copyright>
-    <PackageLicenseExpression>This is open-source software</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Adnatull/Clean-Architecture</RepositoryUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <RepositoryUrl></RepositoryUrl>
     <Authors>a2masum.dev</Authors>
     <PackageId>CA.Web.Mvc</PackageId>
     <Product>CA.Web.Mvc</Product>
@@ -1987,8 +1987,6 @@
     <None Include="wwwroot\adminAssets\plugins\uplot\uPlot.min.css" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="" />
-  </Target>
+
 
 </Project>

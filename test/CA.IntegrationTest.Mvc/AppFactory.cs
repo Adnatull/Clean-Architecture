@@ -1,14 +1,14 @@
-﻿using CA.Infrastructure.Persistence.Context;
+﻿using System;
+using System.Linq;
+using CA.Infrastructure.Persistence.Context;
 using CA.Web.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
 
-namespace CA.Tests.Integration.Mvc
+namespace CA.IntegrationTest.Mvc
 {
     public class AppFactory : WebApplicationFactory<Startup>
     {
