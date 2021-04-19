@@ -1,6 +1,6 @@
 ﻿namespace CA.Core.Application.Contracts.HandlerExchanges.Post.Queries
 {
-    public class GetAllPostQueryViewModel
+    public class GetPostByIdQueryResponse
     {
         public int Id { get; set; }
         public string Title { get; set; }

@@ -7,15 +7,15 @@ using MediatR;
 
 namespace CA.Core.Application.Handlers.Post
 {
-    public class PostQueryHandler : IRequestHandler<GetPostByIdQuery, Response<GetPostByIdQueryViewModel>>,
-                                    IRequestHandler<GetAllPostQuery, Response<IReadOnlyList<GetAllPostQueryViewModel>>>
+    public class PostQueryHandler : IRequestHandler<GetPostByIdQuery, Response<GetPostByIdQueryResponse>>,
+                                    IRequestHandler<GetAllPostQuery, Response<IReadOnlyList<GetAllPostQueryResponse>>>
     {
-        public async Task<Response<GetPostByIdQueryViewModel>> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
+        public async Task<Response<GetPostByIdQueryResponse>> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<Response<IReadOnlyList<GetAllPostQueryViewModel>>> Handle(GetAllPostQuery request, CancellationToken cancellationToken)
+        public async Task<Response<IReadOnlyList<GetAllPostQueryResponse>>> Handle(GetAllPostQuery request, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

@@ -4,19 +4,36 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
+    /// <summary>
+    /// Post Controller
+    /// </summary>
     [Area("Admin")]
     public class PostController : BaseController
     {
+        /// <summary>
+        /// Index Method. Retrieve all Posts
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Add Post Get Endpoint
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Add()
         {
             return View(new AddPostCommand());
         }
+
+        /// <summary>
+        /// Add Post HttpPost Endpoint
+        /// </summary>
+        /// <param name="addPostCommand"></param>
+        /// <returns></returns>
 
         [HttpPost]
         public async Task<IActionResult> Add(AddPostCommand addPostCommand)

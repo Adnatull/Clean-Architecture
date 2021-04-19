@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CA.Core.Application.Contracts.HandlerExchanges.Category.Queries
 {
-    public class GetAllCategoryQuery : IRequest<PaginatedList<GetAllCategoryQueryViewModel>>
+    public class GetAllCategoryQuery : IRequest<PaginatedList<GetAllCategoryQueryResponse>>
     {
         public int? PageNumber { get; set; }
         public int? PageSize { get; set; }

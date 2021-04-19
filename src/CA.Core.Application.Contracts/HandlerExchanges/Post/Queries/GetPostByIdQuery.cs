@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CA.Core.Application.Contracts.HandlerExchanges.Post.Queries
 {
-    public class GetPostByIdQuery : IRequest<Response<GetPostByIdQueryViewModel>>
+    public class GetPostByIdQuery : IRequest<Response<GetPostByIdQueryResponse>>
     {
     }
 }

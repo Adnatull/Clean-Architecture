@@ -9,7 +9,7 @@ namespace CA.Core.Application.Handlers.Category
         public CategoryMapperProfile()
         {
             CreateMap<AddCategoryCommand, Domain.Persistence.Entities.Category>();
-            CreateMap<Domain.Persistence.Entities.Category, GetAllCategoryQueryViewModel>();
+            CreateMap<Domain.Persistence.Entities.Category, GetAllCategoryQueryResponse>();
         }
     }
 }

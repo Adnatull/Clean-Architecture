@@ -1,6 +1,6 @@
 ﻿namespace CA.Core.Application.Contracts.HandlerExchanges.Category.Queries
 {
-    public class GetAllCategoryQueryViewModel
+    public class GetAllCategoryQueryResponse
     {
         public string Title { get; set; }
         public string Slug { get; set; }

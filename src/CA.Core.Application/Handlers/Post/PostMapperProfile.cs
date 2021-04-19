@@ -8,8 +8,8 @@ namespace CA.Core.Application.Handlers.Post
     {
         public PostMapperProfile()
         {
-            CreateMap<Domain.Persistence.Entities.Post, GetPostByIdQueryViewModel>();
-            CreateMap<Domain.Persistence.Entities.Post, GetAllPostQueryViewModel>();
+            CreateMap<Domain.Persistence.Entities.Post, GetPostByIdQueryResponse>();
+            CreateMap<Domain.Persistence.Entities.Post, GetAllPostQueryResponse>();
             CreateMap<AddPostCommand, Domain.Persistence.Entities.Post>();
         }
     }

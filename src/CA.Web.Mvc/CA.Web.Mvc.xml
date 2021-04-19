@@ -4,6 +4,22 @@
         <name>CA.Web.Mvc</name>
     </assembly>
     <members>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.BaseController">
+            <summary>
+            Base Controller
+            </summary>
+        </member>
+        <member name="P:CA.Web.Mvc.Areas.Admin.Controllers.BaseController.Mediator">
+            <summary>
+            Mediator instance
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.BaseController.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Method gets executed on each each request
+            </summary>
+            <param name="filterContext"></param>
+        </member>
         <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.CategoryController">
             <summary>
             Category Controller
@@ -17,6 +33,162 @@
             </summary>
             <param name="getAllCategory"></param>
             <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.CategoryController.Add">
+            <summary>
+            Add Category GET endpoint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.CategoryController.Add(CA.Core.Application.Contracts.HandlerExchanges.Category.Commands.AddCategoryCommand)">
+            <summary>
+            Add Category Post Endpoint
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.DashboardController">
+            <summary>
+            Dashboard Controller
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.DashboardController.Index">
+            <summary>
+            Index Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.PostController">
+            <summary>
+            Post Controller
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.PostController.Index">
+            <summary>
+            Index Method. Retrieve all Posts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add">
+            <summary>
+            Add Post Get Endpoint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.PostController.Add(CA.Core.Application.Contracts.HandlerExchanges.Post.Commands.AddPostCommand)">
+            <summary>
+            Add Post HttpPost Endpoint
+            </summary>
+            <param name="addPostCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CA.Web.Mvc.Controllers.BaseController">
+            <summary>
+            Base Controller
+            </summary>
+        </member>
+        <member name="P:CA.Web.Mvc.Controllers.BaseController.Mediator">
+            <summary>
+            MediaTr Instance
+            </summary>
+        </member>
+        <member name="T:CA.Web.Mvc.Controllers.HomeController">
+            <summary>
+            Home Controller
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{CA.Web.Mvc.Controllers.HomeController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.HomeController.Index">
+            <summary>
+            Index Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.HomeController.Privacy">
+            <summary>
+            Privacy Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.HomeController.Error">
+            <summary>
+            Error Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CA.Web.Mvc.Models.ErrorViewModel">
+            <summary>
+            Error View Model
+            </summary>
+        </member>
+        <member name="P:CA.Web.Mvc.Models.ErrorViewModel.RequestId">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:CA.Web.Mvc.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Show ID
+            </summary>
+        </member>
+        <member name="T:CA.Web.Mvc.Program">
+            <summary>
+            Main Class. 
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Program.Main(System.String[])">
+            <summary>
+            Main Method. Gets invoked when application first runs
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Host Builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Program.GetVersionInformation(System.String)">
+            <summary>
+            Get Application Version Information from assembly
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="T:CA.Web.Mvc.Startup">
+            <summary>
+            Startup Class
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:CA.Web.Mvc.Startup.Configuration">
+            <summary>
+            Configuration instance. It contains all information from appSettings.json
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:CA.Web.Mvc.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
         </member>
     </members>
 </doc>

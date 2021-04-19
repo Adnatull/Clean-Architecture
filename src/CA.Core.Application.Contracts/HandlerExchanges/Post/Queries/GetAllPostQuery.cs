@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CA.Core.Application.Contracts.HandlerExchanges.Post.Queries
 {
-    public class GetAllPostQuery : IRequest<Response<IReadOnlyList<GetAllPostQueryViewModel>>>
+    public class GetAllPostQuery : IRequest<Response<IReadOnlyList<GetAllPostQueryResponse>>>
     {
     }
 }

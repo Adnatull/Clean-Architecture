@@ -11,8 +11,16 @@ using System.Threading.Tasks;
 
 namespace CA.Web.Mvc
 {
+    /// <summary>
+    /// Main Class. 
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main Method. Gets invoked when application first runs
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static async Task Main(string[] args)
         {
             if (args.Length == 1 && (args[0] == "--version" || args[0] == "-Version" || args[0] == "-V" || args[0] == "--v"))
@@ -41,6 +49,12 @@ namespace CA.Web.Mvc
                 Log.CloseAndFlush();
             }
         }
+
+        /// <summary>
+        /// Host Builder
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .UseSerilog()
@@ -49,6 +63,10 @@ namespace CA.Web.Mvc
                     webBuilder.UseStartup<Startup>();
                 });
 
+        /// <summary>
+        /// Get Application Version Information from assembly
+        /// </summary>
+        /// <param name="s"></param>
         private static void GetVersionInformation(string s)
         {
             var runtimeVersion = typeof(Startup)

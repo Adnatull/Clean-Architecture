@@ -25,11 +25,22 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
             return View(rs);
         }
 
+        /// <summary>
+        /// Add Category GET endpoint
+        /// </summary>
+        /// <returns></returns>
+
         [HttpGet]
         public IActionResult Add()
         {
             return View(new AddCategoryCommand());
         }
+
+        /// <summary>
+        /// Add Category Post Endpoint
+        /// </summary>
+        /// <param name="add"></param>
+        /// <returns></returns>
 
         [HttpPost]
         public async Task<IActionResult> Add(AddCategoryCommand add)

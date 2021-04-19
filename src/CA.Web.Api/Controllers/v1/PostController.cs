@@ -10,8 +10,8 @@ namespace CA.Web.Api.Controllers.v1
     public class PostController : BaseApiController
     {
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<GetAllPostQueryViewModel>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<GetAllPostQueryViewModel>>> GetProducts()
+        [ProducesResponseType(typeof(IEnumerable<GetAllPostQueryResponse>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<GetAllPostQueryResponse>>> GetProducts()
         {
             var products = await Mediator.Send(new GetAllPostQuery());
             return Ok(products);
