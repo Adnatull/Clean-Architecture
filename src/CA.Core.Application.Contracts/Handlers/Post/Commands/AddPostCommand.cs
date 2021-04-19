@@ -1,7 +1,7 @@
 ﻿using CA.Core.Application.Contracts.Response;
 using MediatR;
 
-namespace CA.Core.Application.Contracts.Features.Post.Commands.Add
+namespace CA.Core.Application.Contracts.Handlers.Post.Commands
 {
     public class AddPostCommand : IRequest<Response<int>>
     {

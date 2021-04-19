@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CA.Core.Application.Contracts.Features.Category.Queries
+﻿namespace CA.Core.Application.Contracts.Handlers.Category.Queries
 {
     public class GetAllCategoryQueryViewModel
     {

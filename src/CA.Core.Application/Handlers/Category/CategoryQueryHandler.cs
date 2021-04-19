@@ -1,17 +1,14 @@
-﻿using CA.Core.Application.Contracts.Features.Category.Queries;
-using CA.Core.Application.Contracts.Response;
-using MediatR;
-using System;
-using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using CA.Core.Application.Contracts.Handlers.Category.Queries;
+using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
-using LinqToDB;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CA.Core.Application.Features.Category
+namespace CA.Core.Application.Handlers.Category
 {
     public class CategoryQueryHandler : IRequestHandler<GetAllCategoryQuery, PaginatedList<GetAllCategoryQueryViewModel>>
     {

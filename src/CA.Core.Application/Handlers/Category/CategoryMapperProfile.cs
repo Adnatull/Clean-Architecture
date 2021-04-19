@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CA.Core.Application.Contracts.Features.Category.Commands;
-using CA.Core.Application.Contracts.Features.Category.Queries;
+using CA.Core.Application.Contracts.Handlers.Category.Commands;
+using CA.Core.Application.Contracts.Handlers.Category.Queries;
 
-namespace CA.Core.Application.Features.Category
+namespace CA.Core.Application.Handlers.Category
 {
     public class CategoryMapperProfile : Profile
     {

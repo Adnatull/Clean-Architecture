@@ -1,14 +1,14 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CA.Core.Application.Contracts.Features.Post.Commands.Add;
-using CA.Core.Application.Features.Post;
+using CA.Core.Application.Contracts.Handlers.Post.Commands;
+using CA.Core.Application.Handlers.Post;
 using CA.Core.Domain.Persistence.Contracts;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace CA.UnitTest.Application.Features.Post
+namespace CA.UnitTest.Application.Handlers.Post
 {
     [TestFixture]
     public class PostCommandHandlerTest

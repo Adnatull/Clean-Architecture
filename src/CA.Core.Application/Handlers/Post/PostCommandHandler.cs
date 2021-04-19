@@ -2,13 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CA.Core.Application.Contracts.Features.Post.Commands.Add;
+using CA.Core.Application.Contracts.Handlers.Post.Commands;
 using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace CA.Core.Application.Features.Post
+namespace CA.Core.Application.Handlers.Post
 {
     public class PostCommandHandler : IRequestHandler<AddPostCommand, Response<int>>
     {

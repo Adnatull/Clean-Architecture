@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Features.Post.Queries.GetAll;
+using CA.Core.Application.Contracts.Handlers.Post.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CA.Web.Api.Controllers.v1

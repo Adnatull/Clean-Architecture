@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using CA.Core.Application.Contracts.Features.Post.Commands.Add;
-using CA.Core.Application.Contracts.Features.Post.Queries.GetAll;
-using CA.Core.Application.Contracts.Features.Post.Queries.GetPostById;
+using CA.Core.Application.Contracts.Handlers.Post.Commands;
+using CA.Core.Application.Contracts.Handlers.Post.Queries;
 
-namespace CA.Core.Application.Features.Post
+namespace CA.Core.Application.Handlers.Post
 {
     public class PostMapperProfile : Profile
     {

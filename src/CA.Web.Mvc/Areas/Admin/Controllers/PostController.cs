@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Features.Post.Commands.Add;
+using CA.Core.Application.Contracts.Handlers.Post.Commands;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers

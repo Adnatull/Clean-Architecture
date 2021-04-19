@@ -3,7 +3,7 @@ using CA.Core.Application.Contracts.Response;
 using CA.Core.Application.Contracts.ValidationAttributes;
 using MediatR;
 
-namespace CA.Core.Application.Contracts.Features.Category.Commands
+namespace CA.Core.Application.Contracts.Handlers.Category.Commands
 {
     public class AddCategoryCommand : IRequest<Response<int>>
     {

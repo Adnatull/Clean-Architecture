@@ -1,16 +1,16 @@
-﻿using CA.Core.Application.Contracts.Features.Category.Commands;
-using CA.Core.Application.Contracts.Response;
-using MediatR;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using CA.Core.Application.Contracts.Handlers.Category.Commands;
+using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CA.Core.Application.Features.Category
+namespace CA.Core.Application.Handlers.Category
 {
     public class CategoryCommandHandler : IRequestHandler<AddCategoryCommand, Response<int>>
     {
