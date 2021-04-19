@@ -1,4 +1,4 @@
-﻿namespace CA.Core.Application.Contracts.Handlers.Category.Queries
+﻿namespace CA.Core.Application.Contracts.HandlerExchanges.Category.Queries
 {
     public class GetAllCategoryQueryViewModel
     {

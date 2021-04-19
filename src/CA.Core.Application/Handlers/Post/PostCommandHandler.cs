@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CA.Core.Application.Contracts.Handlers.Post.Commands;
+using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
 using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
 using MediatR;

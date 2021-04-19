@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CA.Core.Application.Contracts.Handlers.Category.Commands;
-using CA.Core.Application.Contracts.Handlers.Category.Queries;
+using CA.Core.Application.Contracts.HandlerExchanges.Category.Commands;
+using CA.Core.Application.Contracts.HandlerExchanges.Category.Queries;
 
 namespace CA.Core.Application.Handlers.Category
 {

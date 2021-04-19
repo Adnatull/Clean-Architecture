@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CA.Core.Application.Contracts.Handlers.Category.Commands;
+using CA.Core.Application.Contracts.HandlerExchanges.Category.Commands;
 using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
 using MediatR;

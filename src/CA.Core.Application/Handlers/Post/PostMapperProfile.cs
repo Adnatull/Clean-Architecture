@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CA.Core.Application.Contracts.Handlers.Post.Commands;
-using CA.Core.Application.Contracts.Handlers.Post.Queries;
+using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
+using CA.Core.Application.Contracts.HandlerExchanges.Post.Queries;
 
 namespace CA.Core.Application.Handlers.Post
 {

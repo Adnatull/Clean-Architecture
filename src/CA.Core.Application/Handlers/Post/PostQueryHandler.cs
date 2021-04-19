@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Handlers.Post.Queries;
+using CA.Core.Application.Contracts.HandlerExchanges.Post.Queries;
 using CA.Core.Application.Contracts.Response;
 using MediatR;
 

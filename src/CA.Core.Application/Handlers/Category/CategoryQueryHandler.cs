@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using CA.Core.Application.Contracts.Handlers.Category.Queries;
+using CA.Core.Application.Contracts.HandlerExchanges.Category.Queries;
 using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Persistence.Contracts;
 using MediatR;

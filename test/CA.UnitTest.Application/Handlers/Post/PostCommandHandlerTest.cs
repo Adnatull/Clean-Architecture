@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CA.Core.Application.Contracts.Handlers.Post.Commands;
+using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
 using CA.Core.Application.Handlers.Post;
 using CA.Core.Domain.Persistence.Contracts;
 using Microsoft.Extensions.Logging;

@@ -1,4 +1,4 @@
-﻿namespace CA.Core.Application.Contracts.Handlers.Post.Queries
+﻿namespace CA.Core.Application.Contracts.HandlerExchanges.Post.Queries
 {
     public class GetAllPostQueryViewModel
     {
