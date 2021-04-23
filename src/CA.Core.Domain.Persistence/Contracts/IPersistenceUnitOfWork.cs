@@ -7,6 +7,7 @@ namespace CA.Core.Domain.Persistence.Contracts
 {
     public interface IPersistenceUnitOfWork : IDisposable
     {
+        
         public IPostRepositoryAsync Post { get; }
         public ICategoryRepositoryAsync Category { get; }
         public ITagRepositoryAsync Tag { get; }

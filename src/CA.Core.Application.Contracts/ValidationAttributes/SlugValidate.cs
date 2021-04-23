@@ -12,6 +12,10 @@ namespace CA.Core.Application.Contracts.ValidationAttributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            if (value == null)
+            {
+                return new ValidationResult("This field is required");
+            }
             var txt = value.ToString();
             if (txt != null && txt.Contains(' '))
             {

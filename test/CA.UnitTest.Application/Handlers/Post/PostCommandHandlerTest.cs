@@ -41,7 +41,6 @@ namespace CA.UnitTest.Application.Handlers.Post
                 Summary = "This is a summery",
                 Content = "This is a content"
             };
-
             var rs = await _postCommandHandler.Handle(post, CancellationToken.None);
             Assert.AreEqual(rs.Message, "Successfully saved post");
             Assert.AreEqual(rs.Data, 1);
