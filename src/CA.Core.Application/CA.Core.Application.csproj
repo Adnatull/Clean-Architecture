@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CA.Core.Application.Contracts\CA.Core.Application.Contracts.csproj" />
+    <ProjectReference Include="..\CA.Core.Domain.Identity\CA.Core.Domain.Identity.csproj" />
     <ProjectReference Include="..\CA.Core.Domain.Persistence\CA.Core.Domain.Persistence.csproj" />
   </ItemGroup>
 

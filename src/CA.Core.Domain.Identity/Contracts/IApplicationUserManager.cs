@@ -6,6 +6,6 @@ namespace CA.Core.Domain.Identity.Contracts
 {
     public interface IApplicationUserManager
     {
-        Task<IdentityResponse> RegisterUser(ApplicationUser user);
+        Task<IdentityResponse> RegisterUserAsync(ApplicationUser user);
     }
 }

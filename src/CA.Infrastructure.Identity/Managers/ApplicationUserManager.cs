@@ -1,10 +1,9 @@
-﻿using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using CA.Core.Domain.Identity.Contracts;
+﻿using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
 using CA.Core.Domain.Identity.Extensions;
 using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace CA.Infrastructure.Identity.Managers
 {
@@ -17,7 +16,7 @@ namespace CA.Infrastructure.Identity.Managers
             _userManager = userManager;
         }
 
-        public async Task<IdentityResponse> RegisterUser(ApplicationUser user)
+        public async Task<IdentityResponse> RegisterUserAsync(ApplicationUser user)
         {
             if (await _userManager.FindByEmailAsync(user.Email) != null)
             {

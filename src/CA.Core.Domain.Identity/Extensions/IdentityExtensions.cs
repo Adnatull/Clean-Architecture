@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CA.Core.Domain.Identity.Response;
+﻿using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
 
 namespace CA.Core.Domain.Identity.Extensions
