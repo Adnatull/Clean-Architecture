@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CA.Web.Mvc.Areas.Admin.Controllers
+namespace CA.Web.Mvc.Controllers
 {
     /// <summary>
     /// Account controller. Responsible for functioning authentication related tasks 
     /// </summary>
-    [Area("Admin")]
+ 
     public class AccountController : BaseController
     {
         /// <summary>

@@ -4,17 +4,6 @@
         <name>CA.Web.Mvc</name>
     </assembly>
     <members>
-        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.AccountController">
-            <summary>
-            Account controller. Responsible for functioning authentication related tasks 
-            </summary>
-        </member>
-        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.AccountController.Register">
-            <summary>
-            Register Action Method. User registration view renders from this action method
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.BaseController">
             <summary>
             Base Controller
@@ -91,6 +80,17 @@
             Add Post HttpPost Endpoint
             </summary>
             <param name="addPostCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CA.Web.Mvc.Controllers.AccountController">
+            <summary>
+            Account controller. Responsible for functioning authentication related tasks 
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.Register">
+            <summary>
+            Register Action Method. User registration view renders from this action method
+            </summary>
             <returns></returns>
         </member>
         <member name="T:CA.Web.Mvc.Controllers.BaseController">

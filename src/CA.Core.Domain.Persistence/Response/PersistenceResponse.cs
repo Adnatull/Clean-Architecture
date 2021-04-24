@@ -49,5 +49,10 @@ namespace CA.Core.Domain.Persistence.Response
             var result = new PersistenceResponse<T> { Succeeded = false, Errors = errors };
             return result;
         }
+
+        public override string ToString()
+        {
+            return Succeeded ? Message : Errors.Count == 0 ? Message : $"{Message} : {string.Join(",", Errors)}";
+        }
     }
 }

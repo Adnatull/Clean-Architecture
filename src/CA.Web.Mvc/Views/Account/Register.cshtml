@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Register";
-    Layout = "~/Areas/Admin/Views/Shared/_NoLayout.cshtml";
+    Layout = "~/Views/Shared/_NoLayout.cshtml";
 }
 
 @section Stylesheets
@@ -24,54 +24,67 @@
 
             <form asp-action="Register" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="input-group mb-3">
-                    <input asp-for="FirstName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.FirstName)" />
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="FirstName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.FirstName)" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
                         </div>
                     </div>
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
 
-                <div class="input-group mb-3">
-                    <input asp-for="LastName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.LastName)" />
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="LastName" class="form-control" placeholder="@Html.DisplayNameFor(m => m.LastName)" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
                         </div>
                     </div>
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
 
-                <div class="input-group mb-3">
-                    <input asp-for="Email" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Email)" />
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="Email" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Email)" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
                         </div>
                     </div>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
-                <div class="input-group mb-3">
-                    <input asp-for="Password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Password)" />
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="Password" class="form-control" placeholder="@Html.DisplayNameFor(m => m.Password)" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
                         </div>
                     </div>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                <div class="input-group mb-3">
-                    <input asp-for="ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(m => m.ConfirmPassword)" />
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="@Html.DisplayNameFor(m => m.ConfirmPassword)" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
                         </div>
                     </div>
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
+                
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">

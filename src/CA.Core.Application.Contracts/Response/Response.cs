@@ -62,5 +62,10 @@ namespace CA.Core.Application.Contracts.Response
             var result = new Response<T> { Succeeded = false, Errors = errors };
             return result;
         }
+
+        public override string ToString()
+        {
+            return Succeeded ? Message : Errors.Count == 0 ? Message : $"{Message} : {string.Join(",", Errors)}";
+        }
     }
 }
