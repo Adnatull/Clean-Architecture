@@ -87,10 +87,23 @@
             Account controller. Responsible for functioning authentication related tasks 
             </summary>
         </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.#ctor(CA.Core.Application.Contracts.Interfaces.IAccountService)">
+            <summary>
+            Constructor. Injecting Dependencies
+            </summary>
+            <param name="accountService"></param>
+        </member>
         <member name="M:CA.Web.Mvc.Controllers.AccountController.Register">
             <summary>
             Register Action Method. User registration view renders from this action method
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.Register(CA.Core.Application.Contracts.DataTransferObjects.RegisterUserDto)">
+            <summary>
+            Register Action Method. Registration POST request comes to this endpoint. 
+            </summary>
+            <param name="registerUserDto"></param>
             <returns></returns>
         </member>
         <member name="T:CA.Web.Mvc.Controllers.BaseController">

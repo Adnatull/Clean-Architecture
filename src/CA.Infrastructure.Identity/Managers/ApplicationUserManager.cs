@@ -1,9 +1,9 @@
 ﻿using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
-using CA.Core.Domain.Identity.Extensions;
 using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using CA.Infrastructure.Identity.Extensions;
 
 namespace CA.Infrastructure.Identity.Managers
 {
@@ -18,12 +18,12 @@ namespace CA.Infrastructure.Identity.Managers
 
         public async Task<IdentityResponse> RegisterUserAsync(ApplicationUser user)
         {
-            if (await _userManager.FindByEmailAsync(user.Email) != null)
+            if (user.Email != null && await _userManager.FindByEmailAsync(user.Email) != null)
             {
                 return IdentityResponse.Fail("Email already exists! Please try a different one!");
             }
-
-            if (await _userManager.FindByNameAsync(user.UserName) != null)
+            user.UserName ??= user.Email;
+            if (user.UserName != null && await _userManager.FindByNameAsync(user.UserName) != null)
             {
                 return IdentityResponse.Fail("User Name already exists! Please try a different one");
             }

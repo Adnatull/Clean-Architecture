@@ -1,7 +1,7 @@
 ﻿using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
 
-namespace CA.Core.Domain.Identity.Extensions
+namespace CA.Infrastructure.Identity.Extensions
 {
     public static class IdentityExtensions
     {

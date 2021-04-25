@@ -6,6 +6,6 @@ namespace CA.Core.Application.Contracts.Interfaces
 {
     public interface IAccountService
     {
-        Task<Response<UserIdentityDto>> RegisterUser(RegisterUserDto registerUserDto);
+        Task<Response<UserIdentityDto>> RegisterUserAsync(RegisterUserDto registerUserDto);
     }
 }

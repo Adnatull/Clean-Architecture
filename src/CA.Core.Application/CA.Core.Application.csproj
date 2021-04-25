@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CA.Core.Domain.Persistence\CA.Core.Domain.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

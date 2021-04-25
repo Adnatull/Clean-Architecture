@@ -52,7 +52,7 @@ namespace CA.Core.Domain.Persistence.Response
 
         public override string ToString()
         {
-            return Succeeded ? Message : Errors.Count == 0 ? Message : $"{Message} : {string.Join(",", Errors)}";
+            return Succeeded ? Message : Errors == null || Errors.Count == 0 ? Message : $"{Message} : {string.Join(",", Errors)}";
         }
     }
 }
