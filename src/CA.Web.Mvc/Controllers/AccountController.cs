@@ -8,7 +8,6 @@ namespace CA.Web.Mvc.Controllers
     /// <summary>
     /// Account controller. Responsible for functioning authentication related tasks 
     /// </summary>
- 
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
@@ -48,6 +47,28 @@ namespace CA.Web.Mvc.Controllers
                 return RedirectToAction("Login", new {succeeded = rs.Succeeded, message = rs.Message});
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(registerUserDto);
+        }
+
+        /// <summary>
+        /// Login Action method. Login page will be rendered to view from this action method
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View(new LoginUserDto());
+        }
+
+        /// <summary>
+        /// Login Post Action method. This method will receive userName, password and will doe further process to complete login process
+        /// </summary>
+        /// <param name="loginUserDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginUserDto loginUserDto)
+        {
+            if (!ModelState.IsValid) return View(loginUserDto);
+            return View(loginUserDto);
         }
     }
 }

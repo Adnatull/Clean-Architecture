@@ -106,6 +106,19 @@
             <param name="registerUserDto"></param>
             <returns></returns>
         </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.Login">
+            <summary>
+            Login Action method. Login page will be rendered to view from this action method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.Login(CA.Core.Application.Contracts.DataTransferObjects.LoginUserDto)">
+            <summary>
+            Login Post Action method. This method will receive userName, password and will doe further process to complete login process
+            </summary>
+            <param name="loginUserDto"></param>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.BaseController">
             <summary>
             Base Controller
