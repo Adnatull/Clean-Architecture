@@ -30,5 +30,10 @@ namespace CA.Infrastructure.Identity.Managers
             var rs = await _userManager.CreateAsync(user);
             return rs.ToIdentityResponse();
         }
+
+        public async Task<ApplicationUser> GetUserByNameAsync(string userName)
+        {
+            return await _userManager.FindByNameAsync(userName);
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace CA.Core.Application.Contracts.Interfaces
     public interface IAccountService
     {
         Task<Response<UserIdentityDto>> RegisterUserAsync(RegisterUserDto registerUserDto);
+        Task<Response<UserIdentityDto>> CookieSignInAsync(LoginUserDto loginUserDto);
     }
 }

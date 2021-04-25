@@ -68,6 +68,10 @@ namespace CA.Web.Mvc.Controllers
         public async Task<IActionResult> Login(LoginUserDto loginUserDto)
         {
             if (!ModelState.IsValid) return View(loginUserDto);
+            var rs = await _accountService.CookieSignInAsync(loginUserDto);
+            if (rs.Succeeded)
+                return RedirectToAction("Index", "Dashboard", new { succeeded = rs.Succeeded, message = rs.Message });
+            ModelState.AddModelError(string.Empty, rs.Message);
             return View(loginUserDto);
         }
     }
