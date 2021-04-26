@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using AutoMapper;
 using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
 using CA.Core.Application.Contracts.Response;
@@ -12,12 +15,17 @@ namespace CA.Core.Application.Services
     {
         private readonly IApplicationUserManager _userManager;
         private readonly IApplicationSignInManager _signInManager;
+        private readonly IApplicationRoleManager _roleManager;
         private readonly IMapper _mapper;
 
-        public AccountService(IApplicationUserManager userManager, IApplicationSignInManager signInManager, IMapper mapper)
+        public AccountService(IApplicationUserManager userManager,
+                                IApplicationSignInManager signInManager,
+                                IApplicationRoleManager roleManager,
+                                IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _mapper = mapper;
         }
         public async Task<Response<UserIdentityDto>> RegisterUserAsync(RegisterUserDto registerUserDto)
@@ -38,6 +46,20 @@ namespace CA.Core.Application.Services
             return rs.Succeeded
                 ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = user.Id}, rs.ToString())
                 : Response<UserIdentityDto>.Fail(rs.ToString());
+        }
+
+        public async Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal)
+        {
+            var user = await _userManager.GetUserAsync(claimsPrincipal);
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var roleClaims =  await _roleManager.GetClaims(roles);
+
+            var claims = userClaims.Union(roleClaims).ToList();
+            return claims.Count > 0
+                ? Response<IList<Claim>>.Success(claims, "Successfully retrieved")
+                : Response<IList<Claim>>.Fail("No Claims found");
         }
     }
 }

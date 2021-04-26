@@ -36,3 +36,4 @@ test/CA.UnitTest.Application/bin
 test/CA.UnitTest.Application/obj
 test/CA.UnitTest.Persistence/bin
 test/CA.UnitTest.Persistence/obj
+documentation/CA.Documentation/log.txt

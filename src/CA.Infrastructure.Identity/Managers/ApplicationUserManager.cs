@@ -1,4 +1,6 @@
-﻿using CA.Core.Domain.Identity.Contracts;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
 using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
@@ -34,6 +36,21 @@ namespace CA.Infrastructure.Identity.Managers
         public async Task<ApplicationUser> GetUserByNameAsync(string userName)
         {
             return await _userManager.FindByNameAsync(userName);
+        }
+
+        public async Task<IList<string>> GetRolesAsync(ApplicationUser user)
+        {
+            return await _userManager.GetRolesAsync(user);
+        }
+
+        public async Task<IList<Claim>> GetClaimsAsync(ApplicationUser user)
+        {
+            return await _userManager.GetClaimsAsync(user);
+        }
+
+        public async Task<ApplicationUser> GetUserAsync(ClaimsPrincipal claimsPrincipal)
+        {
+            return await _userManager.GetUserAsync(claimsPrincipal);
         }
     }
 }

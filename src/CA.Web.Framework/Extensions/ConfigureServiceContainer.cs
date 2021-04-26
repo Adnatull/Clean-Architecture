@@ -3,7 +3,9 @@ using CA.Core.Application.Container;
 using CA.Core.Application.Contracts.Interfaces;
 using CA.Infrastructure.Identity.Container;
 using CA.Infrastructure.Persistence.Container;
+using CA.Web.Framework.Authorization;
 using CA.Web.Framework.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +36,10 @@ namespace CA.Web.Framework.Extensions
             IdentityConfigureServiceContainer.AddManagers(services);
 
             ApplicationConfigureServiceContainer.AddServices(services);
+
+
+            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
             services.AddHttpContextAccessor();
             services.AddTransient<IAuthenticatedUser, AuthenticatedUser>();
