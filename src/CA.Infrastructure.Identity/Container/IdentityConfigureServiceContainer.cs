@@ -2,6 +2,7 @@
 using CA.Core.Domain.Identity.Entities;
 using CA.Infrastructure.Identity.Context;
 using CA.Infrastructure.Identity.Managers;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,7 @@ namespace CA.Infrastructure.Identity.Container
                     }
                 ).AddEntityFrameworkStores<IdentityContext>()
                 .AddDefaultTokenProviders();
+
         }
 
         public static void AddManagers(IServiceCollection services)

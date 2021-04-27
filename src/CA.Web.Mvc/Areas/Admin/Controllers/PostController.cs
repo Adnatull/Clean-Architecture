@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
@@ -8,6 +9,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
     /// Post Controller
     /// </summary>
     [Area("Admin")]
+    [Authorize(Roles = "SuperAdmin")]
     public class PostController : BaseController
     {
         /// <summary>

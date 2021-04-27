@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CA.Web.Framework.Authorization
 {
-    internal class PermissionPolicyProvider : IAuthorizationPolicyProvider
+    public class PermissionPolicyProvider : IAuthorizationPolicyProvider
     {
         public DefaultAuthorizationPolicyProvider FallbackPolicyProvider { get; }
         public PermissionPolicyProvider(IOptions<AuthorizationOptions> options)
@@ -15,13 +15,11 @@ namespace CA.Web.Framework.Authorization
         public Task<AuthorizationPolicy> GetDefaultPolicyAsync() => FallbackPolicyProvider.GetDefaultPolicyAsync();
         public Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
         {
-            if (policyName.StartsWith(CustomClaimTypes.Permission, StringComparison.OrdinalIgnoreCase))
-            {
-                var policy = new AuthorizationPolicyBuilder();
-                policy.AddRequirements(new PermissionRequirement(policyName));
-                return Task.FromResult(policy.Build());
-            }
-            return FallbackPolicyProvider.GetPolicyAsync(policyName);
+            if (!policyName.StartsWith(CustomClaimTypes.Permission, StringComparison.OrdinalIgnoreCase))
+                return FallbackPolicyProvider.GetPolicyAsync(policyName);
+            var policy = new AuthorizationPolicyBuilder();
+            policy.AddRequirements(new PermissionRequirement(policyName));
+            return Task.FromResult(policy.Build());
         }
         public Task<AuthorizationPolicy> GetFallbackPolicyAsync() => FallbackPolicyProvider.GetDefaultPolicyAsync();
     }

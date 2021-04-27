@@ -105,7 +105,7 @@
         <li class="nav-item dropdown user user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
                 <img src="~/adminAssets/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-                <span class="hidden-xs">Alexander Pierce</span>
+                <span class="hidden-xs">@User.Identity.Name</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- User image -->
@@ -113,7 +113,7 @@
                     <img src="~/adminAssets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
 
                     <p>
-                        Alexander Pierce - Web Developer
+                        @User.Identity.Name - Web Developer
                         <small>Member since Nov. 2012</small>
                     </p>
                 </li>

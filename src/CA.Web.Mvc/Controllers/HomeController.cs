@@ -2,12 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CA.Web.Mvc.Controllers
 {
     /// <summary>
     /// Home Controller
     /// </summary>
+    [AllowAnonymous]
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;

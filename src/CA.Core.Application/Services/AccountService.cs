@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using AutoMapper;
+﻿using AutoMapper;
 using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
 using CA.Core.Application.Contracts.Response;
 using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace CA.Core.Application.Services
@@ -70,5 +70,7 @@ namespace CA.Core.Application.Services
                 ? Response<IList<string>>.Success(roles, "Successfully retrieved")
                 : Response<IList<string>>.Fail("No Roles found");
         }
+
+        
     }
 }

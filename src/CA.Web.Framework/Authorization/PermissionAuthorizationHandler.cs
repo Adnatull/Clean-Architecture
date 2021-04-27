@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CA.Web.Framework.Authorization
 {
-    internal class PermissionAuthorizationHandler : AuthorizationHandler<PermissionRequirement>
+    public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionRequirement>
     {
         private readonly IAccountService _accountService;
         public PermissionAuthorizationHandler(IAccountService accountService)
@@ -20,7 +20,7 @@ namespace CA.Web.Framework.Authorization
                 context.Fail();
                 return;
             }
-
+            
             var roles = await _accountService.GetRolesAsync(context.User);
             if (roles.Succeeded && roles.Data.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
             {

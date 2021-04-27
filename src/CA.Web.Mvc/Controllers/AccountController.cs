@@ -10,6 +10,7 @@ namespace CA.Web.Mvc.Controllers
     /// <summary>
     /// Account controller. Responsible for functioning authentication related tasks 
     /// </summary>
+    [AllowAnonymous]
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
@@ -72,7 +73,7 @@ namespace CA.Web.Mvc.Controllers
             if (!ModelState.IsValid) return View(loginUserDto);
             var rs = await _accountService.CookieSignInAsync(loginUserDto);
             if (rs.Succeeded)
-                return RedirectToAction("Index", "Dashboard", new { succeeded = rs.Succeeded, message = rs.Message });
+                return RedirectToAction("Index", "Dashboard", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(loginUserDto);
         }

@@ -29,6 +29,9 @@ namespace CA.Web.Framework.Extensions
 
         public static void AddFramework(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+
             PersistenceConfigureServiceContainer.AddDbContext(services, configuration);
             PersistenceConfigureServiceContainer.AddRepositories(services);
 
@@ -36,10 +39,6 @@ namespace CA.Web.Framework.Extensions
             IdentityConfigureServiceContainer.AddManagers(services);
 
             ApplicationConfigureServiceContainer.AddServices(services);
-
-
-            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
-            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
             services.AddHttpContextAccessor();
             services.AddTransient<IAuthenticatedUser, AuthenticatedUser>();

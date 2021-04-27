@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CA.Web.Framework.Authorization
 {
-    internal class PermissionRequirement : IAuthorizationRequirement
+    public class PermissionRequirement : IAuthorizationRequirement
     {
         public string Permission { get; private set; }
         public PermissionRequirement(string permission)

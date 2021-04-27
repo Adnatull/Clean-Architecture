@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
@@ -51,6 +52,11 @@ namespace CA.Infrastructure.Identity.Managers
         public async Task<ApplicationUser> GetUserAsync(ClaimsPrincipal claimsPrincipal)
         {
             return await _userManager.GetUserAsync(claimsPrincipal);
+        }
+
+        public IQueryable<ApplicationUser> Users()
+        {
+            return _userManager.Users;
         }
     }
 }
