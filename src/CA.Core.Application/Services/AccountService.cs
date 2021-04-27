@@ -61,5 +61,14 @@ namespace CA.Core.Application.Services
                 ? Response<IList<Claim>>.Success(claims, "Successfully retrieved")
                 : Response<IList<Claim>>.Fail("No Claims found");
         }
+
+        public async Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal)
+        {
+            var user = await _userManager.GetUserAsync(claimsPrincipal);
+            var roles = await _userManager.GetRolesAsync(user);
+            return roles.Count > 0
+                ? Response<IList<string>>.Success(roles, "Successfully retrieved")
+                : Response<IList<string>>.Fail("No Roles found");
+        }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
+using CA.Core.Domain.Identity.Enums;
 
 namespace CA.Infrastructure.Identity.Seeds
 {
@@ -48,10 +49,10 @@ namespace CA.Infrastructure.Identity.Seeds
         {
             if (!await roleManager.Roles.AnyAsync())
             {
-                await roleManager.CreateAsync(new ApplicationRole("SuperAdmin"));
-                await roleManager.CreateAsync(new ApplicationRole("Admin"));
-                await roleManager.CreateAsync(new ApplicationRole("Moderator"));
-                await roleManager.CreateAsync(new ApplicationRole("Basic"));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin.ToString()));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Admin.ToString()));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Moderator.ToString()));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Basic.ToString()));
             }
             var defaultUser = new ApplicationUser
             {
@@ -62,14 +63,15 @@ namespace CA.Infrastructure.Identity.Seeds
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
             };
-            var user = await userManager.FindByNameAsync(defaultUser.Email);
-            if (user == null)
+            var userByName = await userManager.FindByNameAsync(defaultUser.UserName);
+            var userByEmail = await userManager.FindByEmailAsync(defaultUser.Email);
+            if (userByName == null && userByEmail == null)
             {
                 await userManager.CreateAsync(defaultUser, "masum");
-                await userManager.AddToRoleAsync(defaultUser, "SuperAdmin");
-                await userManager.AddToRoleAsync(defaultUser, "Admin");
-                await userManager.AddToRoleAsync(defaultUser, "Moderator");
-                await userManager.AddToRoleAsync(defaultUser, "Basic");
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.SuperAdmin.ToString());
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin.ToString());
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator.ToString());
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Basic.ToString());
             }
         }
     }

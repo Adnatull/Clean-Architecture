@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
+using CA.Web.Framework.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CA.Web.Mvc.Controllers

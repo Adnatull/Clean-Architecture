@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using CA.Core.Application.Contracts.Interfaces;
+using CA.Core.Domain.Identity.Enums;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CA.Web.Framework.Authorization
@@ -19,7 +20,13 @@ namespace CA.Web.Framework.Authorization
                 context.Fail();
                 return;
             }
-            
+
+            var roles = await _accountService.GetRolesAsync(context.User);
+            if (roles.Succeeded && roles.Data.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
+            {
+                context.Succeed(requirement);
+                return;
+            }
             var claims = await _accountService.GetAllClaims(context.User);
             if (!claims.Succeeded)
             {
@@ -32,6 +39,7 @@ namespace CA.Web.Framework.Authorization
                                      && x.Issuer == "LOCAL AUTHORITY"))
             {
                 context.Succeed(requirement);
+                return;
             }
             context.Fail();
         }
