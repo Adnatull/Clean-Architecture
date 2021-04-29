@@ -7,7 +7,7 @@ namespace CA.Web.Mvc.Controllers
     /// <summary>
     /// Base Controller
     /// </summary>
-    public class BaseController : Controller
+    public abstract class  BaseController : Controller
     {
         private IMediator _mediator;
 

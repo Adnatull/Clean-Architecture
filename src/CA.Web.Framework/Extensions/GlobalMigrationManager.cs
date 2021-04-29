@@ -7,11 +7,11 @@ namespace CA.Web.Framework.Extensions
 {
     public static class GlobalMigrationManager
     {
-        public static async Task<IHost> MigrateAndSeedAsync(this IHost host)
+        public static  IHost MigrateAndSeed(this IHost host)
         {
-            await PersistenceMigrationManager.MigrateDatabaseAsync(host);
-            await IdentityMigrationManager.MigrateDatabaseAsync(host);
-            await IdentityMigrationManager.SeedDatabaseAsync(host);
+            PersistenceMigrationManager.MigrateDatabaseAsync(host).GetAwaiter().GetResult();
+            IdentityMigrationManager.MigrateDatabaseAsync(host).GetAwaiter().GetResult();
+            IdentityMigrationManager.SeedDatabaseAsync(host).GetAwaiter().GetResult();
             return host;
         }
     }

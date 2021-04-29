@@ -20,7 +20,7 @@ namespace CA.Web.Framework.Authorization
                 context.Fail();
                 return;
             }
-            
+
             var roles = await _accountService.GetRolesAsync(context.User);
             if (roles.Succeeded && roles.Data.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
             {

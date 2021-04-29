@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
+using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,13 +10,15 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
     /// Post Controller
     /// </summary>
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin")]
+    
     public class PostController : BaseController
     {
         /// <summary>
         /// Index Method. Retrieve all Posts
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [Authorize(Policy = Permissions.Posts.View)]
         public IActionResult Index()
         {
             return View();
@@ -26,6 +29,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Policy = Permissions.Posts.Create)]
         public IActionResult Add()
         {
             return View(new AddPostCommand());
@@ -38,6 +42,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         /// <returns></returns>
 
         [HttpPost]
+        [Authorize(Policy = Permissions.Posts.Create)]
         public async Task<IActionResult> Add(AddPostCommand addPostCommand)
         {
             if (!ModelState.IsValid) return View(addPostCommand);

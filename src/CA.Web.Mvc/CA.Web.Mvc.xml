@@ -82,6 +82,23 @@
             <param name="addPostCommand"></param>
             <returns></returns>
         </member>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.RoleController">
+            <summary>
+            Adding, updating functionality of roles can be done from this controller
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.RoleController.#ctor(CA.Core.Application.Contracts.Interfaces.IRoleService)">
+            <summary>
+            Constructor method. RoleService is injected here
+            </summary>
+            <param name="roleService"></param>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.RoleController.Index(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retrieve all roles and render them to View
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.AccountController">
             <summary>
             Account controller. Responsible for functioning authentication related tasks 
@@ -192,11 +209,10 @@
             <param name="args"></param>
             <returns></returns>
         </member>
-        <member name="M:CA.Web.Mvc.Program.GetVersionInformation(System.String)">
+        <member name="M:CA.Web.Mvc.Program.GetVersionInformation">
             <summary>
             Get Application Version Information from assembly
             </summary>
-            <param name="s"></param>
         </member>
         <member name="T:CA.Web.Mvc.Startup">
             <summary>

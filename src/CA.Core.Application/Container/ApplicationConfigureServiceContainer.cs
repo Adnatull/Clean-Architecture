@@ -13,6 +13,7 @@ namespace CA.Core.Application.Container
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
         }
     }
 }

@@ -21,11 +21,11 @@ namespace CA.Web.Mvc
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             if (args.Length == 1 && (args[0] == "--version" || args[0] == "-Version" || args[0] == "-V" || args[0] == "--v"))
             {
-                GetVersionInformation(args[0]);
+                GetVersionInformation();
                 return;
             }
             var configuration = new ConfigurationBuilder()
@@ -37,8 +37,8 @@ namespace CA.Web.Mvc
                 .CreateLogger();
             try
             {
-                var host = await CreateHostBuilder(args).Build().MigrateAndSeedAsync();
-                await host.RunAsync();
+                var host = CreateHostBuilder(args).Build().MigrateAndSeed();
+                host.Run();
             }
             catch (Exception ex)
             {
@@ -66,8 +66,8 @@ namespace CA.Web.Mvc
         /// <summary>
         /// Get Application Version Information from assembly
         /// </summary>
-        /// <param name="s"></param>
-        private static void GetVersionInformation(string s)
+
+        private static void GetVersionInformation()
         {
             var runtimeVersion = typeof(Startup)
                 .GetTypeInfo()

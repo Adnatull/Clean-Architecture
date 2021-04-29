@@ -30,13 +30,7 @@ namespace CA.Web.Framework.Authorization
             public const string Delete = "Permissions.Dashboards.Delete";
         }
 
-        public static class Users
-        {
-            public const string View = "Permissions.Users.View";
-            public const string Create = "Permissions.Users.Create";
-            public const string Edit = "Permissions.Users.Edit";
-            public const string Delete = "Permissions.Users.Delete";
-        }
+       
 
         public static class Categories
         {
@@ -60,6 +54,22 @@ namespace CA.Web.Framework.Authorization
             public const string Create = "Permissions.Comments.Create";
             public const string Edit = "Permissions.Comments.Edit";
             public const string Delete = "Permissions.Comments.Delete";
+        }
+
+        public static class Users
+        {
+            public const string View = "Permissions.Users.View";
+            public const string Create = "Permissions.Users.Create";
+            public const string Edit = "Permissions.Users.Edit";
+            public const string Delete = "Permissions.Users.Delete";
+        }
+
+        public static class Roles
+        {
+            public const string View = "Permissions.Roles.View";
+            public const string Create = "Permissions.Roles.Create";
+            public const string Edit = "Permissions.Roles.Edit";
+            public const string Delete = "Permissions.Roles.Delete";
         }
 
     }

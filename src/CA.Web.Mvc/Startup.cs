@@ -1,4 +1,5 @@
 using CA.Web.Framework.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +37,12 @@ namespace CA.Web.Mvc
         {
             services.AddAutoMapper();
             services.AddFramework(Configuration);
+            services.AddAuthentication()
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login/";
+                    options.AccessDeniedPath = "/Account/Forbidden/";
+                });
             services.AddControllersWithViews();
         }
 
@@ -57,10 +64,11 @@ namespace CA.Web.Mvc
             }
             app.UseStaticFiles();
 
-            app.UseRouting();
             app.UseSerilogRequestLogging();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapAreaControllerRoute(

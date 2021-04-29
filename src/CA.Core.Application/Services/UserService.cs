@@ -24,8 +24,8 @@ namespace CA.Core.Application.Services
         {
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<ApplicationUser, UserDto>());
-            var cats = _userManager.Users().ProjectTo<UserDto>(configuration);
-            return await PaginatedList<UserDto>.CreateAsync(cats.AsNoTracking(),
+            var users = _userManager.Users().ProjectTo<UserDto>(configuration);
+            return await PaginatedList<UserDto>.CreateAsync(users.AsNoTracking(),
                 pageNumber ?? 1, pageSize ?? 12);
         }
     }

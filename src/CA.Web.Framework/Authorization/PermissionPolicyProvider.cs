@@ -18,6 +18,7 @@ namespace CA.Web.Framework.Authorization
             if (!policyName.StartsWith(CustomClaimTypes.Permission, StringComparison.OrdinalIgnoreCase))
                 return FallbackPolicyProvider.GetPolicyAsync(policyName);
             var policy = new AuthorizationPolicyBuilder();
+            policy.RequireAuthenticatedUser();
             policy.AddRequirements(new PermissionRequirement(policyName));
             return Task.FromResult(policy.Build());
         }

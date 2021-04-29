@@ -40,5 +40,10 @@ namespace CA.Infrastructure.Identity.Managers
         {
             return await _roleManager.FindByNameAsync(roleName);
         }
+
+        public IQueryable<ApplicationRole> Roles()
+        {
+            return _roleManager.Roles;
+        }
     }
 }
