@@ -4,20 +4,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using System;
-using System.ComponentModel;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace CA.Web.Api
 {
     public class Program
     {
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             if (args.Length == 1 && (args[0] == "--version" || args[0] == "-Version" || args[0] == "-V" || args[0] == "--v"))
             {
-                GetVersionInformation(args[0]);
+                GetVersionInformation();
                 return;
             }
             var configuration = new ConfigurationBuilder()
@@ -30,10 +28,10 @@ namespace CA.Web.Api
             try
             {
                 Log.Information("Application Starting.");
-                var host = await CreateHostBuilder(args)
+                var host = CreateHostBuilder(args)
                     .Build()
-                    .MigrateAndSeedAsync();
-                await host.RunAsync();
+                    .MigrateAndSeed();
+                host.Run();
             }
             catch (Exception ex)
             {
@@ -54,7 +52,7 @@ namespace CA.Web.Api
                     webBuilder.UseStartup<Startup>();
                 });
 
-        private static void GetVersionInformation(string s)
+        private static void GetVersionInformation()
         {
             var runtimeVersion = typeof(Startup)
                 .GetTypeInfo()

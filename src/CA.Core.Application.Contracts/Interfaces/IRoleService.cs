@@ -7,5 +7,6 @@ namespace CA.Core.Application.Contracts.Interfaces
     public interface IRoleService
     {
         Task<PaginatedList<RoleDto>> GetPaginatedRolesAsync(int? pageNumber, int? pageSize);
+        Task<Response<string>> AddRoleAsync(AddRoleDto addRoleDto);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
 using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +35,35 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         {
             var rs = await _roleService.GetPaginatedRolesAsync(pageNumber, pageSize);
             return View(rs);
+        }
+
+        /// <summary>
+        /// Render view to create role
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Policy = Permissions.Roles.Create)]
+        public IActionResult Add()
+        {
+            return View(new AddRoleDto());
+        }
+
+        /// <summary>
+        /// Endpoint to create new role. This accept role data from user and submit to respective service
+        /// </summary>
+        /// <param name="addRoleDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize(Policy = Permissions.Roles.Create)]
+        public async Task<IActionResult> Add(AddRoleDto addRoleDto)
+        {
+            if (!ModelState.IsValid) return View(addRoleDto);
+            var rs = await _roleService.AddRoleAsync(addRoleDto);
+            if (rs.Succeeded)
+                return RedirectToAction("Index", "Role",
+                    new {area = "Admin", id = rs.Data, succeeded = rs.Succeeded, message = rs.Message});
+            ModelState.AddModelError(string.Empty, rs.Message);
+            return View(addRoleDto);
         }
     }
 }

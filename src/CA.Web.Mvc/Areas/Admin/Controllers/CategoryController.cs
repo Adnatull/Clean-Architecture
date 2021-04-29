@@ -51,7 +51,8 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
             }
             var rs = await Mediator.Send(add);
             if (rs.Succeeded)
-                return RedirectToAction("Index", "Dashboard", new {id =rs.Data, message = rs.Message});
+                return RedirectToAction("Index", 
+                    new {area = "Admin", id = rs.Data, succeeded = rs.Succeeded, message = rs.Message});
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(add);
         }

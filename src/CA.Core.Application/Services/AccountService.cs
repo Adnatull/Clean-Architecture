@@ -54,7 +54,7 @@ namespace CA.Core.Application.Services
             var userClaims = await _userManager.GetClaimsAsync(user);
 
             var roles = await _userManager.GetRolesAsync(user);
-            var roleClaims =  await _roleManager.GetClaims(roles);
+            var roleClaims =  await _roleManager.GetClaimsAsync(roles);
 
             var claims = userClaims.Union(roleClaims).ToList();
             return claims.Count > 0

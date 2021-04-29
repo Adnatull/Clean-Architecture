@@ -99,6 +99,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.RoleController.Add">
+            <summary>
+            Render view to create role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.RoleController.Add(CA.Core.Application.Contracts.DataTransferObjects.AddRoleDto)">
+            <summary>
+            Endpoint to create new role. This accept role data from user and submit to respective service
+            </summary>
+            <param name="addRoleDto"></param>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.AccountController">
             <summary>
             Account controller. Responsible for functioning authentication related tasks 
