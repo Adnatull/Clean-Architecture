@@ -41,7 +41,7 @@ namespace CA.Web.Framework.Extensions
             ApplicationConfigureServiceContainer.AddServices(services);
 
             services.AddHttpContextAccessor();
-            services.AddTransient<IAuthenticatedUser, AuthenticatedUser>();
+            services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddTransient<IDateTimeService, DateTimeService>();
         }
 

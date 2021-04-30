@@ -15,14 +15,14 @@ namespace CA.Infrastructure.Persistence.Context
     public class AppDbContext : DbContext
     {
         private readonly IDateTimeService _dateTime;
-        private readonly IAuthenticatedUser _authenticatedUser;
+        private readonly ICurrentUser _authenticatedUser;
 
         /// <summary>
         ///     Linq2Db instance of DbContext. Use it for bulk insert and bulk fetch. 
         /// </summary>
         public DataConnection Linq2Db { get; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options, IDateTimeService dateTime, IAuthenticatedUser authenticatedUser)
+        public AppDbContext(DbContextOptions<AppDbContext> options, IDateTimeService dateTime, ICurrentUser authenticatedUser)
             : base(options)
         {
             _dateTime = dateTime;

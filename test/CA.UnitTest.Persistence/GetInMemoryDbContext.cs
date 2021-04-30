@@ -22,7 +22,7 @@ namespace CA.UnitTest.Persistence
             var dateTime = new Mock<IDateTimeService>(MockBehavior.Strict);
             dateTime.Setup(r => r.NowUtc).Returns(DateTime.UtcNow);
 
-            var authUser = new Mock<IAuthenticatedUser>(MockBehavior.Strict);
+            var authUser = new Mock<ICurrentUser>(MockBehavior.Strict);
             authUser.Setup(r => r.UserId).Returns("");
             authUser.Setup(r => r.UserName).Returns("");
             authUser.Setup(r => r.Roles).Returns(new List<string> { "SuperAdmin" });

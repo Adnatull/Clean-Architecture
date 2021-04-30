@@ -112,6 +112,22 @@
             <param name="addRoleDto"></param>
             <returns></returns>
         </member>
+        <member name="T:CA.Web.Mvc.Areas.Admin.Controllers.UserController">
+            <summary>
+            User Controller. User management functionalities can be done here
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.UserController.#ctor(CA.Core.Application.Contracts.Interfaces.IUserService)">
+            <summary>
+            Constructor. Dependency gets injected through this
+            </summary>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.UserController.Index(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get All Users 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.AccountController">
             <summary>
             Account controller. Responsible for functioning authentication related tasks 

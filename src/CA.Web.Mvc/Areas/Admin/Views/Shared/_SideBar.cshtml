@@ -1,4 +1,8 @@
-﻿ <!-- Main Sidebar Container -->
+﻿@using CA.Core.Application.Contracts.Interfaces
+@using CA.Web.Framework.Authorization
+
+<!-- Main Sidebar Container -->
+@inject ICurrentUser CurrentUser
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
@@ -12,7 +16,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="/admin" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
@@ -56,6 +60,64 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-header">Users, Roles & Permissions Management</li>
+                @if (CurrentUser.Permissions.Any(x => x.Value == Permissions.Users.View))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Users
+                                <i class="fas fa-users-cog"></i>
+                            </p>
+                        </a>
+                        @if (CurrentUser.Permissions.Any(x => x.Value == Permissions.Users.View))
+                        {
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="~/admin/user/index" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>All Users</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        }
+
+                    </li>
+                }
+                @if (CurrentUser.Permissions.Any(x => x.Value == Permissions.Roles.View))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Roles
+                                <i class="fas fa-users-cog"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @if (CurrentUser.Permissions.Any(x => x.Value == Permissions.Roles.View))
+                            {
+                                <li class="nav-item">
+                                    <a href="~/admin/role/index" class="nav-link">
+                                        <i class="fab fa-centercode"></i>
+                                        <p>All Roles</p>
+                                    </a>
+                                </li>
+                            }
+                            @if (CurrentUser.Permissions.Any(x => x.Value == Permissions.Roles.Create))
+                            {
+                                <li class="nav-item">
+                                    <a href="~/admin/role/add" class="nav-link">
+                                        <i class="fas fa-plus-square"></i>
+                                        <p>Add New Role</p>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
