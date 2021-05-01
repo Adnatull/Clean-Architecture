@@ -5,8 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using CA.Core.Domain.Identity.Enums;
+using CA.Core.Application.Contracts.Permissions;
 
 namespace CA.Infrastructure.Identity.Seeds
 {
@@ -47,6 +50,7 @@ namespace CA.Infrastructure.Identity.Seeds
 
         private static async Task SeedDefaultUserRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
+            
             if (!await roleManager.Roles.AnyAsync())
             {
                 await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin.ToString()));
@@ -54,6 +58,12 @@ namespace CA.Infrastructure.Identity.Seeds
                 await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Moderator.ToString()));
                 await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Basic.ToString()));
             }
+
+            if (!await roleManager.RoleExistsAsync(DefaultApplicationRoles.SuperAdmin.ToString()))
+            {
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin.ToString()));
+            }
+
             var defaultUser = new ApplicationUser
             {
                 UserName = "masum",
@@ -72,6 +82,18 @@ namespace CA.Infrastructure.Identity.Seeds
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin.ToString());
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator.ToString());
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Basic.ToString());
+            }
+
+            var role = await roleManager.FindByNameAsync(DefaultApplicationRoles.SuperAdmin.ToString());
+            var rolePermissions = await roleManager.GetClaimsAsync(role);
+            var allPermissions = PermissionHelper.GetAllPermissions();
+            foreach (var permission in allPermissions)
+            {
+                if (rolePermissions.Any(x => x.Value == permission.Value && x.Type == CustomClaimTypes.Permission) == false)
+                {
+                    await roleManager.AddClaimAsync(role,
+                        new Claim(CustomClaimTypes.Permission, permission.Value));
+                }
             }
         }
     }
