@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CA.Core.Application.Contracts.DataTransferObjects;
@@ -105,6 +106,27 @@ namespace CA.Core.Application.Services
                 ? Response<ManageUserPermissionsDto>.Success(manageUserRolesDto, "Successfully retrieved")
                 : Response<ManageUserPermissionsDto>.Fail(
                     $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
+        }
+
+        public async Task<Response<UserIdentityDto>> ManagePermissionsAsync(ManageUserPermissionsDto manageUserPermissionsDto)
+        {
+            var user = await _userManager.GetUserByIdAsync(manageUserPermissionsDto.UserId);
+            if (user == null)
+                return Response<UserIdentityDto>.Fail("No user exists by this id");
+
+            var existingClaims = await _userManager.GetClaimsAsync(user);
+            var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
+            var removeResult = await _userManager.RemoveClaimAsync(user, existingPermissions);
+            if (!removeResult.Succeeded)
+                return Response<UserIdentityDto>.Fail("Failed to remove existing Permissions");
+
+            var newClaims = manageUserPermissionsDto.ManagePermissionsDto.Where(x => x.Checked)
+                .Select(x => new Claim(CustomClaimTypes.Permission, x.Value)).ToList();
+            var rs = await _userManager.AddClaimsAsync(user, newClaims);
+           
+            return rs.Succeeded
+                ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserPermissionsDto.UserId }, rs.Message)
+                : Response<UserIdentityDto>.Fail(rs.Message);
         }
     }
 }

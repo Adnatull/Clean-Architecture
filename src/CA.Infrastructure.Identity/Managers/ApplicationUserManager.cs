@@ -18,6 +18,7 @@ namespace CA.Infrastructure.Identity.Managers
         public ApplicationUserManager(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
+
         }
 
         public async Task<IdentityResponse> RegisterUserAsync(ApplicationUser user)
@@ -85,6 +86,18 @@ namespace CA.Infrastructure.Identity.Managers
         {
             roleNames = roleNames.Where(x => x != DefaultApplicationRoles.SuperAdmin.ToString()).ToList();
             var rs = await _userManager.RemoveFromRolesAsync(user, roleNames);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> AddClaimsAsync(ApplicationUser user, List<Claim> claims)
+        {
+            var rs = await _userManager.AddClaimsAsync(user, claims);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims)
+        {
+            var rs = await _userManager.RemoveClaimsAsync(user, claims);
             return rs.ToIdentityResponse();
         }
 

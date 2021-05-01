@@ -80,5 +80,22 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
                 return RedirectToAction("Index", "User", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             return View(rs.Data);
         }
+
+        /// <summary>
+        ///  Manage User Permissions. Post Method
+        /// </summary>
+        /// <param name="manageUserPermissionsDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize(Policy = Permissions.Users.ManagePermissions)]
+        public async Task<IActionResult> ManageUserPermissions(ManageUserPermissionsDto manageUserPermissionsDto)
+        {
+            if (!ModelState.IsValid) return View(manageUserPermissionsDto);
+            var rs = await _userService.ManagePermissionsAsync(manageUserPermissionsDto);
+            if (rs.Succeeded)
+                return RedirectToAction("Index", "User", new { area = "Admin", id = rs.Data.Id, succeeded = rs.Succeeded, message = rs.Message });
+            ModelState.AddModelError(string.Empty, rs.Message);
+            return View(manageUserPermissionsDto);
+        }
     }
 }

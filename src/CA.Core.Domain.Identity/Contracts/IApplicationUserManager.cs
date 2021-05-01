@@ -19,6 +19,9 @@ namespace CA.Core.Domain.Identity.Contracts
         Task<IdentityResponse> AddToRolesAsync(ApplicationUser user, List<string> roleNames);
         Task<IdentityResponse> RemoveFromRoleAsync(ApplicationUser user, string roleName);
         Task<IdentityResponse> RemoveFromRolesAsync(ApplicationUser user, List<string> roleNames);
+        Task<IdentityResponse> AddClaimsAsync(ApplicationUser user, List<Claim> claims);
+        Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims);
+
         IQueryable<ApplicationUser> Users();
 
     }
