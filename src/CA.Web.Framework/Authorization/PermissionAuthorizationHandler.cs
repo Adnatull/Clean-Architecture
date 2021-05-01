@@ -9,10 +9,12 @@ namespace CA.Web.Framework.Authorization
 {
     public class PermissionAuthorizationHandler : AuthorizationHandler<PermissionRequirement>
     {
-        private readonly IAccountService _accountService;
-        public PermissionAuthorizationHandler(IAccountService accountService)
+
+        private readonly ICurrentUser _currentUser;
+
+        public PermissionAuthorizationHandler(ICurrentUser currentUser)
         {
-            _accountService = accountService;
+            _currentUser = currentUser;
         }
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PermissionRequirement requirement)
         {
@@ -22,20 +24,20 @@ namespace CA.Web.Framework.Authorization
                 return;
             }
 
-            var roles = await _accountService.GetRolesAsync(context.User);
-            if (roles.Succeeded && roles.Data.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
+            var roles = _currentUser.Roles;
+            if (roles.Count > 0 && roles.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
             {
                 context.Succeed(requirement);
                 return;
             }
-            var claims = await _accountService.GetAllClaims(context.User);
-            if (!claims.Succeeded)
+            var claims = await _currentUser.Permissions();
+            if (claims == null || claims.Count == 0)
             {
                 context.Fail();
                 return;
             }
 
-            if (claims.Data.Any(x => x.Type == CustomClaimTypes.Permission 
+            if (claims.Any(x => x.Type == CustomClaimTypes.Permission 
                                      && x.Value == requirement.Permission 
                                      && x.Issuer == "LOCAL AUTHORITY"))
             {

@@ -9,6 +9,6 @@ namespace CA.Core.Application.Contracts.Interfaces
         string UserId { get; }
         string UserName { get; }
         IReadOnlyList<string> Roles { get; }
-        public IReadOnlyList<Claim> Permissions { get; }
+        Task<IList<Claim>> Permissions();
     }
 }
