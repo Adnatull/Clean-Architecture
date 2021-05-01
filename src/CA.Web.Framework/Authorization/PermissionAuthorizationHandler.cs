@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using CA.Core.Application.Contracts.Interfaces;
+using CA.Core.Application.Contracts.Permissions;
 using CA.Core.Domain.Identity.Enums;
 using Microsoft.AspNetCore.Authorization;
 

@@ -9,7 +9,7 @@ namespace CA.Core.Application.Contracts.AutomapperProfiles
         public UserServiceProfile()
         {
             CreateMap<ApplicationUser, UserDto>();
-            CreateMap<ApplicationRole, ManageRolesDto>();
+            CreateMap<ApplicationRole, ManageRoleDto>();
         }
     }
 }

@@ -4,6 +4,7 @@ using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using CA.Core.Application.Contracts.Permissions;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
@@ -40,7 +41,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Policy = Permissions.Users.Edit)]
+        [Authorize(Policy = Permissions.Users.ManageRoles)]
         public async Task<IActionResult> ManageUserRoles(string userId)
         {
             var rs = await _userService.ManageRolesAsync(userId);
@@ -55,7 +56,7 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         /// <param name="manageUserRolesDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Policy = Permissions.Users.Edit)]
+        [Authorize(Policy = Permissions.Users.ManageRoles)]
         public async Task<IActionResult> ManageUserRoles(ManageUserRolesDto manageUserRolesDto)
         {
             if (!ModelState.IsValid) return View(manageUserRolesDto);
@@ -65,5 +66,12 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(manageUserRolesDto);
         }
+
+        //[HttpGet]
+        //[Authorize(Policy = Permissions.Users.ManagePermissions)]
+        //public async Task<IActionResult> ManageUserPermissions(string userId)
+        //{
+
+        //}
     }
 }

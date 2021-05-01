@@ -1,4 +1,4 @@
-﻿namespace CA.Web.Framework.Authorization
+﻿namespace CA.Core.Application.Contracts.Permissions
 {
     public class CustomClaimTypes
     {

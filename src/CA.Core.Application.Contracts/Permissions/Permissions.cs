@@ -1,19 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CA.Web.Framework.Authorization
+﻿namespace CA.Core.Application.Contracts.Permissions
 {
     public static class Permissions
     {
-        public static List<string> GeneratePermissionsForModule(string module)
-        {
-            return new()
-            {
-                $"Permissions.{module}.Create",
-                $"Permissions.{module}.View",
-                $"Permissions.{module}.Edit",
-                $"Permissions.{module}.Delete"
-            };
-        }
         public static class Posts
         {
             public const string View = "Permissions.Postss.View";
@@ -60,7 +48,9 @@ namespace CA.Web.Framework.Authorization
         {
             public const string View = "Permissions.Users.View";
             public const string Create = "Permissions.Users.Create";
-            public const string Edit = "Permissions.Users.Edit";
+            public const string Edit = "Permissions.Users.Edit"; 
+            public const string ManageRoles = "Permissions.Users.ManageRoles";
+            public const string ManagePermissions = "Permissions.Users.ManagePermissions";
             public const string Delete = "Permissions.Users.Delete";
         }
 
@@ -70,6 +60,7 @@ namespace CA.Web.Framework.Authorization
             public const string Create = "Permissions.Roles.Create";
             public const string Edit = "Permissions.Roles.Edit";
             public const string Delete = "Permissions.Roles.Delete";
+            public const string ManagePermissions = "Permissions.Roles.ManagePermissions";
         }
 
     }

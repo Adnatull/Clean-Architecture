@@ -8,9 +8,9 @@ namespace CA.Core.Application.Contracts.DataTransferObjects
         [Required]
         public string UserId { get; set; }
         public string UserName { get; set; }
-        public IList<ManageRolesDto> ManageRolesDtos { get; set; }
+        public IList<ManageRoleDto> ManageRolesDto { get; set; }
     }
-    public class ManageRolesDto
+    public class ManageRoleDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

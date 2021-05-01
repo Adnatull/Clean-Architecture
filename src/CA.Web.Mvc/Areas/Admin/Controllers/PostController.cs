@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CA.Core.Application.Contracts.HandlerExchanges.Post.Commands;
+using CA.Core.Application.Contracts.Permissions;
 using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

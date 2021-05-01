@@ -48,7 +48,7 @@ namespace CA.Core.Application.Services
             if(user == null) return Response<ManageUserRolesDto>.Fail("No User Exists");
             var userRoles = await _userManager.GetRolesAsync(user);
             var allRoles = await _roleManager.Roles().ToListAsync();
-            var allRolesDto = _mapper.Map<List<ManageRolesDto>>(allRoles);
+            var allRolesDto = _mapper.Map<List<ManageRoleDto>>(allRoles);
             foreach (var roleDto in allRolesDto.Where(roleDto => userRoles.Contains(roleDto.Name)))
             {
                 roleDto.Checked = true;
@@ -58,7 +58,7 @@ namespace CA.Core.Application.Services
             {
                 UserId = userId,
                 UserName = user.UserName,
-                ManageRolesDtos = allRolesDto
+                ManageRolesDto = allRolesDto
             };
             return allRolesDto.Count > 0
                 ? Response<ManageUserRolesDto>.Success(manageUserRolesDto, "Success")
@@ -75,7 +75,7 @@ namespace CA.Core.Application.Services
             if(!removeResult.Succeeded)
                 return Response<UserIdentityDto>.Fail("Failed to remove existing roles");
             var rs = await _userManager.AddToRolesAsync(user,
-                manageUserRolesDto.ManageRolesDtos.Where(x => x.Checked).Select(x => x.Name).ToList());
+                manageUserRolesDto.ManageRolesDto.Where(x => x.Checked).Select(x => x.Name).ToList());
             return rs.Succeeded
                 ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, rs.Message)
                 : Response<UserIdentityDto>.Fail(rs.Message);
