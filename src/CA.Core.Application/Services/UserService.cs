@@ -9,6 +9,7 @@ using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using CA.Core.Application.Contracts.Permissions;
 
 namespace CA.Core.Application.Services
 {
@@ -45,7 +46,7 @@ namespace CA.Core.Application.Services
         public async Task<Response<ManageUserRolesDto>> ManageRolesAsync(string userId)
         {
             var user = await _userManager.GetUserByIdAsync(userId);
-            if(user == null) return Response<ManageUserRolesDto>.Fail("No User Exists");
+            if (user == null) return Response<ManageUserRolesDto>.Fail("No User Exists");
             var userRoles = await _userManager.GetRolesAsync(user);
             var allRoles = await _roleManager.Roles().ToListAsync();
             var allRolesDto = _mapper.Map<List<ManageRoleDto>>(allRoles);
@@ -68,17 +69,42 @@ namespace CA.Core.Application.Services
         public async Task<Response<UserIdentityDto>> ManageRolesAsync(ManageUserRolesDto manageUserRolesDto)
         {
             var user = await _userManager.GetUserByIdAsync(manageUserRolesDto.UserId);
-            if(user == null)
+            if (user == null)
                 return Response<UserIdentityDto>.Fail("No user exists by this id");
             var existingRoles = await _userManager.GetRolesAsync(user);
             var removeResult = await _userManager.RemoveFromRolesAsync(user, existingRoles.ToList());
-            if(!removeResult.Succeeded)
+            if (!removeResult.Succeeded)
                 return Response<UserIdentityDto>.Fail("Failed to remove existing roles");
             var rs = await _userManager.AddToRolesAsync(user,
                 manageUserRolesDto.ManageRolesDto.Where(x => x.Checked).Select(x => x.Name).ToList());
             return rs.Succeeded
-                ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, rs.Message)
+                ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserRolesDto.UserId }, rs.Message)
                 : Response<UserIdentityDto>.Fail(rs.Message);
+        }
+
+        public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId)
+        {
+            var user = await _userManager.GetUserByIdAsync(userId);
+            if (user == null) return Response<ManageUserPermissionsDto>.Fail("No User Exists");
+            var userPermissions = await _userManager.GetClaimsAsync(user);
+            var allPermissions = PermissionHelper.GetAllPermissions();
+            foreach (var permission in allPermissions)
+            {
+                if (userPermissions.Any(x => x.Value == permission.Value))
+                {
+                    permission.Checked = true;
+                }
+            }
+            var manageUserRolesDto = new ManageUserPermissionsDto
+            {
+                UserId = userId,
+                UserName = user.UserName,
+                ManagePermissionsDto = allPermissions
+            };
+            return allPermissions.Count > 0
+                ? Response<ManageUserPermissionsDto>.Success(manageUserRolesDto, "Successfully retrieved")
+                : Response<ManageUserPermissionsDto>.Fail(
+                    $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
         }
     }
 }

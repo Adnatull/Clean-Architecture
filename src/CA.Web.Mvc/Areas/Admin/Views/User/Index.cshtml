@@ -42,7 +42,9 @@
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         <td>
-                            <a asp-action="ManageUserRoles" asp-route-userId="@item.Id" class="float-right">Manage Roles</a>
+                            <a asp-action="ManageUserRoles" asp-route-userId="@item.Id">Manage Roles</a>
+                            |
+                            <a asp-action="ManageUserPermissions" asp-route-userId="@item.Id">Manage Permissions</a>
                         </td>
                     </tr>
                 }

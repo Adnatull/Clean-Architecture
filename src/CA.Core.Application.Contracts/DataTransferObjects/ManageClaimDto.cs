@@ -3,7 +3,7 @@
     public class ManageClaimDto
     {
         public string Type { get; set; }
-        public bool Value { get; set; }
+        public string Value { get; set; }
         public bool Checked { get; set; }
     }
 }

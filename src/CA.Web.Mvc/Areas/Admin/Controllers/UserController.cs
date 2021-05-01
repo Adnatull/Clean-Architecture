@@ -1,10 +1,9 @@
 ﻿using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
-using CA.Web.Framework.Authorization;
+using CA.Core.Application.Contracts.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using CA.Core.Application.Contracts.Permissions;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
@@ -67,11 +66,19 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
             return View(manageUserRolesDto);
         }
 
-        //[HttpGet]
-        //[Authorize(Policy = Permissions.Users.ManagePermissions)]
-        //public async Task<IActionResult> ManageUserPermissions(string userId)
-        //{
-
-        //}
+        /// <summary>
+        /// Manage User Permissions
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Policy = Permissions.Users.ManagePermissions)]
+        public async Task<IActionResult> ManageUserPermissions(string userId)
+        {
+            var rs = await _userService.ManagePermissionsAsync(userId);
+            if (!rs.Succeeded)
+                return RedirectToAction("Index", "User", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
+            return View(rs.Data);
+        }
     }
 }

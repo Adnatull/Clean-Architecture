@@ -142,6 +142,13 @@
             <param name="manageUserRolesDto"></param>
             <returns></returns>
         </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserPermissions(System.String)">
+            <summary>
+            Manage User Permissions
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.AccountController">
             <summary>
             Account controller. Responsible for functioning authentication related tasks 
