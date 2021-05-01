@@ -6,6 +6,7 @@ using CA.Core.Domain.Identity.Entities;
 using CA.Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using CA.Core.Domain.Identity.Enums;
 using CA.Infrastructure.Identity.Extensions;
 
 namespace CA.Infrastructure.Identity.Managers
@@ -39,6 +40,11 @@ namespace CA.Infrastructure.Identity.Managers
             return await _userManager.FindByNameAsync(userName);
         }
 
+        public async Task<ApplicationUser> GetUserByIdAsync(string userId)
+        {
+            return await _userManager.FindByIdAsync(userId);
+        }
+
         public async Task<IList<string>> GetRolesAsync(ApplicationUser user)
         {
             return await _userManager.GetRolesAsync(user);
@@ -52,6 +58,34 @@ namespace CA.Infrastructure.Identity.Managers
         public async Task<ApplicationUser> GetUserAsync(ClaimsPrincipal claimsPrincipal)
         {
             return await _userManager.GetUserAsync(claimsPrincipal);
+        }
+
+        public async Task<IdentityResponse> AddToRoleAsync(ApplicationUser user, string roleName)
+        {
+            var rs = await _userManager.AddToRoleAsync(user, roleName);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> AddToRolesAsync(ApplicationUser user, List<string> roleNames)
+        {
+            var rs = await _userManager.AddToRolesAsync(user, roleNames);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> RemoveFromRoleAsync(ApplicationUser user, string roleName)
+        {
+            if(roleName == DefaultApplicationRoles.SuperAdmin.ToString())
+                return IdentityResponse.Fail("Can not to delete superAdmin role");
+
+            var rs = await _userManager.RemoveFromRoleAsync(user, roleName);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> RemoveFromRolesAsync(ApplicationUser user, List<string> roleNames)
+        {
+            roleNames = roleNames.Where(x => x != DefaultApplicationRoles.SuperAdmin.ToString()).ToList();
+            var rs = await _userManager.RemoveFromRolesAsync(user, roleNames);
+            return rs.ToIdentityResponse();
         }
 
         public IQueryable<ApplicationUser> Users()

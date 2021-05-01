@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using CA.Core.Application.Contracts.DataTransferObjects;
 using CA.Core.Application.Contracts.Interfaces;
 using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace CA.Web.Mvc.Areas.Admin.Controllers
 {
@@ -31,6 +32,38 @@ namespace CA.Web.Mvc.Areas.Admin.Controllers
         {
             var rs = await _userService.GetPaginatedUsersAsync(pageNumber, pageSize);
             return View(rs);
+        }
+
+        /// <summary>
+        /// Manage User Roles
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize(Policy = Permissions.Users.Edit)]
+        public async Task<IActionResult> ManageUserRoles(string userId)
+        {
+            var rs = await _userService.ManageRolesAsync(userId);
+            if (!rs.Succeeded)
+                return RedirectToAction("Index", "User", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
+            return View(rs.Data);
+        }
+
+        /// <summary>
+        /// Manage User Roles. Post Method
+        /// </summary>
+        /// <param name="manageUserRolesDto"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize(Policy = Permissions.Users.Edit)]
+        public async Task<IActionResult> ManageUserRoles(ManageUserRolesDto manageUserRolesDto)
+        {
+            if (!ModelState.IsValid) return View(manageUserRolesDto);
+            var rs = await _userService.ManageRolesAsync(manageUserRolesDto);
+            if (rs.Succeeded)
+                return RedirectToAction("Index", "User", new { area = "Admin", id = rs.Data.Id, succeeded = rs.Succeeded, message = rs.Message });
+            ModelState.AddModelError(string.Empty, rs.Message);
+            return View(manageUserRolesDto);
         }
     }
 }

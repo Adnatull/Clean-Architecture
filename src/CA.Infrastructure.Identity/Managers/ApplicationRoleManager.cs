@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CA.Core.Domain.Identity.Enums;
 using CA.Core.Domain.Identity.Response;
 using CA.Infrastructure.Identity.Extensions;
 
@@ -45,7 +46,7 @@ namespace CA.Infrastructure.Identity.Managers
 
         public IQueryable<ApplicationRole> Roles()
         {
-            return _roleManager.Roles;
+            return _roleManager.Roles.Where(x => x.Name != DefaultApplicationRoles.SuperAdmin.ToString());
         }
 
         /// <inheritdoc />

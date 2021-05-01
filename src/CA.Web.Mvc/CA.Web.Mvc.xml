@@ -128,6 +128,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserRoles(System.String)">
+            <summary>
+            Manage User Roles
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CA.Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserRoles(CA.Core.Application.Contracts.DataTransferObjects.ManageUserRolesDto)">
+            <summary>
+            Manage User Roles. Post Method
+            </summary>
+            <param name="manageUserRolesDto"></param>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.AccountController">
             <summary>
             Account controller. Responsible for functioning authentication related tasks 

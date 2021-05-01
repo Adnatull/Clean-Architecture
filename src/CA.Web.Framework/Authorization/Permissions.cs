@@ -11,7 +11,7 @@ namespace CA.Web.Framework.Authorization
                 $"Permissions.{module}.Create",
                 $"Permissions.{module}.View",
                 $"Permissions.{module}.Edit",
-                $"Permissions.{module}.Delete",
+                $"Permissions.{module}.Delete"
             };
         }
         public static class Posts
