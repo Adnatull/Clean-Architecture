@@ -96,14 +96,14 @@ namespace CA.Core.Application.Services
                     permission.Checked = true;
                 }
             }
-            var manageUserRolesDto = new ManageUserPermissionsDto
+            var manageUserPermissionsDto = new ManageUserPermissionsDto
             {
                 UserId = userId,
                 UserName = user.UserName,
                 ManagePermissionsDto = allPermissions
             };
             return allPermissions.Count > 0
-                ? Response<ManageUserPermissionsDto>.Success(manageUserRolesDto, "Successfully retrieved")
+                ? Response<ManageUserPermissionsDto>.Success(manageUserPermissionsDto, "Successfully retrieved")
                 : Response<ManageUserPermissionsDto>.Fail(
                     $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
         }

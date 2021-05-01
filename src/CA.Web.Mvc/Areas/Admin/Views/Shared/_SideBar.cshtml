@@ -20,49 +20,71 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="/admin" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Posts
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="~/admin/post/index" class="nav-link">
-                                <i class="nav-icon fas fa-list"></i>
-                                <p>All Posts</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="~/admin/post/add" class="nav-link">
-                                <i class="nav-icon fas fa-plus"></i>
-                                <p>Add New</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/editors.html" class="nav-link">
-                                <i class="nav-icon fas fa-layer-group"></i>
-                                <p>Categories</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/validation.html" class="nav-link">
-                                <i class="nav-icon fas fa-tags"></i>
-                                <p>Tags</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                @if (permissions.Any(x => x.Value == Permissions.Dashboards.View))
+                {
+                    <li class="nav-item menu-open">
+                        <a href="/admin" class="nav-link">
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>
+                                Dashboard
+                            </p>
+                        </a>
+                    </li>
+                }
+
+                @if (permissions.Any(x => x.Value == Permissions.Posts.View))
+                {
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Posts
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                            @if (permissions.Any(x => x.Value == Permissions.Posts.View))
+                            {
+                                <li class="nav-item">
+                                    <a href="~/admin/post/index" class="nav-link">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>All Posts</p>
+                                    </a>
+                                </li>
+                            }
+                            @if (permissions.Any(x => x.Value == Permissions.Posts.Create))
+                            {
+                                <li class="nav-item">
+                                    <a href="~/admin/post/add" class="nav-link">
+                                        <i class="nav-icon fas fa-plus"></i>
+                                        <p>Add New</p>
+                                    </a>
+                                </li>
+                            }
+                            @if (permissions.Any(x => x.Value == Permissions.Categories.View))
+                            {
+                                <li class="nav-item">
+                                    <a href="pages/forms/editors.html" class="nav-link">
+                                        <i class="nav-icon fas fa-layer-group"></i>
+                                        <p>Categories</p>
+                                    </a>
+                                </li>
+                            }
+
+                            @if (permissions.Any(x => x.Value == Permissions.Tags.View))
+                            {
+                                <li class="nav-item">
+                                    <a href="pages/forms/validation.html" class="nav-link">
+                                        <i class="nav-icon fas fa-tags"></i>
+                                        <p>Tags</p>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+
                 <li class="nav-header">Users, Roles & Permissions Management</li>
                 @if (permissions.Any(x => x.Value == Permissions.Users.View))
                 {
@@ -74,18 +96,17 @@
                                 <i class="fas fa-users-cog"></i>
                             </p>
                         </a>
-                        @if (permissions.Any(x => x.Value == Permissions.Users.View))
-                        {
-                            <ul class="nav nav-treeview">
+                        <ul class="nav nav-treeview">
+                            @if (permissions.Any(x => x.Value == Permissions.Users.View))
+                            {
                                 <li class="nav-item">
                                     <a href="~/admin/user/index" class="nav-link">
                                         <i class="nav-icon fas fa-list"></i>
                                         <p>All Users</p>
                                     </a>
                                 </li>
-                            </ul>
-                        }
-
+                            }
+                        </ul>
                     </li>
                 }
                 @if (permissions.Any(x => x.Value == Permissions.Roles.View))

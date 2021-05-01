@@ -18,6 +18,7 @@ namespace CA.Infrastructure.Identity.Managers
         public ApplicationRoleManager(RoleManager<ApplicationRole> roleManager)
         {
             _roleManager = roleManager;
+            
         }
 
         public async Task<IList<Claim>> GetClaimsAsync(string roleName)
@@ -42,6 +43,28 @@ namespace CA.Infrastructure.Identity.Managers
         public async Task<ApplicationRole> GetRoleAsync(string roleName)
         {
             return await _roleManager.FindByNameAsync(roleName);
+        }
+
+        public async Task<ApplicationRole> FindByIdAsync(string roleId)
+        {
+            return await _roleManager.FindByIdAsync(roleId);
+        }
+
+        public async Task<IList<Claim>> GetClaimsAsync(ApplicationRole role)
+        {
+            return await _roleManager.GetClaimsAsync(role);
+        }
+
+        public async Task<IdentityResponse> RemoveClaimAsync(ApplicationRole role, Claim claim)
+        {
+            var rs = await _roleManager.RemoveClaimAsync(role, claim);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> AddClaimAsync(ApplicationRole role, Claim claim)
+        {
+            var rs = await _roleManager.AddClaimAsync(role, claim);
+            return rs.ToIdentityResponse();
         }
 
         public IQueryable<ApplicationRole> Roles()

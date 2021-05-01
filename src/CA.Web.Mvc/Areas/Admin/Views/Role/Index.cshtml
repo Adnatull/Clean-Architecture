@@ -42,7 +42,7 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td>
-                            N/A
+                            <a asp-action="ManageRolePermissions" asp-route-roleId="@item.Id">Manage Permissions</a>
                         </td>
                     </tr>
                 }

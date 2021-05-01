@@ -50,7 +50,7 @@ namespace CA.Web.Framework.Services
                 var roleClaims = await _roleManager.GetClaimsAsync(role);
                 foreach (var roleClaim in roleClaims.Where(x => x.Type == CustomClaimTypes.Permission))
                 {
-                    if (_permissions.Any(x => x.Value != roleClaim.Value) == false)
+                    if (_permissions.Any(x => x.Value == roleClaim.Value) == false)
                     {
                         _permissions.Add(roleClaim);
                     }

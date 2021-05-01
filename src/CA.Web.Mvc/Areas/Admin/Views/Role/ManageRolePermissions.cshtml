@@ -1,19 +1,18 @@
-﻿@model CA.Core.Application.Contracts.DataTransferObjects.ManageUserPermissionsDto
-
+﻿@model CA.Core.Application.Contracts.DataTransferObjects.ManageRolePermissionsDto
 @{
-    ViewData["Title"] = "User Permissions";
+    ViewData["Title"] = "Role Permissions";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <div class="card">
-    <form method="post" asp-action="ManageUserPermissions" class="d-inline">
+    <form method="post" asp-action="ManageRolePermissions" class="d-inline">
         <div class="card-header">
-            <h3 class="card-title">Manage Permissions for User: <b>@Model.UserName</b></h3>
-            <a asp-action="Index" class="float-right">See All Users</a>
+            <h3 class="card-title">Manage Permissions for Role: <b>@Model.RoleName</b></h3>
+            <a asp-action="Index" class="float-right">See All Roles</a>
         </div>
         <div class="card-body">
-            <input asp-for="@Model.UserId" type="hidden" />
-            <input asp-for="@Model.UserName" type="hidden" />
+            <input asp-for="@Model.RoleId" type="hidden" />
+            <input asp-for="@Model.RoleName" type="hidden" />
             <table class="table table-striped">
                 <thead>
                     <tr>
