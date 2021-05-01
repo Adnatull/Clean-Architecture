@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CA.Core.Application.Contracts.Permissions;
 
 namespace CA.Web.Framework.Services
 {
@@ -40,14 +41,20 @@ namespace CA.Web.Framework.Services
             if (user == null)
                 return null;
             var userPermissions = await _userManager.GetClaimsAsync(user);
-            _permissions = userPermissions.ToList();
+            _permissions = userPermissions.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
 
             var roleNames = await _userManager.GetRolesAsync(user);
             foreach (var roleName in roleNames)
             {
                 var role = await _roleManager.FindByNameAsync(roleName);
                 var roleClaims = await _roleManager.GetClaimsAsync(role);
-                _permissions.AddRange(roleClaims);
+                foreach (var roleClaim in roleClaims.Where(x => x.Type == CustomClaimTypes.Permission))
+                {
+                    if (_permissions.Any(x => x.Value != roleClaim.Value) == false)
+                    {
+                        _permissions.Add(roleClaim);
+                    }
+                }
             }
             return _permissions;
         }
