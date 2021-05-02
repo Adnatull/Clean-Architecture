@@ -207,6 +207,13 @@
             <param name="loginUserDto"></param>
             <returns></returns>
         </member>
+        <member name="M:CA.Web.Mvc.Controllers.AccountController.SignOut(System.String)">
+            <summary>
+            Logout
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
         <member name="T:CA.Web.Mvc.Controllers.BaseController">
             <summary>
             Base Controller

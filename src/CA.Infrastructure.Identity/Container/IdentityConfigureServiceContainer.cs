@@ -1,6 +1,7 @@
 ﻿using CA.Core.Domain.Identity.Contracts;
 using CA.Core.Domain.Identity.Entities;
 using CA.Infrastructure.Identity.Context;
+using CA.Infrastructure.Identity.Identity;
 using CA.Infrastructure.Identity.Managers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,7 @@ namespace CA.Infrastructure.Identity.Container
 
                     }
                 ).AddEntityFrameworkStores<IdentityContext>()
+                .AddClaimsPrincipalFactory<CustomUserClaimsPrincipalFactory>()
                 .AddDefaultTokenProviders();
 
         }

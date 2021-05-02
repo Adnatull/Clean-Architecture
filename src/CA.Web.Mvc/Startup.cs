@@ -37,12 +37,6 @@ namespace CA.Web.Mvc
         {
             services.AddAutoMapper();
             services.AddFramework(Configuration);
-            services.AddAuthentication()
-                .AddCookie(options =>
-                {
-                    options.LoginPath = "/Account/Login/";
-                    options.AccessDeniedPath = "/Account/Forbidden/";
-                });
             services.AddControllersWithViews();
         }
 

@@ -71,6 +71,9 @@ namespace CA.Core.Application.Services
                 : Response<IList<string>>.Fail("No Roles found");
         }
 
-        
+        public async Task CookieSignOutAsync()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }

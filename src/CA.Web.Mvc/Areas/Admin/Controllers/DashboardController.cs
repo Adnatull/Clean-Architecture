@@ -1,5 +1,4 @@
 ﻿using CA.Core.Application.Contracts.Permissions;
-using CA.Web.Framework.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

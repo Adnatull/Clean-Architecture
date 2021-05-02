@@ -24,12 +24,23 @@ namespace CA.Web.Framework.Authorization
                 return;
             }
 
+
+            //var permissionss = context.User.Claims.Where(x => x.Type == CustomClaimTypes.Permission &&
+            //                                                  //x.Value == requirement.Permission &&
+            //                                                  x.Issuer == "LOCAL AUTHORITY");
+            //if (permissionss.Any())
+            //{
+            //    context.Succeed(requirement);
+            //    return;
+            //}
+
             //var roles = _currentUser.Roles;
             //if (roles.Count > 0 && roles.Contains(DefaultApplicationRoles.SuperAdmin.ToString()))
             //{
             //    context.Succeed(requirement);
             //    return;
             //}
+
             var permissions = await _currentUser.Permissions();
             if (permissions == null || permissions.Count == 0)
             {
@@ -37,8 +48,8 @@ namespace CA.Web.Framework.Authorization
                 return;
             }
 
-            if (permissions.Any(x => x.Type == CustomClaimTypes.Permission 
-                                     && x.Value == requirement.Permission 
+            if (permissions.Any(x => x.Type == CustomClaimTypes.Permission
+                                     && x.Value == requirement.Permission
                                      && x.Issuer == "LOCAL AUTHORITY"))
             {
                 context.Succeed(requirement);

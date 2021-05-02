@@ -8,5 +8,7 @@ namespace CA.Core.Domain.Identity.Contracts
     {
         Task<IdentityResponse> PasswordSignInAsync(ApplicationUser user, string password, bool isPersistent,
             bool lockoutOnFailure);
+
+        Task SignOutAsync();
     }
 }

@@ -27,7 +27,7 @@ namespace CA.Web.Mvc.Controllers
         /// Register Action Method. User registration view renders from this action method
         /// </summary>
         /// <returns></returns>
-        
+
         [HttpGet]
         public IActionResult Register()
         {
@@ -45,8 +45,8 @@ namespace CA.Web.Mvc.Controllers
         {
             if (!ModelState.IsValid) return View(registerUserDto);
             var rs = await _accountService.RegisterUserAsync(registerUserDto);
-            if(rs.Succeeded)
-                return RedirectToAction("Login", new {succeeded = rs.Succeeded, message = rs.Message});
+            if (rs.Succeeded)
+                return RedirectToAction("Login", new { succeeded = rs.Succeeded, message = rs.Message });
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(registerUserDto);
         }
@@ -75,6 +75,23 @@ namespace CA.Web.Mvc.Controllers
                 return RedirectToAction("Index", "Dashboard", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             ModelState.AddModelError(string.Empty, rs.Message);
             return View(loginUserDto);
+        }
+
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> SignOut(string returnUrl = null)
+        {
+            await _accountService.CookieSignOutAsync();
+            if (returnUrl != null)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
