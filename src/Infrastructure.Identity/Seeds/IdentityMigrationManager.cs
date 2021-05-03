@@ -1,15 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
+﻿using Core.Application.Contracts.Permissions;
+using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
-using Core.Domain.Identity.Enums;
 using Infrastructure.Identity.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Identity.Seeds
 {
@@ -53,39 +53,30 @@ namespace Infrastructure.Identity.Seeds
             
             if (!await roleManager.Roles.AnyAsync())
             {
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin.ToString()));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Admin.ToString()));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Moderator.ToString()));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Basic.ToString()));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Admin));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Moderator));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Basic));
             }
 
-            if (!await roleManager.RoleExistsAsync(DefaultApplicationRoles.SuperAdmin.ToString()))
+            if (!await roleManager.RoleExistsAsync(DefaultApplicationRoles.SuperAdmin))
             {
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin.ToString()));
+                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin));
             }
 
-            var defaultUser = new ApplicationUser
-            {
-                Id = "687d7c63-9a15-4faf-af5a-140782baa24d",
-                UserName = "SuperAdmin",
-                Email = "a2masum@yahoo.com",
-                FirstName = "Al",
-                LastName = "Masum",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-            };
+            var defaultUser = DefaultApplicationUsers.GetSuperUser();
             var userByName = await userManager.FindByNameAsync(defaultUser.UserName);
             var userByEmail = await userManager.FindByEmailAsync(defaultUser.Email);
             if (userByName == null && userByEmail == null)
             {
                 await userManager.CreateAsync(defaultUser, "SuperAdmin");
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.SuperAdmin.ToString());
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin.ToString());
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator.ToString());
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Basic.ToString());
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.SuperAdmin);
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin);
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator);
+                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Basic);
             }
 
-            var role = await roleManager.FindByNameAsync(DefaultApplicationRoles.SuperAdmin.ToString());
+            var role = await roleManager.FindByNameAsync(DefaultApplicationRoles.SuperAdmin);
             var rolePermissions = await roleManager.GetClaimsAsync(role);
             var allPermissions = PermissionHelper.GetAllPermissions();
             foreach (var permission in allPermissions)

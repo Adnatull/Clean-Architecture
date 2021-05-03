@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Core.Domain.Identity.Contracts;
+﻿using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
-using Core.Domain.Identity.Enums;
 using Core.Domain.Identity.Response;
 using Infrastructure.Identity.Extensions;
 using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Core.Domain.Identity.Constants;
 
 namespace Infrastructure.Identity.Managers
 {
@@ -69,7 +69,7 @@ namespace Infrastructure.Identity.Managers
 
         public IQueryable<ApplicationRole> Roles()
         {
-            return _roleManager.Roles.Where(x => x.Name != DefaultApplicationRoles.SuperAdmin.ToString());
+            return _roleManager.Roles.Where(x => x.Name != DefaultApplicationRoles.SuperAdmin);
         }
 
         /// <inheritdoc />

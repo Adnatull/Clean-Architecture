@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Context
 {
-    public class AppDbContext : DbContext
+    public sealed class AppDbContext : DbContext
     {
         private readonly IDateTimeService _dateTime;
         private readonly ICurrentUser _authenticatedUser;

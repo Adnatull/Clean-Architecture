@@ -1,23 +1,22 @@
-﻿using System;
+﻿using Core.Application.Contracts.Permissions;
+using Core.Domain.Identity.Constants;
+using Core.Domain.Identity.Entities;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.Enums;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace IntegrationTest.Mvc
 {
     public class LocalAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        public static readonly Guid UserId = Guid.Parse("687d7c63-9a15-4faf-af5a-140782baa24d");
 
-        public static readonly string UserName = "SuperAdmin";
+        private readonly ApplicationUser _appUser = DefaultApplicationUsers.GetSuperUser();
 
         public LocalAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger,
@@ -25,19 +24,23 @@ namespace IntegrationTest.Mvc
         {
         }
 
-        private readonly Claim _defaultUserIdClaim = new Claim(
-            ClaimTypes.NameIdentifier, UserId.ToString());
-
-        private readonly Claim _defaultUserNameClaim = new Claim(
-            ClaimTypes.Name, UserName);
+        private List<Claim> UserClaims()
+        {
+            var claims = new List<Claim>
+            {
+                new(ClaimTypes.NameIdentifier, _appUser.Id),
+                new(ClaimTypes.Name, _appUser.UserName)
+            };
+            return claims;
+        }
         private List<Claim> AllRolesClaims()
         {
             var claims = new List<Claim>
             {
-                new(ClaimTypes.Role, DefaultApplicationRoles.SuperAdmin.ToString()),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Admin.ToString()),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Moderator.ToString()),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Basic.ToString())
+                new(ClaimTypes.Role, DefaultApplicationRoles.SuperAdmin),
+                new(ClaimTypes.Role, DefaultApplicationRoles.Admin),
+                new(ClaimTypes.Role, DefaultApplicationRoles.Moderator),
+                new(ClaimTypes.Role, DefaultApplicationRoles.Basic)
             };
             return claims;
         }
@@ -53,8 +56,7 @@ namespace IntegrationTest.Mvc
         {
 
             var allClaims = new List<Claim>();
-            allClaims.Add(_defaultUserIdClaim);
-            allClaims.Add(_defaultUserNameClaim);
+            allClaims.AddRange(UserClaims());
             allClaims.AddRange(AllRolesClaims());
             allClaims.AddRange(AllPermissionsClaims());
             var authenticationTicket = new AuthenticationTicket(

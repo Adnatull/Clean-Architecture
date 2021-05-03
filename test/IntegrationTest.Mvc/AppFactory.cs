@@ -1,27 +1,15 @@
-﻿using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.Entities;
-using Core.Domain.Identity.Enums;
+﻿using Infrastructure.Identity.Context;
+using Infrastructure.Identity.Seeds;
 using Infrastructure.Persistence.Context;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
-using System.Security.Claims;
-using Infrastructure.Identity.Context;
-using Infrastructure.Identity.Identity;
-using Infrastructure.Identity.Seeds;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Hosting;
-using Web.Framework.Extensions;
-using Web.Framework.Services;
 using Web.Mvc;
 
 namespace IntegrationTest.Mvc
@@ -33,7 +21,7 @@ namespace IntegrationTest.Mvc
             builder.ConfigureServices(services =>
             {
                 SetUpMoqDataBase(services);
-                //services.AddScoped<ICurrentUser, CurrentUserMoq>();
+                //services.AddScoped<ICurrentUser, CurrentUserTest>();
                 services.AddSingleton<IAuthenticationSchemeProvider, MockSchemeProvider>();
             });
         }

@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
-using Core.Domain.Identity.Enums;
 using Core.Domain.Identity.Response;
 using Infrastructure.Identity.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -75,7 +75,7 @@ namespace Infrastructure.Identity.Managers
 
         public async Task<IdentityResponse> RemoveFromRoleAsync(ApplicationUser user, string roleName)
         {
-            if(roleName == DefaultApplicationRoles.SuperAdmin.ToString())
+            if(roleName == DefaultApplicationRoles.SuperAdmin)
                 return IdentityResponse.Fail("Can not to delete superAdmin role");
 
             var rs = await _userManager.RemoveFromRoleAsync(user, roleName);

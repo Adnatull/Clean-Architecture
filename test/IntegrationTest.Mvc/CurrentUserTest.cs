@@ -10,13 +10,13 @@ using Microsoft.AspNetCore.Http;
 
 namespace IntegrationTest.Mvc
 {
-    public class CurrentUserMoq : ICurrentUser
+    public class CurrentUserTest : ICurrentUser
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
 
         private List<Claim> _permissions;
-        public CurrentUserMoq(IHttpContextAccessor httpContextAccessor )
+        public CurrentUserTest(IHttpContextAccessor httpContextAccessor )
         {
             _httpContextAccessor = httpContextAccessor;
             UserId = httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
