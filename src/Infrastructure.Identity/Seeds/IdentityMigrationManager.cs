@@ -78,7 +78,7 @@ namespace Infrastructure.Identity.Seeds
             var userByEmail = await userManager.FindByEmailAsync(defaultUser.Email);
             if (userByName == null && userByEmail == null)
             {
-                await userManager.CreateAsync(defaultUser, "masum");
+                await userManager.CreateAsync(defaultUser, "SuperAdmin");
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.SuperAdmin.ToString());
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin.ToString());
                 await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator.ToString());
