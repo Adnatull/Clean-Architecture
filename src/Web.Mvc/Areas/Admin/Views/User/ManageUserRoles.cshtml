@@ -1,0 +1,64 @@
+﻿@model Core.Application.Contracts.DataTransferObjects.ManageUserRolesDto
+
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <form method="post" asp-action="ManageUserRoles" class="d-inline">
+        <div class="card-header">
+            <h3 class="card-title">Manage Roles for User: <b>@Model.UserName</b></h3>
+            <a asp-action="Index" class="float-right">See All Users</a>
+        </div>
+        <div class="card-body">
+            <input asp-for="@Model.UserId" type="hidden" />
+            <input asp-for="@Model.UserName" type="hidden" />
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Role
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.ManageRolesDto.Count(); i++)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="@Model.ManageRolesDto[i].Name" type="hidden" />
+                                @Model.ManageRolesDto[i].Name
+                            </td>
+                            <td>
+                                <input asp-for="@Model.ManageRolesDto[i].Description" type="hidden" />
+                                @Model.ManageRolesDto[i].Description
+                            </td>
+                            <td>
+
+                                <div class="form-check m-1">
+                                    <input asp-for="@Model.ManageRolesDto[i].Checked" class="form-check-input"/>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer clearfix">
+            <div class="col-sm-12" style=" padding: 20px 20px 0px 0px">
+                <button type="submit" id="save" class="btn bg-primary">
+                    <i class="fa fa-check"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

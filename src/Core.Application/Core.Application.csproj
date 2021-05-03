@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Application.Contracts\Core.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Core.Domain.Identity\Core.Domain.Identity.csproj" />
+    <ProjectReference Include="..\Core.Domain.Persistence\Core.Domain.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+</Project>

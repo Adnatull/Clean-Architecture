@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.BaseController">
+            <summary>
+            Base Controller
+            </summary>
+        </member>
+        <member name="P:Web.Mvc.Areas.Admin.Controllers.BaseController.Mediator">
+            <summary>
+            Mediator instance
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.BaseController.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Method gets executed on each each request
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.CategoryController">
+            <summary>
+            Category Controller
+            This controller does handle requests related to Catgegory. It add, delete, update, fetch categories. It also does filter based fetch.
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.CategoryController.Index(Core.Application.Contracts.HandlerExchanges.Category.Queries.GetAllCategoryQuery)">
+            <summary>
+            Get All Categories. This method is responsible for fetching all categories. Here GetAllCategoryQuery pass some parameter like PageSize, PageNumber
+            for papginated results.
+            </summary>
+            <param name="getAllCategory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.CategoryController.Add">
+            <summary>
+            Add Category GET endpoint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.CategoryController.Add(Core.Application.Contracts.HandlerExchanges.Category.Commands.AddCategoryCommand)">
+            <summary>
+            Add Category Post Endpoint
+            </summary>
+            <param name="add"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.DashboardController">
+            <summary>
+            Dashboard Controller
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.DashboardController.Index">
+            <summary>
+            Index Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.PostController">
+            <summary>
+            Post Controller
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.PostController.Index">
+            <summary>
+            Index Method. Retrieve all Posts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.PostController.Add">
+            <summary>
+            Add Post Get Endpoint
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.PostController.Add(Core.Application.Contracts.HandlerExchanges.Post.Commands.AddPostCommand)">
+            <summary>
+            Add Post HttpPost Endpoint
+            </summary>
+            <param name="addPostCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.RoleController">
+            <summary>
+            Adding, updating functionality of roles can be done from this controller
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.#ctor(Core.Application.Contracts.Interfaces.IRoleService)">
+            <summary>
+            Constructor method. RoleService is injected here
+            </summary>
+            <param name="roleService"></param>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.Index(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retrieve all roles and render them to View
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.Add">
+            <summary>
+            Render view to create role
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.Add(Core.Application.Contracts.DataTransferObjects.AddRoleDto)">
+            <summary>
+            Endpoint to create new role. This accept role data from user and submit to respective service
+            </summary>
+            <param name="addRoleDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.ManageRolePermissions(System.String)">
+            <summary>
+            Manage Roles Permission. Get Method. Render View
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.RoleController.ManageRolePermissions(Core.Application.Contracts.DataTransferObjects.ManageRolePermissionsDto)">
+            <summary>
+             Manage Role Permissions. Post Method
+            </summary>
+            <param name="manageRolePermissionsDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.UserController">
+            <summary>
+            User Controller. User management functionalities can be done here
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.#ctor(Core.Application.Contracts.Interfaces.IUserService)">
+            <summary>
+            Constructor. Dependency gets injected through this
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.Index(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get All Users 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserRoles(System.String)">
+            <summary>
+            Manage User Roles
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserRoles(Core.Application.Contracts.DataTransferObjects.ManageUserRolesDto)">
+            <summary>
+            Manage User Roles. Post Method
+            </summary>
+            <param name="manageUserRolesDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserPermissions(System.String)">
+            <summary>
+            Manage User Permissions
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.UserController.ManageUserPermissions(Core.Application.Contracts.DataTransferObjects.ManageUserPermissionsDto)">
+            <summary>
+             Manage User Permissions. Post Method
+            </summary>
+            <param name="manageUserPermissionsDto"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Controllers.AccountController">
+            <summary>
+            Account controller. Responsible for functioning authentication related tasks 
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.#ctor(Core.Application.Contracts.Interfaces.IAccountService)">
+            <summary>
+            Constructor. Injecting Dependencies
+            </summary>
+            <param name="accountService"></param>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.Register">
+            <summary>
+            Register Action Method. User registration view renders from this action method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.Register(Core.Application.Contracts.DataTransferObjects.RegisterUserDto)">
+            <summary>
+            Register Action Method. Registration POST request comes to this endpoint. 
+            </summary>
+            <param name="registerUserDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.Login">
+            <summary>
+            Login Action method. Login page will be rendered to view from this action method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.Login(Core.Application.Contracts.DataTransferObjects.LoginUserDto)">
+            <summary>
+            Login Post Action method. This method will receive userName, password and will doe further process to complete login process
+            </summary>
+            <param name="loginUserDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.AccountController.SignOut(System.String)">
+            <summary>
+            Logout
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Controllers.BaseController">
+            <summary>
+            Base Controller
+            </summary>
+        </member>
+        <member name="P:Web.Mvc.Controllers.BaseController.Mediator">
+            <summary>
+            MediaTr Instance
+            </summary>
+        </member>
+        <member name="T:Web.Mvc.Controllers.HomeController">
+            <summary>
+            Home Controller
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{Web.Mvc.Controllers.HomeController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Web.Mvc.Controllers.HomeController.Index">
+            <summary>
+            Index Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.HomeController.Privacy">
+            <summary>
+            Privacy Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Controllers.HomeController.Error">
+            <summary>
+            Error Method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Web.Mvc.Models.ErrorViewModel">
+            <summary>
+            Error View Model
+            </summary>
+        </member>
+        <member name="P:Web.Mvc.Models.ErrorViewModel.RequestId">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Web.Mvc.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Show ID
+            </summary>
+        </member>
+        <member name="T:Web.Mvc.Program">
+            <summary>
+            Main Class. 
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Program.Main(System.String[])">
+            <summary>
+            Main Method. Gets invoked when application first runs
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Host Builder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Web.Mvc.Program.GetVersionInformation">
+            <summary>
+            Get Application Version Information from assembly
+            </summary>
+        </member>
+        <member name="T:Web.Mvc.Startup">
+            <summary>
+            Startup Class
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Startup Constructor
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:Web.Mvc.Startup.Configuration">
+            <summary>
+            Configuration instance. It contains all information from appSettings.json
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Web.Mvc.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

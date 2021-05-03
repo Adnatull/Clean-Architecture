@@ -1,0 +1,91 @@
+﻿@model Core.Application.Contracts.DataTransferObjects.LoginUserDto
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_NoLayout.cshtml";
+}
+
+@section Stylesheets
+{
+    <link href="adminAssets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+}
+
+
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../index2.html"><b>Clean Architecture</b>Template</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+        <div class="card-body login-card-body">
+            <p class="login-box-msg">Sign in to start your session</p>
+
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="UserName" class="form-control" placeholder="User Name" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input asp-for="Password" class="form-control" placeholder="Password" />
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input asp-for="RememberMe" id="remember">
+                            <label for="remember">
+                                Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+
+            <p class="mb-1">
+                <a href="forgot-password.html">I forgot my password</a>
+            </p>
+            <p class="mb-0">
+                <a asp-action="Register" class="text-center">Register a new membership</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            var body = document.body;
+            body.classList = "hold-transition login-page";
+
+        });
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

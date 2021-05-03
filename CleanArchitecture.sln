@@ -5,35 +5,35 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CD0D271B-AEAC-4AE6-A566-48917FBC2C3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Web.Api", "src\CA.Web.Api\CA.Web.Api.csproj", "{C566B2E6-2622-48BE-AC76-7FBF12E63FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "src\Web.Api\Web.Api.csproj", "{C566B2E6-2622-48BE-AC76-7FBF12E63FC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Web.Framework", "src\CA.Web.Framework\CA.Web.Framework.csproj", "{7C83F460-D163-4B5F-B843-0CB95424A572}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Framework", "src\Web.Framework\Web.Framework.csproj", "{7C83F460-D163-4B5F-B843-0CB95424A572}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Core.Application", "src\CA.Core.Application\CA.Core.Application.csproj", "{1E9AE91A-9E08-4E92-AB8E-24754026BB27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Application", "src\Core.Application\Core.Application.csproj", "{1E9AE91A-9E08-4E92-AB8E-24754026BB27}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Core.Application.Contracts", "src\CA.Core.Application.Contracts\CA.Core.Application.Contracts.csproj", "{49513483-B173-459A-8ABD-5C366E17C9E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Application.Contracts", "src\Core.Application.Contracts\Core.Application.Contracts.csproj", "{49513483-B173-459A-8ABD-5C366E17C9E8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Core.Domain.Persistence", "src\CA.Core.Domain.Persistence\CA.Core.Domain.Persistence.csproj", "{3B6DD761-B001-4B5E-887D-E95265849191}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Domain.Persistence", "src\Core.Domain.Persistence\Core.Domain.Persistence.csproj", "{3B6DD761-B001-4B5E-887D-E95265849191}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Infrastructure.Persistence", "src\CA.Infrastructure.Persistence\CA.Infrastructure.Persistence.csproj", "{14E29671-2981-4AE7-8A40-D15503A77DAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Persistence", "src\Infrastructure.Persistence\Infrastructure.Persistence.csproj", "{14E29671-2981-4AE7-8A40-D15503A77DAC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Core.Domain.Identity", "src\CA.Core.Domain.Identity\CA.Core.Domain.Identity.csproj", "{D86CBB0B-9821-4D6F-A948-3CA960CD48D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Domain.Identity", "src\Core.Domain.Identity\Core.Domain.Identity.csproj", "{D86CBB0B-9821-4D6F-A948-3CA960CD48D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Infrastructure.Identity", "src\CA.Infrastructure.Identity\CA.Infrastructure.Identity.csproj", "{FAE18C6D-F8C7-403D-8726-E4444566C8E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Identity", "src\Infrastructure.Identity\Infrastructure.Identity.csproj", "{FAE18C6D-F8C7-403D-8726-E4444566C8E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Web.Mvc", "src\CA.Web.Mvc\CA.Web.Mvc.csproj", "{D5EDCD55-E1AA-4206-A912-8372FF652D26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Mvc", "src\Web.Mvc\Web.Mvc.csproj", "{D5EDCD55-E1AA-4206-A912-8372FF652D26}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{624253FF-58FD-47ED-933F-D33E3178317A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{963E2725-E4BF-4D50-8DF1-B6BF67904CA5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CA.Documentation", "documentation\CA.Documentation\CA.Documentation.csproj", "{34CFA8A1-4A03-4757-974D-62A562D1E058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Documentation", "documentation\Documentation\Documentation.csproj", "{34CFA8A1-4A03-4757-974D-62A562D1E058}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.UnitTest.Persistence", "test\CA.UnitTest.Persistence\CA.UnitTest.Persistence.csproj", "{0C6202C2-B4B9-4244-B5A6-B3F51863AD91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Persistence", "test\UnitTest.Persistence\UnitTest.Persistence.csproj", "{0C6202C2-B4B9-4244-B5A6-B3F51863AD91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.UnitTest.Application", "test\CA.UnitTest.Application\CA.UnitTest.Application.csproj", "{B829EFB8-3EC8-47AD-A03A-47E0D74C8D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Application", "test\UnitTest.Application\UnitTest.Application.csproj", "{B829EFB8-3EC8-47AD-A03A-47E0D74C8D20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CA.IntegrationTest.Mvc", "test\CA.IntegrationTest.Mvc\CA.IntegrationTest.Mvc.csproj", "{03E14EA0-FCED-4AC3-9E4B-44F6EE4614E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest.Mvc", "test\IntegrationTest.Mvc\IntegrationTest.Mvc.csproj", "{03E14EA0-FCED-4AC3-9E4B-44F6EE4614E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

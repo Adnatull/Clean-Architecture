@@ -1,0 +1,43 @@
+﻿using Core.Domain.Identity.Contracts;
+using Core.Domain.Identity.Entities;
+using Infrastructure.Identity.Context;
+using Infrastructure.Identity.Identity;
+using Infrastructure.Identity.Managers;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Infrastructure.Identity.Container
+{
+    public static class IdentityConfigureServiceContainer
+    {
+        public static void AddDbContext(IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<IdentityContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"),
+                    b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+                    {
+                        options.Password.RequireDigit = false;
+                        options.Password.RequireNonAlphanumeric = false;
+                        options.Password.RequireUppercase = false;
+                        options.Password.RequiredLength = 4;
+
+                    }
+                ).AddEntityFrameworkStores<IdentityContext>()
+                .AddClaimsPrincipalFactory<CustomUserClaimsPrincipalFactory>()
+                .AddDefaultTokenProviders();
+
+        }
+
+        public static void AddManagers(IServiceCollection services)
+        {
+            #region IdentityManagers
+            services.AddTransient<IApplicationUserManager, ApplicationUserManager>();
+            services.AddTransient<IApplicationRoleManager, ApplicationRoleManager>();
+            services.AddTransient<IApplicationSignInManager, ApplicationSignInManager>();
+            #endregion
+        }
+    }
+}
