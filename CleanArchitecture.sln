@@ -23,17 +23,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Identity", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Mvc", "src\Web.Mvc\Web.Mvc.csproj", "{D5EDCD55-E1AA-4206-A912-8372FF652D26}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{624253FF-58FD-47ED-933F-D33E3178317A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{624253FF-58FD-47ED-933F-D33E3178317A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documentation", "documentation", "{963E2725-E4BF-4D50-8DF1-B6BF67904CA5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Documentation", "documentation\Documentation\Documentation.csproj", "{34CFA8A1-4A03-4757-974D-62A562D1E058}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Persistence", "test\UnitTest.Persistence\UnitTest.Persistence.csproj", "{0C6202C2-B4B9-4244-B5A6-B3F51863AD91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Persistence", "tests\UnitTest.Persistence\UnitTest.Persistence.csproj", "{0C6202C2-B4B9-4244-B5A6-B3F51863AD91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Application", "test\UnitTest.Application\UnitTest.Application.csproj", "{B829EFB8-3EC8-47AD-A03A-47E0D74C8D20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Application", "tests\UnitTest.Application\UnitTest.Application.csproj", "{B829EFB8-3EC8-47AD-A03A-47E0D74C8D20}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTest.Mvc", "test\IntegrationTest.Mvc\IntegrationTest.Mvc.csproj", "{03E14EA0-FCED-4AC3-9E4B-44F6EE4614E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalTest.Mvc", "tests\FunctionalTest.Mvc\FunctionalTest.Mvc.csproj", "{03E14EA0-FCED-4AC3-9E4B-44F6EE4614E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

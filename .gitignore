@@ -63,3 +63,9 @@ test/UnitTest.Application/bin
 test/UnitTest.Application/obj
 test/UnitTest.Persistence/bin
 test/UnitTest.Persistence/obj
+tests/FunctionalTest.Mvc/bin
+tests/FunctionalTest.Mvc/obj
+tests/UnitTest.Application/bin
+tests/UnitTest.Application/obj
+tests/UnitTest.Persistence/bin
+tests/UnitTest.Persistence/obj
