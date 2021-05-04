@@ -82,6 +82,22 @@
             <param name="addPostCommand"></param>
             <returns></returns>
         </member>
+        <member name="T:Web.Mvc.Areas.Admin.Controllers.ProfileController">
+            <summary>
+            Profile Controller
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.ProfileController.#ctor">
+            <summary>
+            Profile Constructor
+            </summary>
+        </member>
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.ProfileController.User">
+            <summary>
+            Get Profile details of current user to View
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Web.Mvc.Areas.Admin.Controllers.RoleController">
             <summary>
             Adding, updating functionality of roles can be done from this controller

@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
-using Core.Application.Contracts.DataTransferObjects;
+﻿using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Web.Mvc.Areas.Admin.Controllers
 {

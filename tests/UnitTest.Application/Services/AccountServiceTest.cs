@@ -37,12 +37,8 @@ namespace UnitTest.Application.Services
                 .ReturnsAsync(IdentityResponse.Success("Succeeded"));
             applicationUserManager.Setup(x => x.GetUserByNameAsync(It.IsAny<string>()))
                 .ReturnsAsync(DefaultApplicationUsers.GetSuperUser());
-            applicationUserManager.Setup(x => x.GetUserAsync(It.IsAny<ClaimsPrincipal>()))
-                .ReturnsAsync(DefaultApplicationUsers.GetSuperUser);
-            applicationUserManager.Setup(x => x.GetClaimsAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(new List<Claim>() {new (CustomClaimTypes.Permission, Permissions.Posts.View)});
-            applicationUserManager.Setup(x => x.GetRolesAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(DefaultApplicationRoles.GetDefaultRoles().Select(x => x.Name).ToList());
+            
+
 
             var applicationSignInManager = new Mock<IApplicationSignInManager>(MockBehavior.Strict);
             applicationSignInManager.Setup(x =>
@@ -51,8 +47,7 @@ namespace UnitTest.Application.Services
             applicationSignInManager.Setup(x => x.SignOutAsync());
 
             var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
-            applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<List<string>>()))
-                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+
 
             _accountService = new AccountService(applicationUserManager.Object, applicationSignInManager.Object,
                 applicationRoleManager.Object, mapper);
@@ -86,26 +81,6 @@ namespace UnitTest.Application.Services
             Assert.AreEqual(true, rs.Succeeded);
         }
 
-        [Test]
-        public async Task GetAllClaimsTest()
-        {
-            var claimPrincipal =
-                new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
-                    "AuthScheme"));
-            var rs = await _accountService.GetAllClaims(claimPrincipal);
-            Assert.AreEqual(true, rs.Succeeded);
-            Assert.GreaterOrEqual(rs.Data.Count, Decimal.ToInt32(1));
-        }
-
-        [Test]
-        public async Task GetRolesAsyncAsync()
-        {
-            var claimPrincipal =
-                new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
-                    "AuthScheme"));
-            var rs = await _accountService.GetRolesAsync(claimPrincipal);
-            Assert.AreEqual(true, rs.Succeeded);
-            Assert.AreEqual(4, rs.Data.Count);
-        }
+        
     }
 }

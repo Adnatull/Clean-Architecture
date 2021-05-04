@@ -18,8 +18,6 @@
             public const string Delete = "Permissions.Dashboards.Delete";
         }
 
-       
-
         public static class Categories
         {
             public const string View = "Permissions.Categories.View";
@@ -62,6 +60,5 @@
             public const string Delete = "Permissions.Roles.Delete";
             public const string ManagePermissions = "Permissions.Roles.ManagePermissions";
         }
-
     }
 }

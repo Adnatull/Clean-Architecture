@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Response;
 using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
+using System.Threading.Tasks;
 
 namespace Core.Application.Services
 {
@@ -46,29 +43,6 @@ namespace Core.Application.Services
             return rs.Succeeded
                 ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = user.Id}, rs.ToString())
                 : Response<UserIdentityDto>.Fail(rs.ToString());
-        }
-
-        public async Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal)
-        {
-            var user = await _userManager.GetUserAsync(claimsPrincipal);
-            var userClaims = await _userManager.GetClaimsAsync(user);
-
-            var roles = await _userManager.GetRolesAsync(user);
-            var roleClaims =  await _roleManager.GetClaimsAsync(roles);
-
-            var claims = userClaims.Union(roleClaims).ToList();
-            return claims.Count > 0
-                ? Response<IList<Claim>>.Success(claims, "Successfully retrieved")
-                : Response<IList<Claim>>.Fail("No Claims found");
-        }
-
-        public async Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal)
-        {
-            var user = await _userManager.GetUserAsync(claimsPrincipal);
-            var roles = await _userManager.GetRolesAsync(user);
-            return roles.Count > 0
-                ? Response<IList<string>>.Success(roles, "Successfully retrieved")
-                : Response<IList<string>>.Fail("No Roles found");
         }
 
         public async Task CookieSignOutAsync()

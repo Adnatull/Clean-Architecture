@@ -10,10 +10,6 @@ namespace Core.Application.Contracts.Interfaces
     {
         Task<Response<UserIdentityDto>> RegisterUserAsync(RegisterUserDto registerUserDto);
         Task<Response<UserIdentityDto>> CookieSignInAsync(LoginUserDto loginUserDto);
-        Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal);
-        Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal);
         Task CookieSignOutAsync();
-
-
     }
 }

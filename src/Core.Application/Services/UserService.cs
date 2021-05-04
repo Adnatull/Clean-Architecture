@@ -44,6 +44,29 @@ namespace Core.Application.Services
             return Response<UserDto>.Success(userDto, "Retrieved successfully");
         }
 
+        public async Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal)
+        {
+            var user = await _userManager.GetUserAsync(claimsPrincipal);
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var roleClaims = await _roleManager.GetClaimsAsync(roles);
+
+            var claims = userClaims.Union(roleClaims).ToList();
+            return claims.Count > 0
+                ? Response<IList<Claim>>.Success(claims, "Successfully retrieved")
+                : Response<IList<Claim>>.Fail("No Claims found");
+        }
+
+        public async Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal)
+        {
+            var user = await _userManager.GetUserAsync(claimsPrincipal);
+            var roles = await _userManager.GetRolesAsync(user);
+            return roles.Count > 0
+                ? Response<IList<string>>.Success(roles, "Successfully retrieved")
+                : Response<IList<string>>.Fail("No Roles found");
+        }
+
         public async Task<Response<ManageUserRolesDto>> ManageRolesAsync(string userId)
         {
             var user = await _userManager.GetUserByIdAsync(userId);
