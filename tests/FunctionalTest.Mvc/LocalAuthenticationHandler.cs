@@ -35,21 +35,12 @@ namespace IntegrationTest.Mvc
         }
         private List<Claim> AllRolesClaims()
         {
-            var claims = new List<Claim>
-            {
-                new(ClaimTypes.Role, DefaultApplicationRoles.SuperAdmin),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Admin),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Moderator),
-                new(ClaimTypes.Role, DefaultApplicationRoles.Basic)
-            };
-            return claims;
+            return DefaultApplicationRoles.GetDefaultRoleClaims();
         }
 
         private List<Claim> AllPermissionsClaims()
         {
-            var allPermissions = PermissionHelper.GetAllPermissions();
-            var newClaims = allPermissions.Select(x => new Claim(CustomClaimTypes.Permission, x.Value)).ToList();
-            return newClaims;
+            return PermissionHelper.GetPermissionClaims();
         }
  
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()

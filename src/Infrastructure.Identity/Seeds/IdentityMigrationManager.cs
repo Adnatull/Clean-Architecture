@@ -35,11 +35,9 @@ namespace Infrastructure.Identity.Seeds
             using var scope = host.Services.CreateScope();
             try
             {
-
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
                 await SeedDefaultUserRolesAsync(userManager, roleManager);
-
             }
             catch (Exception ex)
             {
@@ -50,41 +48,38 @@ namespace Infrastructure.Identity.Seeds
 
         private static async Task SeedDefaultUserRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
-            
+            var defaultRoles = DefaultApplicationRoles.GetDefaultRoles();
             if (!await roleManager.Roles.AnyAsync())
             {
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Admin));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Moderator));
-                await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.Basic));
+                foreach (var defaultRole in defaultRoles)
+                {
+                    await roleManager.CreateAsync(defaultRole);
+                }
             }
-
             if (!await roleManager.RoleExistsAsync(DefaultApplicationRoles.SuperAdmin))
             {
                 await roleManager.CreateAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin));
             }
-
             var defaultUser = DefaultApplicationUsers.GetSuperUser();
             var userByName = await userManager.FindByNameAsync(defaultUser.UserName);
             var userByEmail = await userManager.FindByEmailAsync(defaultUser.Email);
             if (userByName == null && userByEmail == null)
             {
                 await userManager.CreateAsync(defaultUser, "SuperAdmin");
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.SuperAdmin);
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Admin);
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Moderator);
-                await userManager.AddToRoleAsync(defaultUser, DefaultApplicationRoles.Basic);
+                foreach (var defaultRole in defaultRoles)
+                {
+                    await userManager.AddToRoleAsync(defaultUser, defaultRole.Name);
+                }
             }
 
             var role = await roleManager.FindByNameAsync(DefaultApplicationRoles.SuperAdmin);
             var rolePermissions = await roleManager.GetClaimsAsync(role);
-            var allPermissions = PermissionHelper.GetAllPermissions();
+            var allPermissions = PermissionHelper.GetPermissionClaims();
             foreach (var permission in allPermissions)
             {
-                if (rolePermissions.Any(x => x.Value == permission.Value && x.Type == CustomClaimTypes.Permission) == false)
+                if (rolePermissions.Any(x => x.Value == permission.Value && x.Type == permission.Type) == false)
                 {
-                    await roleManager.AddClaimAsync(role,
-                        new Claim(CustomClaimTypes.Permission, permission.Value));
+                    await roleManager.AddClaimAsync(role, permission);
                 }
             }
         }

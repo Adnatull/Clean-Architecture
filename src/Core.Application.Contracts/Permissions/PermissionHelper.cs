@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Claims;
 using Core.Application.Contracts.DataTransferObjects;
 
 namespace Core.Application.Contracts.Permissions
@@ -22,8 +23,13 @@ namespace Core.Application.Contracts.Permissions
                     Checked = false
                 }));
             }
-
             return allPermissions;
+        }
+
+        public static List<Claim> GetPermissionClaims()
+        {
+            var permissions = GetAllPermissions();
+            return permissions.Select(permission => new Claim(permission.Type, permission.Value)).ToList();
         }
      }
 }
