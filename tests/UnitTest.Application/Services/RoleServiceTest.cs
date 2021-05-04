@@ -23,15 +23,8 @@ namespace UnitTest.Application.Services
     {
         private IRoleService _roleService;
 
-        [OneTimeSetUp]
-        public void Setup()
+        private Mock<IApplicationRoleManager> GetMockApplicationRoleManager()
         {
-            var mappingConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new RoleServiceProfile());
-            });
-            var mapper = mappingConfig.CreateMapper();
-
             var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
             applicationRoleManager.Setup(x => x.Roles())
                 .Returns(DefaultApplicationRoles.GetDefaultRoles().AsQueryable());
@@ -49,8 +42,24 @@ namespace UnitTest.Application.Services
                 .ReturnsAsync(IdentityResponse.Success("Succeeded"));
             applicationRoleManager.Setup(x => x.AddClaimAsync(It.IsAny<ApplicationRole>(), It.IsAny<Claim>()))
                 .ReturnsAsync(IdentityResponse.Success("Succeeded"));
+            return applicationRoleManager;
+        }
+
+        [OneTimeSetUp]
+        public void Setup()
+        {
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new RoleServiceProfile());
+            });
+            var mapper = mappingConfig.CreateMapper();
+
+            var applicationRoleManager = GetMockApplicationRoleManager();
+                
             _roleService = new RoleService(applicationRoleManager.Object, mapper);
         }
+
+       
 
         [Test]
         public async Task AddRoleAsyncTest()

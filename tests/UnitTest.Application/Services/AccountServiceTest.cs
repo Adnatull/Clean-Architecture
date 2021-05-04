@@ -2,7 +2,6 @@
 using Core.Application.Contracts.AutomapperProfiles;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Contracts;
@@ -10,10 +9,6 @@ using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Response;
 using Moq;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace UnitTest.Application.Services
@@ -22,6 +17,32 @@ namespace UnitTest.Application.Services
     public class AccountServiceTest
     {
         private IAccountService _accountService;
+
+        private Mock<IApplicationUserManager> GetMockApplicationUserManager()
+        {
+            var applicationUserManager = new Mock<IApplicationUserManager>(MockBehavior.Strict);
+            applicationUserManager.Setup(x => x.RegisterUserAsync(It.IsAny<ApplicationUser>()))
+                .ReturnsAsync(IdentityResponse.Success("Succeeded"));
+            applicationUserManager.Setup(x => x.GetUserByNameAsync(It.IsAny<string>()))
+                .ReturnsAsync(DefaultApplicationUsers.GetSuperUser());
+            return applicationUserManager;
+        }
+
+        private Mock<IApplicationSignInManager> GetMockApplicationSignInManager()
+        {
+            var applicationSignInManager = new Mock<IApplicationSignInManager>(MockBehavior.Strict);
+            applicationSignInManager.Setup(x =>
+                    x.PasswordSignInAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<bool>()))
+                .ReturnsAsync(IdentityResponse.Success("Succeeded"));
+            applicationSignInManager.Setup(x => x.SignOutAsync());
+            return applicationSignInManager;
+        }
+
+        private Mock<IApplicationRoleManager> GetMockApplicationRoleManager()
+        {
+            var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
+            return applicationRoleManager;
+        }
 
         [OneTimeSetUp]
         public void SetUp()
@@ -32,26 +53,18 @@ namespace UnitTest.Application.Services
             });
             var mapper = mappingConfig.CreateMapper();
 
-            var applicationUserManager = new Mock<IApplicationUserManager>(MockBehavior.Strict);
-            applicationUserManager.Setup(x => x.RegisterUserAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(IdentityResponse.Success("Succeeded"));
-            applicationUserManager.Setup(x => x.GetUserByNameAsync(It.IsAny<string>()))
-                .ReturnsAsync(DefaultApplicationUsers.GetSuperUser());
-            
+            var applicationUserManager = GetMockApplicationUserManager();
 
+            var applicationSignInManager = GetMockApplicationSignInManager();
 
-            var applicationSignInManager = new Mock<IApplicationSignInManager>(MockBehavior.Strict);
-            applicationSignInManager.Setup(x =>
-                    x.PasswordSignInAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>(), It.IsAny<bool>(), It.IsAny<bool>()))
-                .ReturnsAsync(IdentityResponse.Success("Succeeded"));
-            applicationSignInManager.Setup(x => x.SignOutAsync());
-
-            var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
-
+            var applicationRoleManager = GetMockApplicationRoleManager();
 
             _accountService = new AccountService(applicationUserManager.Object, applicationSignInManager.Object,
                 applicationRoleManager.Object, mapper);
         }
+
+        
+
 
         [Test]
         public async Task RegisterUserAsyncTest()

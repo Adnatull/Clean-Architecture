@@ -69,3 +69,4 @@ tests/UnitTest.Application/bin
 tests/UnitTest.Application/obj
 tests/UnitTest.Persistence/bin
 tests/UnitTest.Persistence/obj
+documentation/Documentation/log.txt

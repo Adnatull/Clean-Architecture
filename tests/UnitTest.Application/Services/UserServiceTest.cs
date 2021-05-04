@@ -21,6 +21,28 @@ namespace UnitTest.Application.Services
     {
         private IUserService _userService;
 
+
+        private Mock<IApplicationUserManager> GetMockApplicationUserManager()
+        {
+            var applicationUserManager = new Mock<IApplicationUserManager>(MockBehavior.Strict);
+            applicationUserManager.Setup(x => x.GetUserAsync(It.IsAny<ClaimsPrincipal>()))
+                .ReturnsAsync(DefaultApplicationUsers.GetSuperUser);
+            applicationUserManager.Setup(x => x.GetClaimsAsync(It.IsAny<ApplicationUser>()))
+                .ReturnsAsync(new List<Claim>() { new(CustomClaimTypes.Permission, Permissions.Posts.View) });
+            applicationUserManager.Setup(x => x.GetRolesAsync(It.IsAny<ApplicationUser>()))
+                .ReturnsAsync(DefaultApplicationRoles.GetDefaultRoles().Select(x => x.Name).ToList());
+            return applicationUserManager;
+        }
+
+        private Mock<IApplicationRoleManager> GetMockApplicationRoleManager()
+        {
+            var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
+
+            applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<List<string>>()))
+                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+            return applicationRoleManager;
+        }
+
         [OneTimeSetUp]
         public void SetUp()
         {
@@ -29,19 +51,14 @@ namespace UnitTest.Application.Services
                 mc.AddProfile(new UserServiceProfile());
             });
             var mapper = mappingConfig.CreateMapper();
-            var applicationUserManager = new Mock<IApplicationUserManager>(MockBehavior.Strict);
-            applicationUserManager.Setup(x => x.GetUserAsync(It.IsAny<ClaimsPrincipal>()))
-                .ReturnsAsync(DefaultApplicationUsers.GetSuperUser);
-            applicationUserManager.Setup(x => x.GetClaimsAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(new List<Claim>() { new(CustomClaimTypes.Permission, Permissions.Posts.View) });
-            applicationUserManager.Setup(x => x.GetRolesAsync(It.IsAny<ApplicationUser>()))
-                .ReturnsAsync(DefaultApplicationRoles.GetDefaultRoles().Select(x => x.Name).ToList());
-            var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
+            var applicationUserManager = GetMockApplicationUserManager();
 
-            applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<List<string>>()))
-                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+            var applicationRoleManager = GetMockApplicationRoleManager();
+                
             _userService = new UserService(applicationUserManager.Object, applicationRoleManager.Object, mapper);
         }
+
+
         [Test]
         public async Task GetAllClaimsTest()
         {

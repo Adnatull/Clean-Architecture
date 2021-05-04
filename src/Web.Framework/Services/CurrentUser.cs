@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Web.Framework.Services
 {
-    public class CurrentUser : ICurrentUser
+    public sealed class CurrentUser : ICurrentUser
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<ApplicationUser> _userManager;
