@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Application.Contracts.AutomapperProfiles;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
@@ -13,9 +8,13 @@ using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Response;
-using Microsoft.AspNetCore.Identity;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace UnitTest.Application.Services
 {
@@ -92,7 +91,7 @@ namespace UnitTest.Application.Services
         {
             var claimPrincipal =
                 new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
-                    IdentityConstants.ApplicationScheme));
+                    "AuthScheme"));
             var rs = await _accountService.GetAllClaims(claimPrincipal);
             Assert.AreEqual(true, rs.Succeeded);
             Assert.GreaterOrEqual(rs.Data.Count, Decimal.ToInt32(1));
@@ -103,7 +102,7 @@ namespace UnitTest.Application.Services
         {
             var claimPrincipal =
                 new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
-                    IdentityConstants.ApplicationScheme));
+                    "AuthScheme"));
             var rs = await _accountService.GetRolesAsync(claimPrincipal);
             Assert.AreEqual(true, rs.Succeeded);
             Assert.AreEqual(4, rs.Data.Count);
