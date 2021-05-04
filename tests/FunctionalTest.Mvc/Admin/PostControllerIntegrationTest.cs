@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace IntegrationTest.Mvc.Admin
+namespace FunctionalTest.Mvc.Admin
 {
     [TestFixture]
     public class PostControllerIntegrationTest

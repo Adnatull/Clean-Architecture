@@ -1,4 +1,6 @@
-﻿using Infrastructure.Identity.Context;
+﻿using System;
+using System.Linq;
+using Infrastructure.Identity.Context;
 using Infrastructure.Identity.Seeds;
 using Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Authentication;
@@ -8,11 +10,9 @@ using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Linq;
 using Web.Mvc;
 
-namespace IntegrationTest.Mvc
+namespace FunctionalTest.Mvc
 {
     public class AppFactory : WebApplicationFactory<Startup>
     {

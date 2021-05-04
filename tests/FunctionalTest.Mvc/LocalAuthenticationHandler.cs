@@ -1,17 +1,16 @@
-﻿using Core.Application.Contracts.Permissions;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+using Core.Application.Contracts.Permissions;
 using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 
-namespace IntegrationTest.Mvc
+namespace FunctionalTest.Mvc
 {
     public class LocalAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
