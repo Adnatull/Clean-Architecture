@@ -92,7 +92,7 @@
             Profile Constructor
             </summary>
         </member>
-        <member name="M:Web.Mvc.Areas.Admin.Controllers.ProfileController.User">
+        <member name="M:Web.Mvc.Areas.Admin.Controllers.ProfileController.Index">
             <summary>
             Get Profile details of current user to View
             </summary>

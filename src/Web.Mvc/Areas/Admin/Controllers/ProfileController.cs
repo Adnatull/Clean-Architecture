@@ -23,7 +23,7 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult User()
+        public IActionResult Index()
         {
             return View();
         }
