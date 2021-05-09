@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LinqToDB;
 
-namespace Core.Domain.Persistence.Contracts
+namespace Core.Domain.Persistence.Interfaces
 {
     public interface IRepositoryAsync<T> where T : class
     {

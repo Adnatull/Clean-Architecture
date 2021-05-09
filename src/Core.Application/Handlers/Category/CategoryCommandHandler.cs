@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Core.Application.Contracts.HandlerExchanges.Category.Commands;
 using Core.Application.Contracts.Response;
-using Core.Domain.Persistence.Contracts;
+using Core.Domain.Persistence.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

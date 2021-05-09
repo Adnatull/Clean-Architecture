@@ -2,9 +2,9 @@
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Response;
-using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
 using System.Threading.Tasks;
+using Core.Domain.Identity.Interfaces;
 
 namespace Core.Application.Services
 {

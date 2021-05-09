@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Core.Application.Contracts.HandlerExchanges.Post.Commands;
 using Core.Application.Handlers.Post;
-using Core.Domain.Persistence.Contracts;
+using Core.Domain.Persistence.Interfaces;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;

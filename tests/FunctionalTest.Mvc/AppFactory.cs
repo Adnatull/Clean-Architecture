@@ -72,9 +72,7 @@ namespace FunctionalTest.Mvc
                 //Log errors or do anything you think it's needed
                 throw;
             }
-            //var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            //var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
-            //SeedDefaultUserRoles(userManager, roleManager);
+
         }
 
         private static void SetUpMoqPersistenceDatabase(IServiceCollection services)

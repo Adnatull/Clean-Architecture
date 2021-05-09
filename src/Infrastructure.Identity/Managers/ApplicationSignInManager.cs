@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Interfaces;
 using Core.Domain.Identity.Response;
 using Microsoft.AspNetCore.Identity;
 

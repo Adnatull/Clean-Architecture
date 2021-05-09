@@ -4,12 +4,12 @@ using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
-using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Response;
 using Moq;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using Core.Domain.Identity.Interfaces;
 
 namespace UnitTest.Application.Services
 {

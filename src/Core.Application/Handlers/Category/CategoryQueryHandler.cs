@@ -4,7 +4,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Core.Application.Contracts.HandlerExchanges.Category.Queries;
 using Core.Application.Contracts.Response;
-using Core.Domain.Persistence.Contracts;
+using Core.Domain.Persistence.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

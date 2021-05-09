@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Core.Domain.Persistence.Entities;
 using LinqToDB.Data;
 
-namespace Core.Domain.Persistence.Contracts
+namespace Core.Domain.Persistence.Interfaces
 {
     public interface IPersistenceUnitOfWork : IDisposable
     {

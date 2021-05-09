@@ -1,5 +1,4 @@
-﻿using Core.Domain.Identity.Contracts;
-using Core.Domain.Identity.Entities;
+﻿using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Response;
 using Infrastructure.Identity.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Domain.Identity.Constants;
+using Core.Domain.Identity.Interfaces;
 
 namespace Infrastructure.Identity.Managers
 {

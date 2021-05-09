@@ -9,8 +9,8 @@ using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
-using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Interfaces;
 using Moq;
 using NUnit.Framework;
 

@@ -1,4 +1,4 @@
-﻿using Core.Domain.Persistence.Contracts;
+﻿using Core.Domain.Persistence.Interfaces;
 using Infrastructure.Persistence.Context;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;

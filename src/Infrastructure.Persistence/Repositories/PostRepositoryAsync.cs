@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Core.Domain.Persistence.Contracts;
 using Core.Domain.Persistence.Entities;
+using Core.Domain.Persistence.Interfaces;
 using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 

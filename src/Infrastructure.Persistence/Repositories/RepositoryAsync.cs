@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Domain.Persistence.Contracts;
+using Core.Domain.Persistence.Interfaces;
 using Infrastructure.Persistence.Context;
 using LinqToDB;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,5 @@
-﻿using Core.Domain.Identity.Contracts;
-using Core.Domain.Identity.Entities;
+﻿using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Interfaces;
 using Infrastructure.Identity.Context;
 using Infrastructure.Identity.Identity;
 using Infrastructure.Identity.Managers;

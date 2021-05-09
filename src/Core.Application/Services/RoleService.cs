@@ -7,8 +7,8 @@ using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
 using Core.Application.Contracts.Response;
-using Core.Domain.Identity.Contracts;
 using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Interfaces;
 using Core.Domain.Identity.Response;
 using Microsoft.EntityFrameworkCore;
 
