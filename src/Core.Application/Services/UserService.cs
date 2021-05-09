@@ -19,12 +19,17 @@ namespace Core.Application.Services
         private readonly IApplicationUserManager _userManager;
         private readonly IApplicationRoleManager _roleManager;
         private readonly IMapper _mapper;
+        private readonly ICurrentUser _currentUser;
 
-        public UserService(IApplicationUserManager userManager, IApplicationRoleManager roleManager, IMapper mapper)
+        public UserService(IApplicationUserManager userManager,
+                            IApplicationRoleManager roleManager,
+                            IMapper mapper,
+                            ICurrentUser currentUser)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _mapper = mapper;
+            _currentUser = currentUser;
         }
 
         public async Task<PaginatedList<UserDto>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize)
@@ -149,6 +154,36 @@ namespace Core.Application.Services
            
             return rs.Succeeded
                 ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserPermissionsDto.UserId }, rs.Message)
+                : Response<UserIdentityDto>.Fail(rs.Message);
+        }
+
+        public async Task<Response<UserDetailDto>> GetUserDetailByIdAsync(string userId)
+        {
+            var user = await _userManager.GetUserByIdAsync(userId);
+            if(user == null)
+                return Response<UserDetailDto>.Fail("No user exists by this ID");
+            var userDetailDto = _mapper.Map<UserDetailDto>(user);
+            return Response<UserDetailDto>.Success(userDetailDto, "Successfully retrieved user detail");
+        }
+
+        public async Task<Response<UserIdentityDto>> UpdateUserProfile(UserDetailDto userDetailDto)
+        {
+            if (_currentUser.UserId != userDetailDto.Id)
+                return Response<UserIdentityDto>.Fail("You are not authorized to manipulate this user");
+            
+            var user = await _userManager.GetUserByIdAsync(userDetailDto.Id);
+            if(user == null) return Response<UserIdentityDto>.Fail("Invalid user");
+            var userByEmail = await _userManager.FindByEmailAsync(user.Email);
+            if (userByEmail != null && userByEmail.Id != user.Id)
+                return Response<UserIdentityDto>.Fail("The email address is not available");
+            var userByName = await _userManager.GetUserByNameAsync(userDetailDto.UserName);
+            if(userByName != null && userByName.Id != user.Id)
+                return Response<UserIdentityDto>.Fail("The username is not available");
+
+            _mapper.Map(userDetailDto, user);
+            var rs = await _userManager.UpdateAsync(user);
+            return rs.Succeeded
+                ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = user.Id}, rs.Message)
                 : Response<UserIdentityDto>.Fail(rs.Message);
         }
     }

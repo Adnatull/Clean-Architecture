@@ -9,6 +9,7 @@ namespace Core.Application.Contracts.AutomapperProfiles
         public UserServiceProfile()
         {
             CreateMap<ApplicationUser, UserDto>();
+            CreateMap<ApplicationUser, UserDetailDto>().ReverseMap();
             CreateMap<ApplicationRole, ManageRoleDto>();
         }
     }

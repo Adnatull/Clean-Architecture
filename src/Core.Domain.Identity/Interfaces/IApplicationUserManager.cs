@@ -10,6 +10,7 @@ namespace Core.Domain.Identity.Interfaces
     public interface IApplicationUserManager
     {
         Task<IdentityResponse> RegisterUserAsync(ApplicationUser user);
+        Task<ApplicationUser> FindByEmailAsync(string email);
         Task<ApplicationUser> GetUserByNameAsync(string userName);
         Task<ApplicationUser> GetUserByIdAsync(string userId);
         Task<IList<string>> GetRolesAsync(ApplicationUser user);
@@ -21,6 +22,7 @@ namespace Core.Domain.Identity.Interfaces
         Task<IdentityResponse> RemoveFromRolesAsync(ApplicationUser user, List<string> roleNames);
         Task<IdentityResponse> AddClaimsAsync(ApplicationUser user, List<Claim> claims);
         Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims);
+        Task<IdentityResponse> UpdateAsync(ApplicationUser user);
 
         IQueryable<ApplicationUser> Users();
 

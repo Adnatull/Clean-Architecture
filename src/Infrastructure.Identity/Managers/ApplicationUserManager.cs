@@ -18,7 +18,6 @@ namespace Infrastructure.Identity.Managers
         public ApplicationUserManager(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
-
         }
 
         public async Task<IdentityResponse> RegisterUserAsync(ApplicationUser user)
@@ -34,6 +33,11 @@ namespace Infrastructure.Identity.Managers
             }
             var rs = await _userManager.CreateAsync(user);
             return rs.ToIdentityResponse();
+        }
+
+        public async Task<ApplicationUser> FindByEmailAsync(string email)
+        {
+            return await _userManager.FindByEmailAsync(email);
         }
 
         public async Task<ApplicationUser> GetUserByNameAsync(string userName)
@@ -98,6 +102,12 @@ namespace Infrastructure.Identity.Managers
         public async Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims)
         {
             var rs = await _userManager.RemoveClaimsAsync(user, claims);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> UpdateAsync(ApplicationUser user)
+        {
+            var rs = await _userManager.UpdateAsync(user);
             return rs.ToIdentityResponse();
         }
 

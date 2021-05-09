@@ -10,12 +10,13 @@ namespace Core.Application.Contracts.Interfaces
     {
         Task<PaginatedList<UserDto>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize);
         Task<Response<UserDto>> GetUserByIdAsync(string userId);
-
         Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal);
         Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal);
         Task<Response<ManageUserRolesDto>> ManageRolesAsync(string userId);
         Task<Response<UserIdentityDto>> ManageRolesAsync(ManageUserRolesDto manageUserRolesDto);
         Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId);
         Task<Response<UserIdentityDto>> ManagePermissionsAsync(ManageUserPermissionsDto manageUserPermissionsDto);
+        Task<Response<UserDetailDto>> GetUserDetailByIdAsync(string userId);
+        Task<Response<UserIdentityDto>> UpdateUserProfile(UserDetailDto userDetailDto);
     }
 }

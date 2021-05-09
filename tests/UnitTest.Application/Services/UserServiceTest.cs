@@ -42,6 +42,14 @@ namespace UnitTest.Application.Services
                 .ReturnsAsync(PermissionHelper.GetPermissionClaims());
             return applicationRoleManager;
         }
+        private Mock<ICurrentUser> GetMockCurrentUser()
+        {
+
+            var currentUser = new Mock<ICurrentUser>(MockBehavior.Strict);
+            currentUser.Setup(x => x.UserId).Returns(DefaultApplicationUsers.GetSuperUser().Id);
+            currentUser.Setup(x => x.UserName).Returns(DefaultApplicationUsers.GetSuperUser().UserName);
+            return currentUser;
+        }
 
         [OneTimeSetUp]
         public void SetUp()
@@ -54,9 +62,11 @@ namespace UnitTest.Application.Services
             var applicationUserManager = GetMockApplicationUserManager();
 
             var applicationRoleManager = GetMockApplicationRoleManager();
-                
-            _userService = new UserService(applicationUserManager.Object, applicationRoleManager.Object, mapper);
+            var currentUser = GetMockCurrentUser();
+            _userService = new UserService(applicationUserManager.Object, applicationRoleManager.Object, mapper, currentUser.Object);
         }
+
+        
 
 
         [Test]
