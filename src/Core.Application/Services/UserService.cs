@@ -167,7 +167,6 @@ namespace Core.Application.Services
                         break;
                 }
             }
-
             return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserPermissionsDto.UserId},
                 "Succeeded");
         }

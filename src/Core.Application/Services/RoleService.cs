@@ -79,26 +79,28 @@ namespace Core.Application.Services
 
             var existingClaims = await _roleManager.GetClaimsAsync(role);
             var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
-            foreach (var existingPermission in existingPermissions)
-            {
-                var removeResult = await _roleManager.RemoveClaimAsync(role, existingPermission);
-                if (!removeResult.Succeeded)
-                    return Response<RoleIdentityDto>.Fail("Failed to remove some Permissions");
-            }
 
-            var newClaims = manageRolePermissionsDto.ManagePermissionsDto.Where(x => x.Checked)
-                .Select(x => new Claim(CustomClaimTypes.Permission, x.Value)).ToList();
-            var identityResponse = new IdentityResponse();
-            foreach (var newClaim in newClaims)
+            foreach (var permissionDto in manageRolePermissionsDto.ManagePermissionsDto)
             {
-                var rs = await _roleManager.AddClaimAsync(role, newClaim);
-                if(!rs.Succeeded)
-                    return Response<RoleIdentityDto>.Fail("Failed to add some permission to this role");
-                identityResponse = rs;
+                var permissionsExist = existingPermissions
+                    .Where(x => x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();
+                switch (permissionDto.Checked)
+                {
+                    case true when permissionsExist.Count == 0:
+                        await _roleManager.AddClaimAsync(role, new Claim(CustomClaimTypes.Permission, permissionDto.Value));
+                        break;
+                    case false when permissionsExist.Count > 0:
+                    {
+                        foreach (var claim in permissionsExist)
+                        {
+                            await _roleManager.RemoveClaimAsync(role, claim);
+                        }
+                        break;
+                    }
+                }
             }
-
             return Response<RoleIdentityDto>.Success(new RoleIdentityDto { RoleId = manageRolePermissionsDto.RoleId},
-                identityResponse.Message); ;
+                "Succeeded"); ;
         }
     }
 }

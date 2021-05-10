@@ -18,7 +18,6 @@ namespace Infrastructure.Identity.Managers
         public ApplicationRoleManager(RoleManager<ApplicationRole> roleManager)
         {
             _roleManager = roleManager;
-            
         }
 
         public async Task<IList<Claim>> GetClaimsAsync(string roleName)
