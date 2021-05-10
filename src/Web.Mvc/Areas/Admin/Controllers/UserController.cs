@@ -70,12 +70,13 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// Manage User Permissions
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="permissionValue"></param>
         /// <returns></returns>
         [HttpGet]
         [Authorize(Policy = Permissions.Users.ManagePermissions)]
-        public async Task<IActionResult> ManageUserPermissions(string userId)
+        public async Task<IActionResult> ManageUserPermissions(string userId, string permissionValue)
         {
-            var rs = await _userService.ManagePermissionsAsync(userId);
+            var rs = await _userService.ManagePermissionsAsync(userId, permissionValue);
             if (!rs.Succeeded)
                 return RedirectToAction("Index", "User", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             return View(rs.Data);

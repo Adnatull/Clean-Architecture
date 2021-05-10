@@ -6,11 +6,21 @@
 }
 
 <div class="card">
-    <form method="post" asp-action="ManageUserPermissions" class="d-inline">
-        <div class="card-header">
+
+    <div class="card-header">
+        <form asp-action="ManageUserPermissions" method="get">
             <h3 class="card-title">Manage Permissions for User: <b>@Model.UserName</b></h3>
-            <a asp-action="Index" class="float-right">See All Users</a>
-        </div>
+            <div class="float-right">
+                <p>
+                    Find by name: <input type="text" name="permissionValue" value="@ViewData["CurrentFilter"]" />
+                    <input type="submit" value="Search" class="btn btn-default" /> |
+                    <input asp-for="UserId" type="hidden" />
+                    <a asp-action="ManageUserPermissions" asp-route-userId="@Model.UserId">Back to Full List</a>
+                </p>
+            </div>
+        </form>
+    </div>
+    <form method="post" asp-action="ManageUserPermissions" class="d-inline">
         <div class="card-body">
             <input asp-for="@Model.UserId" type="hidden" />
             <input asp-for="@Model.UserName" type="hidden" />
@@ -45,7 +55,7 @@
             </table>
         </div>
         <div class="card-footer clearfix">
-            <div class="col-sm-12" style=" padding: 20px 20px 0px 0px">
+            <div class="col-sm-12" style="padding: 20px 20px 0px 0px">
                 <button type="submit" id="save" class="btn bg-primary">
                     <i class="fa fa-check"></i>
                     Save

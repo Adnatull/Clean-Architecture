@@ -117,12 +117,17 @@ namespace Core.Application.Services
             return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, "Succeeded");
         }
 
-        public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId)
+        public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue)
         {
             var user = await _userManager.GetUserByIdAsync(userId);
             if (user == null) return Response<ManageUserPermissionsDto>.Fail("No User Exists");
             var userPermissions = await _userManager.GetClaimsAsync(user);
             var allPermissions = PermissionHelper.GetAllPermissions();
+            if (!string.IsNullOrWhiteSpace(permissionValue))
+            {
+                allPermissions =  allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower()))
+                    .ToList();
+            }
             foreach (var permission in allPermissions)
             {
                 if (userPermissions.Any(x => x.Value == permission.Value))

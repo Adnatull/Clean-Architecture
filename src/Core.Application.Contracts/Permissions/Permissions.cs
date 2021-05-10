@@ -4,7 +4,7 @@
     {
         public static class Posts
         {
-            public const string View = "Permissions.Postss.View";
+            public const string View = "Permissions.Posts.View";
             public const string Create = "Permissions.Posts.Create";
             public const string Edit = "Permissions.Posts.Edit";
             public const string Delete = "Permissions.Posts.Delete";

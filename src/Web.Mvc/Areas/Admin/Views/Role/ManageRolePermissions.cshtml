@@ -5,46 +5,56 @@
 }
 
 <div class="card">
-    <form method="post" asp-action="ManageRolePermissions" class="d-inline">
-        <div class="card-header">
+    <div class="card-header">
+        <form asp-action="ManageRolePermissions" method="get">
             <h3 class="card-title">Manage Permissions for Role: <b>@Model.RoleName</b></h3>
-            <a asp-action="Index" class="float-right">See All Roles</a>
-        </div>
+            <div class="float-right">
+                <p>
+                    Find by name: <input type="text" name="permissionValue" value="@ViewData["CurrentFilter"]" />
+                    <input type="submit" value="Search" class="btn btn-default" /> |
+                    <input asp-for="RoleId" type="hidden"/>
+                    <a asp-action="ManageRolePermissions" asp-route-roleId="@Model.RoleId">Back to Full List</a>
+                </p>
+            </div>
+        </form>
+    </div>
+    <form method="post" asp-action="ManageRolePermissions" class="d-inline">
+        
         <div class="card-body">
-            <input asp-for="@Model.RoleId" type="hidden" />
-            <input asp-for="@Model.RoleName" type="hidden" />
+            <input asp-for="@Model.RoleId" type="hidden"/>
+            <input asp-for="@Model.RoleName" type="hidden"/>
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th>
-                            Permission Name
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                    </tr>
+                <tr>
+                    <th>
+                        Permission Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
-                    @for (var i = 0; i < Model.ManagePermissionsDto.Count(); i++)
-                    {
-                        <tr>
-                            <td class="text-center">
-                                <input asp-for="@Model.ManagePermissionsDto[i].Value" type="hidden" />
-                                @Model.ManagePermissionsDto[i].Value
-                            </td>
-                            <td>
+                @for (var i = 0; i < Model.ManagePermissionsDto.Count(); i++)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <input asp-for="@Model.ManagePermissionsDto[i].Value" type="hidden"/>
+                            @Model.ManagePermissionsDto[i].Value
+                        </td>
+                        <td>
 
-                                <div class="form-check m-1">
-                                    <input asp-for="@Model.ManagePermissionsDto[i].Checked" class="form-check-input" />
-                                </div>
-                            </td>
-                        </tr>
-                    }
+                            <div class="form-check m-1">
+                                <input asp-for="@Model.ManagePermissionsDto[i].Checked" class="form-check-input"/>
+                            </div>
+                        </td>
+                    </tr>
+                }
                 </tbody>
             </table>
         </div>
         <div class="card-footer clearfix">
-            <div class="col-sm-12" style=" padding: 20px 20px 0px 0px">
+            <div class="col-sm-12" style="padding: 20px 20px 0px 0px">
                 <button type="submit" id="save" class="btn bg-primary">
                     <i class="fa fa-check"></i>
                     Save

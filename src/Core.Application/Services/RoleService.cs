@@ -45,12 +45,16 @@ namespace Core.Application.Services
                 : Response<string>.Fail("Failed to create new role");
         }
 
-        public async Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId)
+        public async Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId, string permissionValue)
         {
             var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null) return Response<ManageRolePermissionsDto>.Fail("No Role Exists");
             var roleClaims = await _roleManager.GetClaimsAsync(role);
             var allPermissions = PermissionHelper.GetAllPermissions();
+            if (!string.IsNullOrWhiteSpace(permissionValue))
+            {
+                allPermissions = allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower())).ToList();
+            }
             foreach (var permission in allPermissions)
             {
                 if (roleClaims.Any(x => x.Value == permission.Value))

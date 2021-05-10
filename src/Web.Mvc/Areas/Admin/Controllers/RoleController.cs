@@ -70,12 +70,13 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// Manage Roles Permission. Get Method. Render View
         /// </summary>
         /// <param name="roleId"></param>
+        /// <param name="permissionValue"></param>
         /// <returns></returns>
         [HttpGet]
         [Authorize(Policy = Permissions.Roles.ManagePermissions)]
-        public async Task<IActionResult> ManageRolePermissions(string roleId)
+        public async Task<IActionResult> ManageRolePermissions(string roleId, string permissionValue)
         {
-            var rs = await _roleService.ManagePermissionsAsync(roleId);
+            var rs = await _roleService.ManagePermissionsAsync(roleId, permissionValue);
             if (!rs.Succeeded)
                 return RedirectToAction("Index", "Role", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             return View(rs.Data);
