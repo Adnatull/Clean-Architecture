@@ -99,7 +99,13 @@ namespace Infrastructure.Identity.Managers
             return rs.ToIdentityResponse();
         }
 
-        public async Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims)
+        public async Task<IdentityResponse> AddClaimAsync(ApplicationUser user, Claim claim)
+        {
+            var rs = await _userManager.AddClaimAsync(user, claim);
+            return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> RemoveClaimsAsync(ApplicationUser user, List<Claim> claims)
         {
             var rs = await _userManager.RemoveClaimsAsync(user, claims);
             return rs.ToIdentityResponse();
@@ -109,6 +115,14 @@ namespace Infrastructure.Identity.Managers
         {
             var rs = await _userManager.UpdateAsync(user);
             return rs.ToIdentityResponse();
+        }
+
+        public async Task<IdentityResponse> HasClaimAsync(ApplicationUser user, Claim claim)
+        {
+            var claims = await _userManager.GetClaimsAsync(user);
+            return claims.Any(x => x.Type == claim.Type && x.Value == claim.Value)
+                ? IdentityResponse.Success("Claim Exists")
+                : IdentityResponse.Fail("Claim does not exist");
         }
 
         public IQueryable<ApplicationUser> Users()

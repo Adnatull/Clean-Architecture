@@ -21,8 +21,10 @@ namespace Core.Domain.Identity.Interfaces
         Task<IdentityResponse> RemoveFromRoleAsync(ApplicationUser user, string roleName);
         Task<IdentityResponse> RemoveFromRolesAsync(ApplicationUser user, List<string> roleNames);
         Task<IdentityResponse> AddClaimsAsync(ApplicationUser user, List<Claim> claims);
-        Task<IdentityResponse> RemoveClaimAsync(ApplicationUser user, List<Claim> claims);
+        Task<IdentityResponse> AddClaimAsync(ApplicationUser user, Claim claim);
+        Task<IdentityResponse> RemoveClaimsAsync(ApplicationUser user, List<Claim> claims);
         Task<IdentityResponse> UpdateAsync(ApplicationUser user);
+        Task<IdentityResponse> HasClaimAsync(ApplicationUser user, Claim claim);
 
         IQueryable<ApplicationUser> Users();
 

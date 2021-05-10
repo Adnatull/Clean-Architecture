@@ -101,14 +101,20 @@ namespace Core.Application.Services
             if (user == null)
                 return Response<UserIdentityDto>.Fail("No user exists by this id");
             var existingRoles = await _userManager.GetRolesAsync(user);
-            var removeResult = await _userManager.RemoveFromRolesAsync(user, existingRoles.ToList());
-            if (!removeResult.Succeeded)
-                return Response<UserIdentityDto>.Fail("Failed to remove existing roles");
-            var rs = await _userManager.AddToRolesAsync(user,
-                manageUserRolesDto.ManageRolesDto.Where(x => x.Checked).Select(x => x.Name).ToList());
-            return rs.Succeeded
-                ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserRolesDto.UserId }, rs.Message)
-                : Response<UserIdentityDto>.Fail(rs.Message);
+            foreach (var roleDto in manageUserRolesDto.ManageRolesDto)
+            {
+                var roleExists = existingRoles.FirstOrDefault(x => x == roleDto.Name);
+                switch (roleDto.Checked)
+                {
+                    case true when roleExists == null:
+                        await _userManager.AddToRoleAsync(user, roleDto.Name);
+                        break;
+                    case false when roleExists != null:
+                        await _userManager.RemoveFromRoleAsync(user, roleDto.Name);
+                        break;
+                }
+            }
+            return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, "Succeeded");
         }
 
         public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId)
@@ -133,7 +139,7 @@ namespace Core.Application.Services
             return allPermissions.Count > 0
                 ? Response<ManageUserPermissionsDto>.Success(manageUserPermissionsDto, "Successfully retrieved")
                 : Response<ManageUserPermissionsDto>.Fail(
-                    $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
+                    $"No Permissions exist! Something is Wrong with {typeof(Permissions).Namespace} file");
         }
 
         public async Task<Response<UserIdentityDto>> ManagePermissionsAsync(ManageUserPermissionsDto manageUserPermissionsDto)
@@ -144,17 +150,26 @@ namespace Core.Application.Services
 
             var existingClaims = await _userManager.GetClaimsAsync(user);
             var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
-            var removeResult = await _userManager.RemoveClaimAsync(user, existingPermissions);
-            if (!removeResult.Succeeded)
-                return Response<UserIdentityDto>.Fail("Failed to remove existing Permissions");
 
-            var newClaims = manageUserPermissionsDto.ManagePermissionsDto.Where(x => x.Checked)
-                .Select(x => new Claim(CustomClaimTypes.Permission, x.Value)).ToList();
-            var rs = await _userManager.AddClaimsAsync(user, newClaims);
-           
-            return rs.Succeeded
-                ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserPermissionsDto.UserId }, rs.Message)
-                : Response<UserIdentityDto>.Fail(rs.Message);
+            foreach (var permissionDto in manageUserPermissionsDto.ManagePermissionsDto)
+            {
+                var claimsExist = existingPermissions.Where(x =>
+                    x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();
+
+                switch (permissionDto.Checked)
+                {
+                    case true when claimsExist.Count == 0:
+                        await _userManager.AddClaimAsync(user,
+                            new Claim(CustomClaimTypes.Permission, permissionDto.Value));
+                        break;
+                    case false when claimsExist.Count > 0:
+                        await _userManager.RemoveClaimsAsync(user, claimsExist);
+                        break;
+                }
+            }
+
+            return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserPermissionsDto.UserId},
+                "Succeeded");
         }
 
         public async Task<Response<UserDetailDto>> GetUserDetailByIdAsync(string userId)
