@@ -6,13 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Application.Contracts.Response
 {
-    public class PaginatedList<T> : Response<List<T>>
+    public class PaginatedList<T> : List<T>
     {
         public int PageIndex { get; private set; }
         public int TotalPages { get; private set; }
 
-        public PaginatedList(List<T> items, int count, int pageIndex, int pageSize) : base(items,
-            "Data has been retrieved")
+        public PaginatedList(IEnumerable<T> items, int count, int pageIndex, int pageSize) : base(items)
         {
             PageIndex = pageIndex;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);

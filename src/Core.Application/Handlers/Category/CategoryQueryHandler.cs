@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Application.Handlers.Category
 {
-    public class CategoryQueryHandler : IRequestHandler<GetAllCategoryQuery, PaginatedList<GetAllCategoryQueryResponse>>
+    public class CategoryQueryHandler : IRequestHandler<GetAllCategoryQuery, Response<PaginatedList<GetAllCategoryQueryResponse>>>
     {
         private readonly IPersistenceUnitOfWork _persistenceUnitOfWorkpe;
         private readonly IMapper _mapper;
@@ -21,15 +21,15 @@ namespace Core.Application.Handlers.Category
             _persistenceUnitOfWorkpe = persistenceUnitOfWorkpe;
         }
 
-        public async Task<PaginatedList<GetAllCategoryQueryResponse>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
+        public async Task<Response<PaginatedList<GetAllCategoryQueryResponse>>> Handle(GetAllCategoryQuery request, CancellationToken cancellationToken)
         {
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<Domain.Persistence.Entities.Category, GetAllCategoryQueryResponse>());
             var cats =
                 _persistenceUnitOfWorkpe.Category.Entity.ProjectTo<GetAllCategoryQueryResponse>(configuration);
-
-            return await PaginatedList<GetAllCategoryQueryResponse>.CreateAsync(cats.AsNoTracking(),
+            var rs = await PaginatedList<GetAllCategoryQueryResponse>.CreateAsync(cats.AsNoTracking(),
                 request.PageNumber ?? 1, request.PageSize ?? 12);
+            return Response<PaginatedList<GetAllCategoryQueryResponse>>.Success(rs, "Succeeded");
         }
     }
 }

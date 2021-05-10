@@ -1,4 +1,4 @@
-﻿@model Core.Application.Contracts.Response.PaginatedList<Core.Application.Contracts.DataTransferObjects.UserDto>
+﻿@model Core.Application.Contracts.Response.Response<Core.Application.Contracts.Response.PaginatedList<Core.Application.Contracts.DataTransferObjects.UserDto>>
 
 @{
     ViewData["Title"] = "View Users";
@@ -53,22 +53,22 @@
     </div>
     <div class="card-footer clearfix">
         @{
-            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+            var prevDisabled = !Model.Data.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.Data.HasNextPage ? "disabled" : "";
         }
         <div class="row">
             <div class="col">
                 <ul class="pagination float-right">
                     <li>
                         <a asp-action="Index"
-                           asp-route-pageNumber="@(Model.PageIndex - 1)"
+                           asp-route-pageNumber="@(Model.Data.PageIndex - 1)"
                            class="btn btn-default @prevDisabled">
                             Previous
                         </a>
                     </li>
-                    @for (var i = 1; i <= Model.TotalPages; i++)
+                    @for (var i = 1; i <= Model.Data.TotalPages; i++)
                     {
-                        <li class="page-item @(i == Model.PageIndex ? "active" : "")" style="z-index: 0;">
+                        <li class="page-item @(i == Model.Data.PageIndex ? "active" : "")" style="z-index: 0;">
                             <a asp-action="Index"
                                asp-route-pageNumber="@i"
                                class="page-link">@i</a>
@@ -76,7 +76,7 @@
                     }
                     <li>
                         <a asp-action="Index"
-                           asp-route-pageNumber="@(Model.PageIndex + 1)"
+                           asp-route-pageNumber="@(Model.Data.PageIndex + 1)"
                            class="btn btn-default @nextDisabled">
                             Next
                         </a>

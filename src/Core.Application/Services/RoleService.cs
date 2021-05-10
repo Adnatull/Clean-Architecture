@@ -25,13 +25,14 @@ namespace Core.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<PaginatedList<RoleDto>> GetPaginatedRolesAsync(int? pageNumber, int? pageSize)
+        public async Task<Response<PaginatedList<RoleDto>>> GetPaginatedRolesAsync(int? pageNumber, int? pageSize)
         {
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<ApplicationRole, RoleDto>());
             var roles = _roleManager.Roles().ProjectTo<RoleDto>(configuration);
-            return await PaginatedList<RoleDto>.CreateAsync(roles.AsNoTracking(),
+            var rs = await PaginatedList<RoleDto>.CreateAsync(roles.AsNoTracking(),
                 pageNumber ?? 1, pageSize ?? 12);
+            return Response<PaginatedList<RoleDto>>.Success(rs, "Succeeded");
         }
 
         public async Task<Response<string>> AddRoleAsync(AddRoleDto addRoleDto)

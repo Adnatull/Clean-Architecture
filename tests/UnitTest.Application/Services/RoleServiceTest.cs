@@ -76,7 +76,7 @@ namespace UnitTest.Application.Services
         public async Task ManagePermissionsAsyncTest()
         {
             var roleId = "roleId";
-            var rs = await _roleService.ManagePermissionsAsync(roleId);
+            var rs = await _roleService.ManagePermissionsAsync(roleId, "");
             Assert.AreEqual(true, rs.Succeeded);
             Assert.GreaterOrEqual(rs.Data.ManagePermissionsDto.Count, Decimal.ToUInt16(1));
         }

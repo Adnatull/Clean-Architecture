@@ -32,13 +32,14 @@ namespace Core.Application.Services
             _currentUser = currentUser;
         }
 
-        public async Task<PaginatedList<UserDto>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize)
+        public async Task<Response<PaginatedList<UserDto>>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize)
         {
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<ApplicationUser, UserDto>());
             var users = _userManager.Users().ProjectTo<UserDto>(configuration);
-            return await PaginatedList<UserDto>.CreateAsync(users.AsNoTracking(),
+            var rs = await PaginatedList<UserDto>.CreateAsync(users.AsNoTracking(),
                 pageNumber ?? 1, pageSize ?? 12);
+            return Response<PaginatedList<UserDto>>.Success(rs, "Succeeded");
         }
 
         public async Task<Response<UserDto>> GetUserByIdAsync(string userId)

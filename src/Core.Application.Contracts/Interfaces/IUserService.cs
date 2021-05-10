@@ -8,7 +8,7 @@ namespace Core.Application.Contracts.Interfaces
 {
     public interface IUserService
     {
-        Task<PaginatedList<UserDto>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize);
+        Task<Response<PaginatedList<UserDto>>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize);
         Task<Response<UserDto>> GetUserByIdAsync(string userId);
         Task<Response<IList<Claim>>> GetAllClaims(ClaimsPrincipal claimsPrincipal);
         Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal);
