@@ -71,12 +71,14 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="permissionValue"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
         /// <returns></returns>
         [HttpGet]
         [Authorize(Policy = Permissions.Users.ManagePermissions)]
-        public async Task<IActionResult> ManageUserPermissions(string userId, string permissionValue)
+        public async Task<IActionResult> ManageUserPermissions(string userId, string permissionValue, int? pageNumber, int? pageSize)
         {
-            var rs = await _userService.ManagePermissionsAsync(userId, permissionValue);
+            var rs = await _userService.ManagePermissionsAsync(userId, permissionValue, pageNumber, pageSize);
             if (!rs.Succeeded)
                 return RedirectToAction("Index", "User", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             return View(rs.Data);

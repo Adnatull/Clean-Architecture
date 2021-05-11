@@ -14,7 +14,7 @@ namespace Core.Application.Contracts.Interfaces
         Task<Response<IList<string>>> GetRolesAsync(ClaimsPrincipal claimsPrincipal);
         Task<Response<ManageUserRolesDto>> ManageRolesAsync(string userId);
         Task<Response<UserIdentityDto>> ManageRolesAsync(ManageUserRolesDto manageUserRolesDto);
-        Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue);
+        Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue, int? pageNumber, int? pageSize);
         Task<Response<UserIdentityDto>> ManagePermissionsAsync(ManageUserPermissionsDto manageUserPermissionsDto);
         Task<Response<UserDetailDto>> GetUserDetailByIdAsync(string userId);
         Task<Response<UserIdentityDto>> UpdateUserProfile(UserDetailDto userDetailDto);

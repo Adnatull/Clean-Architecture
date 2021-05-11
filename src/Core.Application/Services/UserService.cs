@@ -37,7 +37,7 @@ namespace Core.Application.Services
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<ApplicationUser, UserDto>());
             var users = _userManager.Users().ProjectTo<UserDto>(configuration);
-            var rs = await PaginatedList<UserDto>.CreateAsync(users.AsNoTracking(),
+            var rs = await PaginatedList<UserDto>.CreateFromEfQueryableAsync(users.AsNoTracking(),
                 pageNumber ?? 1, pageSize ?? 12);
             return Response<PaginatedList<UserDto>>.Success(rs, "Succeeded");
         }
@@ -118,7 +118,7 @@ namespace Core.Application.Services
             return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, "Succeeded");
         }
 
-        public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue)
+        public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue, int? pageNumber, int? pageSize)
         {
             var user = await _userManager.GetUserByIdAsync(userId);
             if (user == null) return Response<ManageUserPermissionsDto>.Fail("No User Exists");
@@ -136,11 +136,14 @@ namespace Core.Application.Services
                     permission.Checked = true;
                 }
             }
+
+            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(allPermissions.AsQueryable(),
+                pageNumber ?? 1, pageSize ?? 12);
             var manageUserPermissionsDto = new ManageUserPermissionsDto
             {
                 UserId = userId,
                 UserName = user.UserName,
-                ManagePermissionsDto = allPermissions
+                ManagePermissionsDto = paginatedList
             };
             return allPermissions.Count > 0
                 ? Response<ManageUserPermissionsDto>.Success(manageUserPermissionsDto, "Successfully retrieved")

@@ -55,12 +55,49 @@
             </table>
         </div>
         <div class="card-footer clearfix">
-            <div class="col-sm-12" style="padding: 20px 20px 0px 0px">
-                <button type="submit" id="save" class="btn bg-primary">
-                    <i class="fa fa-check"></i>
-                    Save
-                </button>
+            @{
+                var prevDisabled = !Model.ManagePermissionsDto.HasPreviousPage ? "disabled" : "";
+                var nextDisabled = !Model.ManagePermissionsDto.HasNextPage ? "disabled" : "";
+            }
+            <div class="row">
+                <div class="col-sm-9">
+                    <ul class="pagination float-right">
+                        <li>
+                            <a asp-action="ManageUserPermissions"
+                               asp-route-userId="@Model.UserId"
+                               asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex - 1)"
+                               class="btn btn-default @prevDisabled">
+                                Previous
+                            </a>
+                        </li>
+                        @for (var i = 1; i <= Model.ManagePermissionsDto.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == Model.ManagePermissionsDto.PageIndex ? "active" : "")" style="z-index: 0;">
+                                <a asp-action="ManageUserPermissions"
+                                   asp-route-userId="@Model.UserId"
+                                   asp-route-pageNumber="@i"
+                                   class="page-link">@i</a>
+                            </li>
+                        }
+                        <li>
+                            <a asp-action="ManageUserPermissions"
+                               asp-route-userId="@Model.UserId"
+                               asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex + 1)"
+                               class="btn btn-default @nextDisabled">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3" style="padding: 20px 20px 0px 0px">
+                    <button type="submit" id="save" class="btn bg-primary">
+                        <i class="fa fa-check"></i>
+                        Save
+                    </button>
+                </div>
             </div>
+            
+
         </div>
     </form>
 </div>

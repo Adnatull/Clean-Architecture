@@ -30,7 +30,7 @@ namespace Core.Application.Services
             var configuration = new MapperConfiguration(cfg =>
                 cfg.CreateMap<ApplicationRole, RoleDto>());
             var roles = _roleManager.Roles().ProjectTo<RoleDto>(configuration);
-            var rs = await PaginatedList<RoleDto>.CreateAsync(roles.AsNoTracking(),
+            var rs = await PaginatedList<RoleDto>.CreateFromEfQueryableAsync(roles.AsNoTracking(),
                 pageNumber ?? 1, pageSize ?? 12);
             return Response<PaginatedList<RoleDto>>.Success(rs, "Succeeded");
         }
