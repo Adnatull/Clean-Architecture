@@ -67,16 +67,18 @@ namespace Web.Mvc.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// Manage Roles Permission. Get Method. Render View
+        /// Manage Role Claims/Permissions
         /// </summary>
         /// <param name="roleId"></param>
         /// <param name="permissionValue"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
         /// <returns></returns>
         [HttpGet]
         [Authorize(Policy = Permissions.Roles.ManagePermissions)]
-        public async Task<IActionResult> ManageRolePermissions(string roleId, string permissionValue)
+        public async Task<IActionResult> ManageRolePermissions(string roleId, string permissionValue, int? pageNumber, int? pageSize)
         {
-            var rs = await _roleService.ManagePermissionsAsync(roleId, permissionValue);
+            var rs = await _roleService.ManagePermissionsAsync(roleId, permissionValue, pageNumber, pageSize);
             if (!rs.Succeeded)
                 return RedirectToAction("Index", "Role", new { area = "Admin", succeeded = rs.Succeeded, message = rs.Message });
             return View(rs.Data);

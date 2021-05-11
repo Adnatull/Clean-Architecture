@@ -46,7 +46,7 @@ namespace Core.Application.Services
                 : Response<string>.Fail("Failed to create new role");
         }
 
-        public async Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId, string permissionValue)
+        public async Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId, string permissionValue, int? pageNumber, int? pageSize)
         {
             var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null) return Response<ManageRolePermissionsDto>.Fail("No Role Exists");
@@ -63,12 +63,13 @@ namespace Core.Application.Services
                     permission.Checked = true;
                 }
             }
-
+            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(allPermissions.AsQueryable(),
+                pageNumber ?? 1, pageSize ?? 12);
             var manageRolePermissionsDto = new ManageRolePermissionsDto
             {
                 RoleId = roleId,
                 RoleName = role.Name,
-                ManagePermissionsDto = allPermissions
+                ManagePermissionsDto = paginatedList
             };
             return allPermissions.Count > 0
                 ? Response<ManageRolePermissionsDto>.Success(manageRolePermissionsDto, "Successfully retrieved")
@@ -85,7 +86,7 @@ namespace Core.Application.Services
             var existingClaims = await _roleManager.GetClaimsAsync(role);
             var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
 
-            foreach (var permissionDto in manageRolePermissionsDto.ManagePermissionsDto)
+            foreach (var permissionDto in manageRolePermissionsDto.ManagePermissionsDto.Data)
             {
                 var permissionsExist = existingPermissions
                     .Where(x => x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();

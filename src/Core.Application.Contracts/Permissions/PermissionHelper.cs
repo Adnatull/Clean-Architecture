@@ -16,12 +16,8 @@ namespace Core.Application.Contracts.Permissions
             foreach (var modulePermissions in allModulesPermissions)
             {
                 var permissions = modulePermissions.GetFields(BindingFlags.Static | BindingFlags.Public);
-                allPermissions.AddRange(permissions.Select(permission => new ManageClaimDto
-                {
-                    Type = CustomClaimTypes.Permission,
-                    Value = permission.GetValue(null).ToString(),
-                    Checked = false
-                }));
+                allPermissions.AddRange(permissions.Select(permission =>
+                    new ManageClaimDto(CustomClaimTypes.Permission, permission.GetValue(null).ToString(), false)));
             }
             return allPermissions;
         }

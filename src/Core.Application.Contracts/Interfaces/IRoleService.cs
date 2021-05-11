@@ -8,7 +8,7 @@ namespace Core.Application.Contracts.Interfaces
     {
         Task<Response<PaginatedList<RoleDto>>> GetPaginatedRolesAsync(int? pageNumber, int? pageSize);
         Task<Response<string>> AddRoleAsync(AddRoleDto addRoleDto);
-        Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId, string permissionValue);
+        Task<Response<ManageRolePermissionsDto>> ManagePermissionsAsync(string roleId, string permissionValue, int? pageNumber, int? pageSize);
         Task<Response<RoleIdentityDto>> ManagePermissionsAsync(ManageRolePermissionsDto manageRolePermissionsDto);
     }
 }

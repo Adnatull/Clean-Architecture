@@ -160,7 +160,7 @@ namespace Core.Application.Services
             var existingClaims = await _userManager.GetClaimsAsync(user);
             var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
 
-            foreach (var permissionDto in manageUserPermissionsDto.ManagePermissionsDto)
+            foreach (var permissionDto in manageUserPermissionsDto.ManagePermissionsDto.Data)
             {
                 var claimsExist = existingPermissions.Where(x =>
                     x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();
