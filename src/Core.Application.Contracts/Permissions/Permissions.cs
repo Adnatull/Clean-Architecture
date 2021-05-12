@@ -48,7 +48,7 @@
             public const string Create = "Permissions.Users.Create";
             public const string Edit = "Permissions.Users.Edit"; 
             public const string ManageRoles = "Permissions.Users.ManageRoles";
-            public const string ManagePermissions = "Permissions.Users.ManagePermissions";
+            public const string ManageClaims = "Permissions.Users.ManageClaims";
             public const string Delete = "Permissions.Users.Delete";
         }
 
@@ -58,7 +58,8 @@
             public const string Create = "Permissions.Roles.Create";
             public const string Edit = "Permissions.Roles.Edit";
             public const string Delete = "Permissions.Roles.Delete";
-            public const string ManagePermissions = "Permissions.Roles.ManagePermissions";
+            public const string ManageClaims = "Permissions.Roles.ManageClaims";
+
         }
     }
 }

@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
-using Core.Application.Contracts.DataTransferObjects;
+﻿using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
+using Core.Application.Contracts.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Web.Mvc.Areas.Admin.Controllers
 {
@@ -75,7 +76,7 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// <param name="pageSize"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Policy = Permissions.Roles.ManagePermissions)]
+        [Authorize(Policy = Permissions.Roles.ManageClaims)]
         public async Task<IActionResult> ManageRolePermissions(string roleId, string permissionValue, int? pageNumber, int? pageSize)
         {
             var rs = await _roleService.ManagePermissionsAsync(roleId, permissionValue, pageNumber, pageSize);
@@ -84,21 +85,21 @@ namespace Web.Mvc.Areas.Admin.Controllers
             return View(rs.Data);
         }
 
+
         /// <summary>
-        ///  Manage Role Permissions. Post Method
+        /// Manage Role Claims
         /// </summary>
-        /// <param name="manageRolePermissionsDto"></param>
+        /// <param name="manageRoleClaimDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Policy = Permissions.Roles.ManagePermissions)]
-        public async Task<IActionResult> ManageRolePermissions(ManageRolePermissionsDto manageRolePermissionsDto)
+        [Authorize(Policy = Permissions.Roles.ManageClaims)]
+        public async Task<IActionResult> ManageRoleClaims(ManageRoleClaimDto manageRoleClaimDto)
         {
-            if (!ModelState.IsValid) return View(manageRolePermissionsDto);
-            var rs = await _roleService.ManagePermissionsAsync(manageRolePermissionsDto);
-            if (rs.Succeeded)
-                return RedirectToAction("Index", "Role", new { area = "Admin", id = rs.Data.RoleId, succeeded = rs.Succeeded, message = rs.Message });
-            ModelState.AddModelError(string.Empty, rs.Message);
-            return View(manageRolePermissionsDto);
+            if (!ModelState.IsValid)
+                return Json(Response<RoleIdentityDto>.Fail( "Failed"));
+            var rs = await _roleService.ManageRoleClaimAsync(manageRoleClaimDto);
+            return Json(rs);
         }
+        
     }
 }

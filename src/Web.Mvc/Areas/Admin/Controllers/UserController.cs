@@ -1,6 +1,7 @@
 ﻿using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
+using Core.Application.Contracts.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -75,7 +76,7 @@ namespace Web.Mvc.Areas.Admin.Controllers
         /// <param name="pageSize"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Policy = Permissions.Users.ManagePermissions)]
+        [Authorize(Policy = Permissions.Users.ManageClaims)]
         public async Task<IActionResult> ManageUserPermissions(string userId, string permissionValue, int? pageNumber, int? pageSize)
         {
             var rs = await _userService.ManagePermissionsAsync(userId, permissionValue, pageNumber, pageSize);
@@ -84,21 +85,20 @@ namespace Web.Mvc.Areas.Admin.Controllers
             return View(rs.Data);
         }
 
+
         /// <summary>
-        ///  Manage User Permissions. Post Method
+        /// Manage User Claims
         /// </summary>
-        /// <param name="manageUserPermissionsDto"></param>
+        /// <param name="manageUserClaimDto"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Policy = Permissions.Users.ManagePermissions)]
-        public async Task<IActionResult> ManageUserPermissions(ManageUserPermissionsDto manageUserPermissionsDto)
+        [Authorize(Policy = Permissions.Users.ManageClaims)]
+        public async Task<IActionResult> ManageUserClaims(ManageUserClaimDto manageUserClaimDto)
         {
-            if (!ModelState.IsValid) return View(manageUserPermissionsDto);
-            var rs = await _userService.ManagePermissionsAsync(manageUserPermissionsDto);
-            if (rs.Succeeded)
-                return RedirectToAction("Index", "User", new { area = "Admin", id = rs.Data.Id, succeeded = rs.Succeeded, message = rs.Message });
-            ModelState.AddModelError(string.Empty, rs.Message);
-            return View(manageUserPermissionsDto);
+            if (!ModelState.IsValid)
+                return Json(Response<UserIdentityDto>.Fail("Failed"));
+            var rs = await _userService.ManageUserClaimAsync(manageUserClaimDto);
+            return Json(rs);
         }
     }
 }

@@ -7,21 +7,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Application.Contracts.Response
 {
-    public class PaginatedList<T> 
+    public class PaginatedList<T> : List<T>
     {
         public int PageIndex { get; private set; }
         public int TotalPages { get; private set; }
-        public List<T> Data { get; set; }
 
-        public PaginatedList()
-        {
-            
-        }
-        public PaginatedList(List<T> items, int count, int pageIndex, int pageSize) 
+        public PaginatedList(IEnumerable<T> items, int count, int pageIndex, int pageSize) : base(items)
         {
             PageIndex = pageIndex;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
-            Data = items;
+
         }
 
         public bool HasPreviousPage => (PageIndex > 1);

@@ -115,7 +115,7 @@ namespace Core.Application.Services
                         break;
                 }
             }
-            return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserRolesDto.UserId}, "Succeeded");
+            return Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserRolesDto.UserId }, "Succeeded");
         }
 
         public async Task<Response<ManageUserPermissionsDto>> ManagePermissionsAsync(string userId, string permissionValue, int? pageNumber, int? pageSize)
@@ -126,7 +126,7 @@ namespace Core.Application.Services
             var allPermissions = PermissionHelper.GetAllPermissions();
             if (!string.IsNullOrWhiteSpace(permissionValue))
             {
-                allPermissions =  allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower()))
+                allPermissions = allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower()))
                     .ToList();
             }
             foreach (var permission in allPermissions)
@@ -143,6 +143,7 @@ namespace Core.Application.Services
             {
                 UserId = userId,
                 UserName = user.UserName,
+                PermissionValue = permissionValue,
                 ManagePermissionsDto = paginatedList
             };
             return allPermissions.Count > 0
@@ -151,39 +152,38 @@ namespace Core.Application.Services
                     $"No Permissions exist! Something is Wrong with {typeof(Permissions).Namespace} file");
         }
 
-        public async Task<Response<UserIdentityDto>> ManagePermissionsAsync(ManageUserPermissionsDto manageUserPermissionsDto)
+        public async Task<Response<UserIdentityDto>> ManageUserClaimAsync(ManageUserClaimDto manageUserClaimDto)
         {
-            var user = await _userManager.GetUserByIdAsync(manageUserPermissionsDto.UserId);
-            if (user == null)
-                return Response<UserIdentityDto>.Fail("No user exists by this id");
+            var userById = await _userManager.GetUserByIdAsync(manageUserClaimDto.UserId);
+            var userByName = await _userManager.GetUserByNameAsync(manageUserClaimDto.UserName);
 
-            var existingClaims = await _userManager.GetClaimsAsync(user);
-            var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
-
-            foreach (var permissionDto in manageUserPermissionsDto.ManagePermissionsDto.Data)
+            if (userById != userByName)
+                return Response<UserIdentityDto>.Fail("Forbidden");
+            var allClaims = await _userManager.GetClaimsAsync(userById);
+            var claimExists =
+                allClaims.Where(x => x.Type == manageUserClaimDto.Type && x.Value == manageUserClaimDto.Value).ToList();
+            switch (manageUserClaimDto.Checked)
             {
-                var claimsExist = existingPermissions.Where(x =>
-                    x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();
-
-                switch (permissionDto.Checked)
-                {
-                    case true when claimsExist.Count == 0:
-                        await _userManager.AddClaimAsync(user,
-                            new Claim(CustomClaimTypes.Permission, permissionDto.Value));
+                case true when claimExists.Count == 0:
+                    {
+                        await _userManager.AddClaimAsync(userById,
+                            new Claim(manageUserClaimDto.Type, manageUserClaimDto.Value));
                         break;
-                    case false when claimsExist.Count > 0:
-                        await _userManager.RemoveClaimsAsync(user, claimsExist);
+                    }
+                case false when claimExists.Count > 0:
+                    {
+                        await _userManager.RemoveClaimsAsync(userById, claimExists);
                         break;
-                }
+                    }
             }
-            return Response<UserIdentityDto>.Success(new UserIdentityDto {Id = manageUserPermissionsDto.UserId},
-                "Succeeded");
+            return Response<UserIdentityDto>.Success(new UserIdentityDto { Id = manageUserClaimDto.UserId },
+                "Succeeded"); ;
         }
 
         public async Task<Response<UserDetailDto>> GetUserDetailByIdAsync(string userId)
         {
             var user = await _userManager.GetUserByIdAsync(userId);
-            if(user == null)
+            if (user == null)
                 return Response<UserDetailDto>.Fail("No user exists by this ID");
             var userDetailDto = _mapper.Map<UserDetailDto>(user);
             return Response<UserDetailDto>.Success(userDetailDto, "Successfully retrieved user detail");
@@ -193,20 +193,20 @@ namespace Core.Application.Services
         {
             if (_currentUser.UserId != userDetailDto.Id)
                 return Response<UserIdentityDto>.Fail("You are not authorized to manipulate this user");
-            
+
             var user = await _userManager.GetUserByIdAsync(userDetailDto.Id);
-            if(user == null) return Response<UserIdentityDto>.Fail("Invalid user");
+            if (user == null) return Response<UserIdentityDto>.Fail("Invalid user");
             var userByEmail = await _userManager.FindByEmailAsync(user.Email);
             if (userByEmail != null && userByEmail.Id != user.Id)
                 return Response<UserIdentityDto>.Fail("The email address is not available");
             var userByName = await _userManager.GetUserByNameAsync(userDetailDto.UserName);
-            if(userByName != null && userByName.Id != user.Id)
+            if (userByName != null && userByName.Id != user.Id)
                 return Response<UserIdentityDto>.Fail("The username is not available");
 
             _mapper.Map(userDetailDto, user);
             var rs = await _userManager.UpdateAsync(user);
             return rs.Succeeded
-                ? Response<UserIdentityDto>.Success(new UserIdentityDto {Id = user.Id}, rs.Message)
+                ? Response<UserIdentityDto>.Success(new UserIdentityDto { Id = user.Id }, rs.Message)
                 : Response<UserIdentityDto>.Fail(rs.Message);
         }
     }

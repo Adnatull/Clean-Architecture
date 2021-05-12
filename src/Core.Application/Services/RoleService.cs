@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
@@ -9,8 +6,10 @@ using Core.Application.Contracts.Permissions;
 using Core.Application.Contracts.Response;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
-using Core.Domain.Identity.Response;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Core.Application.Services
 {
@@ -69,6 +68,7 @@ namespace Core.Application.Services
             {
                 RoleId = roleId,
                 RoleName = role.Name,
+                PermissionValue = permissionValue,
                 ManagePermissionsDto = paginatedList
             };
             return allPermissions.Count > 0
@@ -76,37 +76,32 @@ namespace Core.Application.Services
                 : Response<ManageRolePermissionsDto>.Fail(
                     $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
         }
-
-        public async Task<Response<RoleIdentityDto>> ManagePermissionsAsync(ManageRolePermissionsDto manageRolePermissionsDto)
+        public async Task<Response<RoleIdentityDto>> ManageRoleClaimAsync(ManageRoleClaimDto manageRoleClaimDto)
         {
-            var role = await _roleManager.FindByIdAsync(manageRolePermissionsDto.RoleId);
-            if (role == null)
-                return Response<RoleIdentityDto>.Fail("No role exists by this id");
-
-            var existingClaims = await _roleManager.GetClaimsAsync(role);
-            var existingPermissions = existingClaims.Where(x => x.Type == CustomClaimTypes.Permission).ToList();
-
-            foreach (var permissionDto in manageRolePermissionsDto.ManagePermissionsDto.Data)
+            var roleById = await _roleManager.FindByIdAsync(manageRoleClaimDto.RoleId);
+            var roleByName = await _roleManager.GetRoleAsync(manageRoleClaimDto.RoleName);
+            if(roleById != roleByName)
+                return Response<RoleIdentityDto>.Fail("Forbidden");
+            var allClaims = await _roleManager.GetClaimsAsync(roleById);
+            var claimExists =
+                allClaims.Where(x => x.Type == manageRoleClaimDto.Type && x.Value == manageRoleClaimDto.Value).ToList();
+            switch (manageRoleClaimDto.Checked)
             {
-                var permissionsExist = existingPermissions
-                    .Where(x => x.Type == CustomClaimTypes.Permission && x.Value == permissionDto.Value).ToList();
-                switch (permissionDto.Checked)
+                case true when claimExists.Count == 0:
+                    await _roleManager.AddClaimAsync(roleById, new Claim(manageRoleClaimDto.Type, manageRoleClaimDto.Value));
+                    break;
+                case false when claimExists.Count > 0:
                 {
-                    case true when permissionsExist.Count == 0:
-                        await _roleManager.AddClaimAsync(role, new Claim(CustomClaimTypes.Permission, permissionDto.Value));
-                        break;
-                    case false when permissionsExist.Count > 0:
+                    foreach (var claim in claimExists)
                     {
-                        foreach (var claim in permissionsExist)
-                        {
-                            await _roleManager.RemoveClaimAsync(role, claim);
-                        }
-                        break;
+                        await _roleManager.RemoveClaimAsync(roleById, claim);
                     }
+                    break;
                 }
             }
-            return Response<RoleIdentityDto>.Success(new RoleIdentityDto { RoleId = manageRolePermissionsDto.RoleId},
-                "Succeeded"); ;
+            return Response<RoleIdentityDto>.Success(new RoleIdentityDto { RoleId = manageRoleClaimDto.RoleId },
+                "Succeeded"); 
+
         }
     }
 }

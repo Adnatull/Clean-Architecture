@@ -12,7 +12,7 @@
             <h3 class="card-title">Manage Permissions for User: <b>@Model.UserName</b></h3>
             <div class="float-right">
                 <p>
-                    Find by name: <input type="text" name="permissionValue" value="@ViewData["CurrentFilter"]" />
+                    Find by name: <input type="text" name="permissionValue" value="@Model.PermissionValue" />
                     <input type="submit" value="Search" class="btn btn-default" /> |
                     <input asp-for="UserId" type="hidden" />
                     <a asp-action="ManageUserPermissions" asp-route-userId="@Model.UserId">Back to Full List</a>
@@ -20,85 +20,132 @@
             </div>
         </form>
     </div>
-    <form method="post" asp-action="ManageUserPermissions" class="d-inline">
-        <div class="card-body">
-            <input asp-for="@Model.UserId" type="hidden" />
-            <input asp-for="@Model.UserName" type="hidden" />
-            <table class="table table-striped">
-                <thead>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Permission Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Model.ManagePermissionsDto.Count(); i++)
+                {
                     <tr>
-                        <th>
-                            Permission Name
-                        </th>
-                        <th>
-                            Status
-                        </th>
+                        <td class="text-center" id="claimType@(i)">
+                            @Model.ManagePermissionsDto[i].Type
+                        </td>
+                        <td class="text-center" id="claimValue@(i)">
+                            @Model.ManagePermissionsDto[i].Value
+                        </td>
+                        <td>
+                            <div class="form-check m-1">
+                                <input asp-for="@Model.ManagePermissionsDto[i].Checked" class="form-check-input" id="checked@(i)" onchange="permissionChanged(@i)" />
+                            </div>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @for (var i = 0; i < Model.ManagePermissionsDto.Data.Count(); i++)
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer clearfix">
+        @{
+            var prevDisabled = !Model.ManagePermissionsDto.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.ManagePermissionsDto.HasNextPage ? "disabled" : "";
+        }
+        <div class="row">
+            <div class="col-sm-9">
+                <ul class="pagination">
+                    <li>
+                        <a asp-action="ManageUserPermissions"
+                           asp-route-userId="@Model.UserId"
+                           asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex - 1)"
+                           class="btn btn-default @prevDisabled">
+                            Previous
+                        </a>
+                    </li>
+                    @for (var i = 1; i <= Model.ManagePermissionsDto.TotalPages; i++)
                     {
-                        <tr>
-                            <td class="text-center">
-                                <input asp-for="@Model.ManagePermissionsDto.Data[i].Value" type="hidden" />
-                                @Model.ManagePermissionsDto.Data[i].Value
-                            </td>
-                            <td>
-
-                                <div class="form-check m-1">
-                                    <input asp-for="@Model.ManagePermissionsDto.Data[i].Checked" class="form-check-input" />
-                                </div>
-                            </td>
-                        </tr>
+                        <li class="page-item @(i == Model.ManagePermissionsDto.PageIndex ? "active" : "")" style="z-index: 0;">
+                            <a asp-action="ManageUserPermissions"
+                               asp-route-userId="@Model.UserId"
+                               asp-route-pageNumber="@i"
+                               class="page-link">@i</a>
+                        </li>
                     }
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer clearfix">
-            @{
-                var prevDisabled = !Model.ManagePermissionsDto.HasPreviousPage ? "disabled" : "";
-                var nextDisabled = !Model.ManagePermissionsDto.HasNextPage ? "disabled" : "";
-            }
-            <div class="row">
-                <div class="col-sm-9">
-                    <ul class="pagination float-right">
-                        <li>
-                            <a asp-action="ManageUserPermissions"
-                               asp-route-userId="@Model.UserId"
-                               asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex - 1)"
-                               class="btn btn-default @prevDisabled">
-                                Previous
-                            </a>
-                        </li>
-                        @for (var i = 1; i <= Model.ManagePermissionsDto.TotalPages; i++)
-                        {
-                            <li class="page-item @(i == Model.ManagePermissionsDto.PageIndex ? "active" : "")" style="z-index: 0;">
-                                <a asp-action="ManageUserPermissions"
-                                   asp-route-userId="@Model.UserId"
-                                   asp-route-pageNumber="@i"
-                                   class="page-link">@i</a>
-                            </li>
-                        }
-                        <li>
-                            <a asp-action="ManageUserPermissions"
-                               asp-route-userId="@Model.UserId"
-                               asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex + 1)"
-                               class="btn btn-default @nextDisabled">
-                                Next
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3" style="padding: 20px 20px 0px 0px">
-                    <button type="submit" id="save" class="btn bg-primary">
-                        <i class="fa fa-check"></i>
-                        Save
-                    </button>
-                </div>
+                    <li>
+                        <a asp-action="ManageUserPermissions"
+                           asp-route-userId="@Model.UserId"
+                           asp-route-pageNumber="@(Model.ManagePermissionsDto.PageIndex + 1)"
+                           class="btn btn-default @nextDisabled">
+                            Next
+                        </a>
+                    </li>
+                </ul>
             </div>
-            
-
         </div>
-    </form>
+    </div>
 </div>
 
+@section Scripts
+{
+
+    <script>
+        var userId = '@Model.UserId';
+        var userName = '@Model.UserName';
+        function permissionChanged(i) {
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/Admin/User/ManageUserClaims",
+                    data: {
+                        UserId: userId,
+                        UserName: userName,
+                        Type: document.getElementById("claimType" + i).innerHTML.trim(),
+                        Value: document.getElementById("claimValue" + i).innerHTML.trim(),
+                        Checked: document.getElementById("checked" + i).checked
+                    },
+                    success: function(response) {
+                        if (response != null) {
+                            if (response.succeeded === true) {
+                                Swal.fire({
+                                    title: 'Succeeded',
+                                    text: response.message,
+                                    icon: 'success'
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: 'Failed',
+                                    text: response.message,
+                                    icon: 'error'
+                                });
+                                document.getElementById("checked" + i).checked = !document.getElementById("checked" + i).checked;
+                            }
+                        } else {
+                            Swal.fire({
+                                title: 'Failed',
+                                text: "Something went wrong",
+                                icon: 'error'
+                            });
+                            document.getElementById("checked" + i).checked = !document.getElementById("checked" + i).checked;
+                        }
+                    },
+                    failure: function(response) {
+                        alert(response.responseText);
+                        document.getElementById("checked" + i).checked = !document.getElementById("checked" + i).checked;
+                    },
+                    error: function(response) {
+                        alert(response.responseText);
+                        document.getElementById("checked" + i).checked = !document.getElementById("checked" + i).checked;
+                    }
+                });
+        }
+    </script>
+}
