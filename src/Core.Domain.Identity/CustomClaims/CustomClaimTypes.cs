@@ -1,4 +1,4 @@
-﻿namespace Core.Application.Contracts.Permissions
+﻿namespace Core.Domain.Identity.CustomClaims
 {
     public class CustomClaimTypes
     {

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
+using Core.Domain.Identity.CustomClaims;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Framework.Authorization

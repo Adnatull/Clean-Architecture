@@ -1,5 +1,4 @@
-﻿using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.Constants;
+﻿using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
 using Infrastructure.Identity.Context;
 using Microsoft.AspNetCore.Identity;
@@ -8,8 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using Core.Application.Contracts.Permissions;
 
 namespace Infrastructure.Identity.Seeds
 {

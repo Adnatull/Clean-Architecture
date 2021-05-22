@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Core.Application.Contracts.DataTransferObjects;
+using Core.Domain.Identity.CustomClaims;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Security.Claims;
-using Core.Application.Contracts.DataTransferObjects;
 
 namespace Core.Application.Contracts.Permissions
 {

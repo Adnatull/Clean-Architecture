@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Application.Contracts.AutomapperProfiles;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
+using Core.Domain.Identity.CustomClaims;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace UnitTest.Application.Services
 {

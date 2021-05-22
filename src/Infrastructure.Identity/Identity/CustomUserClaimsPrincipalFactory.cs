@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
+﻿using Core.Domain.Identity.CustomClaims;
 using Core.Domain.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Identity.Identity
 {

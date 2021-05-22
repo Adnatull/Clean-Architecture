@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Core.Application.Contracts.Interfaces;
 using Core.Application.Contracts.Permissions;
+using Core.Domain.Identity.CustomClaims;
 using Microsoft.AspNetCore.Http;
 
 namespace FunctionalTest.Mvc
@@ -11,9 +12,6 @@ namespace FunctionalTest.Mvc
     public class CurrentUserTest : ICurrentUser
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-
-
-        private List<Claim> _permissions;
         public CurrentUserTest(IHttpContextAccessor httpContextAccessor )
         {
             _httpContextAccessor = httpContextAccessor;

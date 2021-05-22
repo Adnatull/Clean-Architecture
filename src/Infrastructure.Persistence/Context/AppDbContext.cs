@@ -1,32 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Interfaces;
-using Core.Domain.Persistence.Common;
+﻿using Core.Domain.Persistence.Common;
 using Core.Domain.Persistence.Entities;
 using Core.Domain.Persistence.Enums;
 using Infrastructure.Persistence.Helpers;
 using LinqToDB.Data;
 using LinqToDB.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence.Context
 {
     public sealed class AppDbContext : DbContext
     {
-        private readonly IDateTimeService _dateTime;
-        private readonly ICurrentUser _authenticatedUser;
+        private readonly ICurrentUserInfo _currentUser;
 
         /// <summary>
         ///     Linq2Db instance of DbContext. Use it for bulk insert and bulk fetch. 
         /// </summary>
         public DataConnection Linq2Db { get; }
 
-        public AppDbContext(DbContextOptions<AppDbContext> options, IDateTimeService dateTime, ICurrentUser authenticatedUser)
+        public AppDbContext(DbContextOptions<AppDbContext> options, ICurrentUserInfo currentUser)
             : base(options)
         {
-            _dateTime = dateTime;
-            _authenticatedUser = authenticatedUser;
+            _currentUser = currentUser;
             Linq2Db = options.CreateLinqToDbConnection();
         }
 
@@ -111,18 +109,18 @@ namespace Infrastructure.Persistence.Context
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.CreationDate = _dateTime.NowUtc;
-                        entry.Entity.CreatedBy = _authenticatedUser.UserId;
+                        entry.Entity.CreationDate = DateTime.UtcNow;
+                        entry.Entity.CreatedBy = _currentUser.UserId;
                         break;
 
                     case EntityState.Modified:
-                        entry.Entity.LastUpdatedDate = _dateTime.NowUtc;
-                        entry.Entity.LastUpdatedBy = _authenticatedUser.UserId;
+                        entry.Entity.LastUpdatedDate = DateTime.UtcNow;
+                        entry.Entity.LastUpdatedBy = _currentUser.UserId;
                         break;
                 }
             }
 
-            if (_authenticatedUser.UserId != null) await AuditLogging();
+            if (_currentUser.UserId != null) await AuditLogging();
             return await base.SaveChangesAsync();
         }
 
@@ -137,8 +135,8 @@ namespace Infrastructure.Persistence.Context
                 var auditEntry = new AuditEntry(entry)
                 {
                     TableName = entry.Entity.GetType().Name,
-                    UserId = _authenticatedUser.UserId,
-                    UserName = _authenticatedUser.UserName
+                    UserId = _currentUser.UserId,
+                    UserName = _currentUser.UserName
                 };
                 auditEntries.Add(auditEntry);
                 foreach (var property in entry.Properties)

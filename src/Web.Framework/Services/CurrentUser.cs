@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
+﻿using Core.Application.Contracts.Interfaces;
+using Core.Domain.Identity.CustomClaims;
 using Core.Domain.Identity.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Web.Framework.Services
 {
