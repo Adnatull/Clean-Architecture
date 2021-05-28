@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Security.Claims;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.Constants;
+﻿using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Permissions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace FunctionalTest.Mvc
 {
@@ -39,7 +39,8 @@ namespace FunctionalTest.Mvc
 
         private List<Claim> AllPermissionsClaims()
         {
-            return PermissionHelper.GetPermissionClaims();
+            IPermissionHelper permissions = new Web.Framework.Permissions.PermissionHelper();
+            return permissions.GetAllPermissions();
         }
  
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.CustomClaims;
+﻿using Core.Domain.Identity.CustomClaims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
+using System;
+using System.Threading.Tasks;
 
 namespace Web.Framework.Authorization
 {

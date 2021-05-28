@@ -10,6 +10,6 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Core.Application\Core.Application.csproj" />
+    <ProjectReference Include="..\..\src\Web.Framework\Web.Framework.csproj" />
   </ItemGroup>
 </Project>

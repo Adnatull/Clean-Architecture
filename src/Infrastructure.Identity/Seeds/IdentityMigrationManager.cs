@@ -1,5 +1,6 @@
 ﻿using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
+using Core.Domain.Identity.Permissions;
 using Infrastructure.Identity.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Application.Contracts.Permissions;
 
 namespace Infrastructure.Identity.Seeds
 {
@@ -36,7 +36,8 @@ namespace Infrastructure.Identity.Seeds
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
-                await SeedDefaultUserRolesAsync(userManager, roleManager);
+                var permissionHelper = scope.ServiceProvider.GetRequiredService<IPermissionHelper>();
+                await SeedDefaultUserRolesAsync(userManager, roleManager, permissionHelper);
             }
             catch (Exception ex)
             {
@@ -45,7 +46,7 @@ namespace Infrastructure.Identity.Seeds
             }
         }
 
-        private static async Task SeedDefaultUserRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
+        private static async Task SeedDefaultUserRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, IPermissionHelper permissionHelper)
         {
             var defaultRoles = DefaultApplicationRoles.GetDefaultRoles();
             if (!await roleManager.Roles.AnyAsync())
@@ -73,7 +74,7 @@ namespace Infrastructure.Identity.Seeds
 
             var role = await roleManager.FindByNameAsync(DefaultApplicationRoles.SuperAdmin);
             var rolePermissions = await roleManager.GetClaimsAsync(role);
-            var allPermissions = PermissionHelper.GetPermissionClaims();
+            var allPermissions = permissionHelper.GetAllPermissions();
             foreach (var permission in allPermissions)
             {
                 if (rolePermissions.Any(x => x.Value == permission.Value && x.Type == permission.Type) == false)

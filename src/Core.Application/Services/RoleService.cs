@@ -2,11 +2,12 @@
 using AutoMapper.QueryableExtensions;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
 using Core.Application.Contracts.Response;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
+using Core.Domain.Identity.Permissions;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,11 +18,13 @@ namespace Core.Application.Services
     {
         private readonly IApplicationRoleManager _roleManager;
         private readonly IMapper _mapper;
+        private readonly IPermissionHelper _permissionHelper;
 
-        public RoleService(IApplicationRoleManager roleManager, IMapper mapper)
+        public RoleService(IApplicationRoleManager roleManager, IMapper mapper, IPermissionHelper permissionHelper)
         {
             _roleManager = roleManager;
             _mapper = mapper;
+            _permissionHelper = permissionHelper;
         }
 
         public async Task<Response<PaginatedList<RoleDto>>> GetPaginatedRolesAsync(int? pageNumber, int? pageSize)
@@ -50,19 +53,23 @@ namespace Core.Application.Services
             var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null) return Response<ManageRolePermissionsDto>.Fail("No Role Exists");
             var roleClaims = await _roleManager.GetClaimsAsync(role);
-            var allPermissions = PermissionHelper.GetAllPermissions();
+            var allPermissions = _permissionHelper.GetAllPermissions();
+            
             if (!string.IsNullOrWhiteSpace(permissionValue))
             {
                 allPermissions = allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower())).ToList();
             }
+            var managePermissionsClaim = new List<ManageClaimDto>();
             foreach (var permission in allPermissions)
             {
+                var managePermissionClaim = new ManageClaimDto {Type = permission.Type, Value = permission.Value};
                 if (roleClaims.Any(x => x.Value == permission.Value))
                 {
-                    permission.Checked = true;
+                    managePermissionClaim.Checked = true;
                 }
+                managePermissionsClaim.Add(managePermissionClaim);
             }
-            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(allPermissions.AsQueryable(),
+            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(managePermissionsClaim.AsQueryable(),
                 pageNumber ?? 1, pageSize ?? 12);
             var manageRolePermissionsDto = new ManageRolePermissionsDto
             {
@@ -74,7 +81,7 @@ namespace Core.Application.Services
             return allPermissions.Count > 0
                 ? Response<ManageRolePermissionsDto>.Success(manageRolePermissionsDto, "Successfully retrieved")
                 : Response<ManageRolePermissionsDto>.Fail(
-                    $"No Permissions exists! Something is Wrong with {typeof(Permissions).Namespace} file");
+                    $"No Permissions exists! Something is Wrong with Permission source file");
         }
         public async Task<Response<RoleIdentityDto>> ManageRoleClaimAsync(ManageRoleClaimDto manageRoleClaimDto)
         {

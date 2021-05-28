@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Application.Contracts\Core.Application.Contracts.csproj" />
     <ProjectReference Include="..\Core.Domain.Identity\Core.Domain.Identity.csproj" />
   </ItemGroup>
 

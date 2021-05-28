@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
+﻿using Core.Application.Contracts.Interfaces;
 using Core.Domain.Identity.CustomClaims;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Web.Framework.Authorization
 {

@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Core.Application.Contracts.Interfaces;
+using Core.Domain.Identity.CustomClaims;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
-using Core.Domain.Identity.CustomClaims;
-using Microsoft.AspNetCore.Http;
 
 namespace FunctionalTest.Mvc
 {

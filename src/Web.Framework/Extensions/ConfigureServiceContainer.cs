@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Container;
 using Core.Application.Contracts.Interfaces;
+using Core.Domain.Identity.Permissions;
 using Infrastructure.Identity.Container;
 using Infrastructure.Persistence.Container;
 using Microsoft.AspNetCore.Authorization;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Framework.Authorization;
+using Web.Framework.Permissions;
 using Web.Framework.Services;
 
 namespace Web.Framework.Extensions
@@ -43,6 +45,7 @@ namespace Web.Framework.Extensions
             services.AddHttpContextAccessor();
             services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddTransient<IDateTimeService, DateTimeService>();
+            services.AddSingleton<IPermissionHelper, PermissionHelper>();
         }
 
         public static void AddApiVersioningExtension(this IServiceCollection services)

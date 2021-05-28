@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Core.Application.Contracts.AutomapperProfiles;
 using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.CustomClaims;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
+using Core.Domain.Identity.Permissions;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Web.Framework.Permissions;
 
 namespace UnitTest.Application.Services
 {
@@ -21,6 +22,7 @@ namespace UnitTest.Application.Services
     public class UserServiceTest
     {
         private IUserService _userService;
+        private IPermissionHelper _permissionHelper;
 
 
         private Mock<IApplicationUserManager> GetMockApplicationUserManager()
@@ -40,7 +42,7 @@ namespace UnitTest.Application.Services
             var applicationRoleManager = new Mock<IApplicationRoleManager>(MockBehavior.Strict);
 
             applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<List<string>>()))
-                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+                .ReturnsAsync(_permissionHelper.GetAllPermissions());
             return applicationRoleManager;
         }
         private Mock<ICurrentUser> GetMockCurrentUser()
@@ -59,12 +61,15 @@ namespace UnitTest.Application.Services
             {
                 mc.AddProfile(new UserServiceProfile());
             });
+            _permissionHelper = new Web.Framework.Permissions.PermissionHelper();
             var mapper = mappingConfig.CreateMapper();
             var applicationUserManager = GetMockApplicationUserManager();
 
             var applicationRoleManager = GetMockApplicationRoleManager();
             var currentUser = GetMockCurrentUser();
-            _userService = new UserService(applicationUserManager.Object, applicationRoleManager.Object, mapper, currentUser.Object);
+   
+           
+            _userService = new UserService(applicationUserManager.Object, applicationRoleManager.Object, mapper, currentUser.Object, _permissionHelper);
         }
 
         
@@ -74,7 +79,7 @@ namespace UnitTest.Application.Services
         public async Task GetAllClaimsTest()
         {
             var claimPrincipal =
-                new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
+                new ClaimsPrincipal(new ClaimsIdentity(_permissionHelper.GetAllPermissions(),
                     "AuthScheme"));
             var rs = await _userService.GetAllClaims(claimPrincipal);
             Assert.AreEqual(true, rs.Succeeded);
@@ -85,7 +90,7 @@ namespace UnitTest.Application.Services
         public async Task GetRolesAsyncAsync()
         {
             var claimPrincipal =
-                new ClaimsPrincipal(new ClaimsIdentity(PermissionHelper.GetPermissionClaims(),
+                new ClaimsPrincipal(new ClaimsIdentity(_permissionHelper.GetAllPermissions(),
                     "AuthScheme"));
             var rs = await _userService.GetRolesAsync(claimPrincipal);
             Assert.AreEqual(true, rs.Succeeded);

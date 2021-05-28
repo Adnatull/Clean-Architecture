@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Application.Contracts.AutomapperProfiles;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
 using Core.Application.Services;
 using Core.Domain.Identity.Constants;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
+using Core.Domain.Identity.Permissions;
 using Core.Domain.Identity.Response;
 using Moq;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace UnitTest.Application.Services
 {
@@ -22,6 +22,7 @@ namespace UnitTest.Application.Services
     public class RoleServiceTest
     {
         private IRoleService _roleService;
+        private IPermissionHelper _permissionHelper;
 
         private Mock<IApplicationRoleManager> GetMockApplicationRoleManager()
         {
@@ -35,14 +36,21 @@ namespace UnitTest.Application.Services
             applicationRoleManager.Setup(x => x.FindByIdAsync(It.IsAny<string>()))
                 .ReturnsAsync(new ApplicationRole(DefaultApplicationRoles.SuperAdmin));
             applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<List<string>>()))
-                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+                .ReturnsAsync(_permissionHelper.GetAllPermissions());
             applicationRoleManager.Setup(x => x.GetClaimsAsync(It.IsAny<ApplicationRole>()))
-                .ReturnsAsync(PermissionHelper.GetPermissionClaims());
+                .ReturnsAsync(_permissionHelper.GetAllPermissions());
             applicationRoleManager.Setup(x => x.RemoveClaimAsync(It.IsAny<ApplicationRole>(), It.IsAny<Claim>()))
                 .ReturnsAsync(IdentityResponse.Success("Succeeded"));
             applicationRoleManager.Setup(x => x.AddClaimAsync(It.IsAny<ApplicationRole>(), It.IsAny<Claim>()))
                 .ReturnsAsync(IdentityResponse.Success("Succeeded"));
             return applicationRoleManager;
+        }
+
+        private Mock<IPermissionHelper> GetMockPermissionHelper()
+        {
+            var permissionHelper = new Mock<IPermissionHelper>(MockBehavior.Strict);
+            permissionHelper.Setup(x => x.GetAllPermissions()).Returns(_permissionHelper.GetAllPermissions());
+            return permissionHelper;
         }
 
         [OneTimeSetUp]
@@ -53,13 +61,16 @@ namespace UnitTest.Application.Services
                 mc.AddProfile(new RoleServiceProfile());
             });
             var mapper = mappingConfig.CreateMapper();
+            _permissionHelper = new Web.Framework.Permissions.PermissionHelper();
 
             var applicationRoleManager = GetMockApplicationRoleManager();
+        
                 
-            _roleService = new RoleService(applicationRoleManager.Object, mapper);
+            _roleService = new RoleService(applicationRoleManager.Object, mapper, _permissionHelper);
         }
 
-       
+        
+
 
         [Test]
         public async Task AddRoleAsyncTest()

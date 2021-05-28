@@ -1,16 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Core.Application.Contracts.DataTransferObjects;
 using Core.Application.Contracts.Interfaces;
-using Core.Application.Contracts.Permissions;
 using Core.Application.Contracts.Response;
 using Core.Domain.Identity.Entities;
 using Core.Domain.Identity.Interfaces;
+using Core.Domain.Identity.Permissions;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Core.Application.Services
 {
@@ -20,16 +20,19 @@ namespace Core.Application.Services
         private readonly IApplicationRoleManager _roleManager;
         private readonly IMapper _mapper;
         private readonly ICurrentUser _currentUser;
+        private readonly IPermissionHelper _permissionHelper;
 
         public UserService(IApplicationUserManager userManager,
                             IApplicationRoleManager roleManager,
                             IMapper mapper,
-                            ICurrentUser currentUser)
+                            ICurrentUser currentUser,
+                            IPermissionHelper permissionHelper)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _mapper = mapper;
             _currentUser = currentUser;
+            _permissionHelper = permissionHelper;
         }
 
         public async Task<Response<PaginatedList<UserDto>>> GetPaginatedUsersAsync(int? pageNumber, int? pageSize)
@@ -123,21 +126,24 @@ namespace Core.Application.Services
             var user = await _userManager.GetUserByIdAsync(userId);
             if (user == null) return Response<ManageUserPermissionsDto>.Fail("No User Exists");
             var userPermissions = await _userManager.GetClaimsAsync(user);
-            var allPermissions = PermissionHelper.GetAllPermissions();
+            var allPermissions = _permissionHelper.GetAllPermissions();
             if (!string.IsNullOrWhiteSpace(permissionValue))
             {
                 allPermissions = allPermissions.Where(x => x.Value.ToLower().Contains(permissionValue.Trim().ToLower()))
                     .ToList();
             }
+            var managePermissionsClaim = new List<ManageClaimDto>();
             foreach (var permission in allPermissions)
             {
+                var managePermissionClaim = new ManageClaimDto { Type = permission.Type, Value = permission.Value };
                 if (userPermissions.Any(x => x.Value == permission.Value))
                 {
-                    permission.Checked = true;
+                    managePermissionClaim.Checked = true;
                 }
+                managePermissionsClaim.Add(managePermissionClaim);
             }
 
-            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(allPermissions.AsQueryable(),
+            var paginatedList = PaginatedList<ManageClaimDto>.CreateFromLinqQueryable(managePermissionsClaim.AsQueryable(),
                 pageNumber ?? 1, pageSize ?? 12);
             var manageUserPermissionsDto = new ManageUserPermissionsDto
             {
@@ -149,7 +155,7 @@ namespace Core.Application.Services
             return allPermissions.Count > 0
                 ? Response<ManageUserPermissionsDto>.Success(manageUserPermissionsDto, "Successfully retrieved")
                 : Response<ManageUserPermissionsDto>.Fail(
-                    $"No Permissions exist! Something is Wrong with {typeof(Permissions).Namespace} file");
+                    $"No Permissions exist! Something is Wrong with Permission source file");
         }
 
         public async Task<Response<UserIdentityDto>> ManageUserClaimAsync(ManageUserClaimDto manageUserClaimDto)

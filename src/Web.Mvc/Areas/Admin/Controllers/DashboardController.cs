@@ -1,6 +1,6 @@
-﻿using Core.Application.Contracts.Permissions;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Web.Framework.Permissions;
 
 namespace Web.Mvc.Areas.Admin.Controllers
 {

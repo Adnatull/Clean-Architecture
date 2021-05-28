@@ -1,4 +1,4 @@
-﻿namespace Core.Application.Contracts.Permissions
+﻿namespace Web.Framework.Permissions
 {
     public static class Permissions
     {
