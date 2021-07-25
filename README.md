@@ -3,3 +3,8 @@ Clean Architecture in ASP.Net 5.0. This contains  Onion/Hexagonal architecture, 
 
 ## The architecture diagram
 ![digaramg](Architecture.png)
+
+## Default User Credentials
+UserName: SuperAdmin
+Email: a2masum@yahoo.com
+Password: SuperAdmin
