@@ -9,4 +9,4 @@ UserName: SuperAdmin\
 Email: a2masum@yahoo.com\
 Password: SuperAdmin\
 
-Or You can change them from Core.Domain.Identity.Constants.DefaultApplicationUsers.cs & Infrastructure.Identity.Seeds.IdentityMigrationManager.cs
+Or You can change them from **Core.Domain.Identity.Constants.DefaultApplicationUsers.cs & Infrastructure.Identity.Seeds.IdentityMigrationManager.cs**
