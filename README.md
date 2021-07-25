@@ -7,6 +7,6 @@ Clean Architecture in ASP.Net 5.0. This contains  Onion/Hexagonal architecture, 
 ## Default User Credentials
 UserName: SuperAdmin\
 Email: a2masum@yahoo.com\
-Password: SuperAdmin\
+Password: SuperAdmin
 
 Or You can change them from **Core.Domain.Identity.Constants.DefaultApplicationUsers.cs & Infrastructure.Identity.Seeds.IdentityMigrationManager.cs**
