@@ -30,15 +30,11 @@ namespace FunctionalTest.Mvc.Admin
                 { "Content", "This is a big content" }
             };
             postRequest.Content = new FormUrlEncodedContent(formModel);
-            postRequest.Content = new FormUrlEncodedContent(formModel);
             var response = await _client.SendAsync(postRequest);
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             var exists = responseString.Contains("Successfully saved post");
             Assert.AreEqual(true, exists);
-            
-            
-
         }
     }
 }
