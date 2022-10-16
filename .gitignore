@@ -70,3 +70,7 @@ tests/UnitTest.Application/obj
 tests/UnitTest.Persistence/bin
 tests/UnitTest.Persistence/obj
 documentation/Documentation/log.txt
+/obj/Docker
+/bin/Debug
+/obj/Debug
+/src/Web.Api/logs/log-20221016.txt

@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  web.mvc:
+    image: ${DOCKER_REGISTRY-}webmvc
+    build:
+      context: .
+      dockerfile: src/Web.Mvc/Dockerfile
+    environment:
+        - PersistenceConnection=Server=db;Database=CaPersistence;User=sa;Password=S3cur3P@ssW0rd!
+        - IdentityConnection=Server=db;Database=CaIdentity;User=sa;Password=S3cur3P@ssW0rd!
+    ports:
+      - "9002:80"
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+    - "1450:1433"
+    environment:
+      SA_PASSWORD: "S3cur3P@ssW0rd!"
+      ACCEPT_EULA: "Y"

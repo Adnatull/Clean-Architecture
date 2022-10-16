@@ -5,6 +5,7 @@ using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Infrastructure.Persistence.Container
 {
@@ -14,6 +15,7 @@ namespace Infrastructure.Persistence.Container
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
+                    Environment.GetEnvironmentVariable("PersistenceConnection") ??
                     configuration.GetConnectionString("PersistenceConnection"),
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
         }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Infrastructure.Identity.Container
 {
@@ -15,7 +16,9 @@ namespace Infrastructure.Identity.Container
         public static void AddDbContext(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<IdentityContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityConnection"),
+                options.UseSqlServer(
+                    Environment.GetEnvironmentVariable("PersistenceConnection") ?? 
+                    configuration.GetConnectionString("IdentityConnection"),
                     b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
                     {
