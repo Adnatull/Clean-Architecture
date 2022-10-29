@@ -74,3 +74,6 @@ documentation/Documentation/log.txt
 /bin/Debug
 /obj/Debug
 /src/Web.Api/logs/log-20221016.txt
+/tests/FunctionalTest.WebApi/bin/Debug/net6.0
+/tests/FunctionalTest.WebApi/obj
+/src/Web.Api/logs

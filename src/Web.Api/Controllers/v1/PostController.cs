@@ -11,7 +11,7 @@ namespace Web.Api.Controllers.v1
     {
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<GetAllPostQueryResponse>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<GetAllPostQueryResponse>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<GetAllPostQueryResponse>>> GetPosts()
         {
             var products = await Mediator.Send(new GetAllPostQuery());
             return Ok(products);

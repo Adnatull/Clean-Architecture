@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalTest.Mvc", "tests
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{56B5B802-1DF4-478A-9C82-C35FDE8AB05E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalTest.WebApi", "tests\FunctionalTest.WebApi\FunctionalTest.WebApi.csproj", "{40650C3C-470E-4A7B-A03A-767A8C165D86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{56B5B802-1DF4-478A-9C82-C35FDE8AB05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56B5B802-1DF4-478A-9C82-C35FDE8AB05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56B5B802-1DF4-478A-9C82-C35FDE8AB05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40650C3C-470E-4A7B-A03A-767A8C165D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40650C3C-470E-4A7B-A03A-767A8C165D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40650C3C-470E-4A7B-A03A-767A8C165D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40650C3C-470E-4A7B-A03A-767A8C165D86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{0C6202C2-B4B9-4244-B5A6-B3F51863AD91} = {624253FF-58FD-47ED-933F-D33E3178317A}
 		{B829EFB8-3EC8-47AD-A03A-47E0D74C8D20} = {624253FF-58FD-47ED-933F-D33E3178317A}
 		{03E14EA0-FCED-4AC3-9E4B-44F6EE4614E3} = {624253FF-58FD-47ED-933F-D33E3178317A}
+		{40650C3C-470E-4A7B-A03A-767A8C165D86} = {624253FF-58FD-47ED-933F-D33E3178317A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3FF0776D-938D-47F6-9AD7-B466C7CD9686}
