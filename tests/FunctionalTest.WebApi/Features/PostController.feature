@@ -4,5 +4,5 @@ A short summary of the feature
 
 @GetAll
 Scenario: Get All Posts
-	When GetPosts method is called
+	When Send HTTP GET request to URL "/api/v1.0/post"
 	Then The response should not be empty
