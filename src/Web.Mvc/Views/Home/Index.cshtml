@@ -1,10 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
+<div class="text-center jumbotron">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Welcome to the homepage of Clean Architecture template. You can make use of it the way you want.</p>
+    <a asp-action="Login" asp-controller="Account" class="btn btn-default btn-flat">Sign in</a>
 </div>
-<h1>Login Now</h1>
-<a asp-action="Login" asp-controller="Account" class="btn btn-default btn-flat">Sign in</a>
