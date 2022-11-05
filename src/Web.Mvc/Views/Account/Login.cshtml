@@ -6,7 +6,7 @@
 }
 
 @section Stylesheets
-{
+    {
     <link href="adminAssets/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
 }
 
@@ -45,7 +45,7 @@
                     </div>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
@@ -63,10 +63,6 @@
                 </div>
             </form>
 
-
-            <p class="mb-1">
-                <a href="forgot-password.html">I forgot my password</a>
-            </p>
             <p class="mb-0">
                 <a asp-action="Register" class="text-center">Register a new membership</a>
             </p>
@@ -77,7 +73,7 @@
 
 
 @section Scripts
-{
+    {
 
     <script>
         $(document).ready(function () {
@@ -86,6 +82,8 @@
 
         });
     </script>
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
 

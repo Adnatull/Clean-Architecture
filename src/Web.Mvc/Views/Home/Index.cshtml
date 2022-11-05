@@ -6,5 +6,14 @@
 <div class="text-center jumbotron">
     <h1 class="display-4">Welcome</h1>
     <p>Welcome to the homepage of Clean Architecture template. You can make use of it the way you want.</p>
-    <a asp-action="Login" asp-controller="Account" class="btn btn-default btn-flat">Sign in</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Index" asp-controller="Dashboard" asp-area="Admin" class="btn btn-default btn-flat">Go to Dashboard</a>
+        <a asp-action="SignOut" asp-controller="Account" asp-area="" class="btn btn-default btn-flat">Sign out</a>
+    }
+    else
+    {
+        <a asp-action="Login" asp-controller="Account" class="btn btn-default btn-flat">Sign in</a>
+    }
+
 </div>
