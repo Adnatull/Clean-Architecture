@@ -25,6 +25,7 @@ namespace Core.Domain.Identity.Interfaces
         Task<IdentityResponse> RemoveClaimsAsync(ApplicationUser user, List<Claim> claims);
         Task<IdentityResponse> UpdateAsync(ApplicationUser user);
         Task<IdentityResponse> HasClaimAsync(ApplicationUser user, Claim claim);
+        Task<IdentityResponse> CheckPasswordAsync(ApplicationUser user, string password);
 
         IQueryable<ApplicationUser> Users();
 

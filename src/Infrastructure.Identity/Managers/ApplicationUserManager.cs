@@ -18,6 +18,7 @@ namespace Infrastructure.Identity.Managers
         public ApplicationUserManager(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
+
         }
 
         public async Task<IdentityResponse> RegisterUserAsync(ApplicationUser user)
@@ -128,6 +129,11 @@ namespace Infrastructure.Identity.Managers
         public IQueryable<ApplicationUser> Users()
         {
             return _userManager.Users;
+        }
+
+        public async Task<IdentityResponse> CheckPasswordAsync(ApplicationUser user, string password) {
+            var rs  = await _userManager.CheckPasswordAsync(user, password);
+            return rs ? IdentityResponse.Success("Password is correct") : IdentityResponse.Fail("Password is not correct");
         }
     }
 }

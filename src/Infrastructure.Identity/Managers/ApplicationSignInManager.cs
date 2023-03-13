@@ -13,7 +13,6 @@ namespace Infrastructure.Identity.Managers
         public ApplicationSignInManager(SignInManager<ApplicationUser> signInManager)
         {
             _signInManager = signInManager;
-            
         }
 
         public async Task<IdentityResponse> PasswordSignInAsync(ApplicationUser user, string password, bool isPersistent, bool lockoutOnFailure)
