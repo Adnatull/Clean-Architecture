@@ -1,13 +1,17 @@
+using Core.Domain.Identity.Entities;
+using Infrastructure.Identity.Context;
 using LinqToDB.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Collections.Generic;
 using System.Text;
 using Web.Framework.Extensions;
 
@@ -26,23 +30,33 @@ namespace Web.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddEntityFrameworkStores<IdentityContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddAuthentication(options => {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(options =>
             {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
                 options.TokenValidationParameters = new TokenValidationParameters {
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration.GetValue<string>("Jwt:Issuer"),
-                    ValidAudience = Configuration.GetValue<string>("Jwt:Audience"),
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    ValidAudience = Configuration["Jwt:Audience"],
                     IssuerSigningKey = new
                     SymmetricSecurityKey
                     (Encoding.UTF8.GetBytes
                     (Configuration["Jwt:Key"]))
                 };
             });
-            services.AddAuthorization();
+    
 
             services.AddAutoMapper();
             services.AddFramework(Configuration);
@@ -65,13 +79,15 @@ namespace Web.Api
                     {
                         new OpenApiSecurityScheme
                         {
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
                             Reference = new OpenApiReference
                             {
-                                Type=ReferenceType.SecurityScheme,
-                                Id="Bearer"
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme
                             }
                         },
-                        new string[]{}
+                        new List<string>()
                     }
                 });
             });

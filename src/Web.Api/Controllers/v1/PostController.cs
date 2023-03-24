@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Core.Application.Contracts.HandlerExchanges.Post.Queries;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Web.Framework.Permissions;
 
 namespace Web.Api.Controllers.v1
 {
@@ -12,6 +13,7 @@ namespace Web.Api.Controllers.v1
     public class PostController : BaseApiController
     {
         [HttpGet]
+        [Authorize(Policy = Permissions.Posts.View)]
         [ProducesResponseType(typeof(IEnumerable<GetAllPostQueryResponse>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<GetAllPostQueryResponse>>> GetPosts()
         {

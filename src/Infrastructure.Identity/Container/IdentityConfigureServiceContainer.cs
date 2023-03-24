@@ -20,17 +20,7 @@ namespace Infrastructure.Identity.Container
                     Environment.GetEnvironmentVariable("PersistenceConnection") ?? 
                     configuration.GetConnectionString("IdentityConnection"),
                     b => b.MigrationsAssembly(typeof(IdentityContext).Assembly.FullName)));
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-                    {
-                        options.Password.RequireDigit = false;
-                        options.Password.RequireNonAlphanumeric = false;
-                        options.Password.RequireUppercase = false;
-                        options.Password.RequiredLength = 4;
-
-                    }
-                ).AddEntityFrameworkStores<IdentityContext>()
-                .AddClaimsPrincipalFactory<CustomUserClaimsPrincipalFactory>()
-                .AddDefaultTokenProviders();
+            
 
         }
 

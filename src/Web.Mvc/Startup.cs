@@ -1,5 +1,9 @@
+using Core.Domain.Identity.Entities;
+using Infrastructure.Identity.Context;
+using Infrastructure.Identity.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +39,16 @@ namespace Web.Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper();
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options => {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+
+            }
+                ).AddEntityFrameworkStores<IdentityContext>()
+                .AddClaimsPrincipalFactory<CustomUserClaimsPrincipalFactory>()
+                .AddDefaultTokenProviders();
             services.AddFramework(Configuration);
             services.AddControllersWithViews();
         }

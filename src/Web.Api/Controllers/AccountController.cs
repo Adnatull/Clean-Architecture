@@ -45,7 +45,8 @@ namespace Web.Api.Controllers {
                     var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                     var claims = new[] {
                         new Claim(ClaimTypes.Name, loginUserDto.UserName),
-                        new Claim(ClaimTypes.NameIdentifier, rs.Data.Id)
+                        new Claim(ClaimTypes.NameIdentifier, rs.Data.Id),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     };
 
                     var jwtSecurityToken = new JwtSecurityToken(
