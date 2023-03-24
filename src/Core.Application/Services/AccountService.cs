@@ -50,7 +50,7 @@ namespace Core.Application.Services
             await _signInManager.SignOutAsync();
         }
 
-        public async Task<Response<UserIdentityDto>> CheckPasswordAsync(LoginUserDto loginUserDto) {
+        public async Task<Response<UserIdentityDto>> CheckPasswordAsync(LoginUserDtoForApi loginUserDto) {
             var user = await _userManager.GetUserByNameAsync(loginUserDto.UserName);
             if (user == null) return Response<UserIdentityDto>.Fail("UserName does not exists");
 

@@ -31,7 +31,7 @@ namespace Web.Api.Controllers {
 
         [HttpPost, Route("login")]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginUserDto loginUserDto) {
+        public async Task<IActionResult> Login(LoginUserDtoForApi loginUserDto) {
             try {
                 if (string.IsNullOrEmpty(loginUserDto.UserName) ||
                 string.IsNullOrEmpty(loginUserDto.Password))
